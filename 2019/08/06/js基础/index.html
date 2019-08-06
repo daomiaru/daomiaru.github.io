@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>js基础 - 夏槿凉安</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="JavaScript面向对象题外话：this关键字在函数外部调用时，this指的就是window对象
+全局变量可以看成是window对象的属性
+123var a = 1console.log(win,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title="夏槿凉安" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">夏槿凉安</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">js基础</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">js基础</h1>
+        <div class="stuff">
+            <span>八月 06, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="JavaScript面向对象"><a href="#JavaScript面向对象" class="headerlink" title="JavaScript面向对象"></a>JavaScript面向对象</h2><h5 id="题外话："><a href="#题外话：" class="headerlink" title="题外话："></a>题外话：</h5><p>this关键字在函数外部调用时，this指的就是window对象</p>
+<p>全局变量可以看成是window对象的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a == <span class="keyword">this</span>.a)</span><br><span class="line"><span class="comment">//结果为ture</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="apply-方法"><a href="#apply-方法" class="headerlink" title="apply()方法"></a>apply()方法</h5><p>可以改变函数的作用域</p>
+<p>第一个参数this,设置函数运行时的作用域</p>
+<p>第二个参数：函数参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applysum1</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sum.apply(<span class="keyword">this</span>,[a,b])<span class="comment">//此时函数作用域为sum</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">applysum2</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> aum.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)<span class="comment">//此时函数作用域为sum</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(sum(<span class="number">10</span>,<span class="number">20</span>))<span class="comment">//30</span></span><br><span class="line">alert(applysum1(<span class="number">10</span>,<span class="number">20</span>))<span class="comment">//30</span></span><br><span class="line">alert(applysum2(<span class="number">10</span>,<span class="number">20</span>))<span class="comment">//30</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="call-方法"><a href="#call-方法" class="headerlink" title="call()方法"></a>call()方法</h5><p>可以改变函数运行时的作用域，第一个参数设置和apply()一样，第二个参数类似为a,b,没有[]</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> color = <span class="string">'red'</span></span><br><span class="line"><span class="keyword">var</span> o =&#123;<span class="attr">color</span> : <span class="string">"blue"</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.color)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayColor();<span class="comment">//red,因为color为全局变量，所以此时的this.color == window.color == 'red'</span></span><br><span class="line">sayColor.call(<span class="keyword">this</span>);<span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="built_in">window</span>);<span class="comment">//red</span></span><br><span class="line">sayColor.call(o);<span class="comment">//blue,此时的作用域为o内部，所以sayColor()为'blue'</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="1-javaScript对象的概念"><a href="#1-javaScript对象的概念" class="headerlink" title="1.javaScript对象的概念:"></a>1.javaScript对象的概念:</h5><p>对象就是 属性的集合,每个属性存放一个原始值、对象或函数</p>
+<h5 id="2-面向对象的概念："><a href="#2-面向对象的概念：" class="headerlink" title="2.面向对象的概念："></a>2.面向对象的概念：</h5><p>可以简单的理解为我们不必去了解对象的内部，就可以直接去使用它</p>
+<h5 id="3-创建对象的方法（基本模式）"><a href="#3-创建对象的方法（基本模式）" class="headerlink" title="3.创建对象的方法（基本模式）"></a>3.创建对象的方法（基本模式）</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">a.name = <span class="string">"狗顺"</span></span><br><span class="line">a.age = <span class="number">18</span></span><br><span class="line">a.sex = <span class="string">"女"</span></span><br><span class="line">a.fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"购购瞬瞬"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-1创建对象的方法（工厂模式）"><a href="#3-1创建对象的方法（工厂模式）" class="headerlink" title="3.1创建对象的方法（工厂模式）"></a>3.1创建对象的方法（工厂模式）</h5><p>工厂模式创建的对象不能反映它与原型函数之间的关系，构造函数创建对象可以</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">	a.name = <span class="keyword">this</span>.name</span><br><span class="line">	a.age = <span class="keyword">this</span>.age</span><br><span class="line">	<span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person(<span class="string">"李顺"</span>,<span class="number">18</span>)</span><br><span class="line">person(<span class="string">"孟浩"</span>,<span class="number">19</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2创建对象的方法（构造函数模式"><a href="#3-2创建对象的方法（构造函数模式" class="headerlink" title="3.2创建对象的方法（构造函数模式)"></a>3.2创建对象的方法（构造函数模式)</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="keyword">this</span>.name</span><br><span class="line">	<span class="keyword">this</span>.age = <span class="keyword">this</span>.age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a =	<span class="keyword">new</span> person()</span><br></pre></td></tr></table></figure>
+
+<p>可以通过instanceof关键字来描述新创建对象与原型函数之间的关系</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">consolog.log(a <span class="keyword">instanceof</span> person)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/06/js基础/1564835078458.png" alt="1564835078458"></p>
+<h5 id="3-3创建对象的方法（Prototype模式）"><a href="#3-3创建对象的方法（Prototype模式）" class="headerlink" title="3.3创建对象的方法（Prototype模式）"></a>3.3创建对象的方法（Prototype模式）</h5><p>javaScript每一个被创建的实例都有一个共同的Prototype属性，每一个被创建的实例都拥有Prototype的方法和属性（类似c++继承）</p>
+<p>把公共的属性放到Prototype中可以减少内存分配的不足，节省内存</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pro</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	pro.prototype.name = <span class="string">'嘻嘻'</span></span><br><span class="line">	pro.prototype.age = <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> pro()</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> pro()</span><br><span class="line"><span class="built_in">console</span>.log(a.name)<span class="comment">//嘻嘻</span></span><br></pre></td></tr></table></figure>
+
+<p>isPrototypeOf()：这个方法用来判断，某个原型对象和某个实例之间的关系</p>
+<p>hasOwnProperty()：每个实例对象都有一个hasOwnProperty()方法，这个方法用来判断实例对象中的属性是本地属性还是继承自prototype对象的属性</p>
+<h5 id="3-3-1以字面量的方式创建"><a href="#3-3-1以字面量的方式创建" class="headerlink" title="3.3.1以字面量的方式创建"></a>3.3.1以字面量的方式创建</h5><p>constructor属性可以告诉我们被创建实例是来自与哪一个构造函数，但是以字面量的方式创建对象，会将对象的constructor属性变为object.若想得到正确的构造函数需要在字面量中强制指回该构造函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function pro()&#123;&#125;</span><br><span class="line">pro.prototype = &#123;</span><br><span class="line">constructor : pro</span><br><span class="line">name : &apos;李顺&apos;，</span><br><span class="line">age : 18</span><br><span class="line">&#125;</span><br><span class="line">var a = new pro()</span><br><span class="line">alert(a.name)//李顺</span><br><span class="line">alert(a.constructor)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4组合模式创建对象（原型-构造）"><a href="#3-4组合模式创建对象（原型-构造）" class="headerlink" title="3.4组合模式创建对象（原型+构造）"></a>3.4组合模式创建对象（原型+构造）</h5><p>其实就是使用构造函数来设置属性，使用原型来设置方法·</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>git和github - 夏槿凉安</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="git和github
+操作Git的基本工作流程就是先修改文件，然后执行”git add”命令。”git add”命令会把文件加入到暂存区，这样就可以执行”git commit”命令，将文件存入文档库,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title="夏槿凉安" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">夏槿凉安</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">git和github</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">git和github</h1>
+        <div class="stuff">
+            <span>八月 06, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="git和github"><a href="#git和github" class="headerlink" title="git和github"></a>git和github</h1><p><img src="/2019/08/06/git和github/1564915435859.png" alt="1564915435859"></p>
+<p>操作Git的基本工作流程就是先修改文件，然后执行”git add”命令。”git add”命令会把文件加入到暂存区，这样就可以执行”git commit”命令，将文件存入文档库，从而形成一次历史纪录</p>
+<h3 id="git-bash基本命令"><a href="#git-bash基本命令" class="headerlink" title="git-bash基本命令"></a>git-bash基本命令</h3><ul>
+<li><h5 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm 文件名：删除文件</span><br><span class="line">rm -rf   目录名：删除目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="初始化一个git仓库"><a href="#初始化一个git仓库" class="headerlink" title="初始化一个git仓库"></a>初始化一个git仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="查看当前工作区、暂存区、本地仓库的状态"><a href="#查看当前工作区、暂存区、本地仓库的状态" class="headerlink" title="查看当前工作区、暂存区、本地仓库的状态"></a>查看当前工作区、暂存区、本地仓库的状态</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="将工作区文件加到暂存区"><a href="#将工作区文件加到暂存区" class="headerlink" title="将工作区文件加到暂存区"></a>将工作区文件加到暂存区</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名</span><br><span class="line">git add 目录名//添加指定目录到暂存区</span><br><span class="line">git add --all//添加所有文件到暂存区</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="越过暂存区直接从工作区提交到本地仓库"><a href="#越过暂存区直接从工作区提交到本地仓库" class="headerlink" title="越过暂存区直接从工作区提交到本地仓库"></a>越过暂存区直接从工作区提交到本地仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m "日志说明"</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="将暂存区文件加到本地仓库"><a href="#将暂存区文件加到本地仓库" class="headerlink" title="将暂存区文件加到本地仓库"></a>将暂存区文件加到本地仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m "日志说明"</span><br></pre></td></tr></table></figure>
+
+<p>执行’git commit’的时候，git会要求用户填写用户名和邮箱的设置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config  --global user.name "用户名"</span><br><span class="line">git config --global user.email "邮箱"</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="查看提交日志"><a href="#查看提交日志" class="headerlink" title="查看提交日志"></a>查看提交日志</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git logo</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch 文件名</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat 文件名</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="停止跟踪指定文件，但该文件会保留在工作区"><a href="#停止跟踪指定文件，但该文件会保留在工作区" class="headerlink" title="停止跟踪指定文件，但该文件会保留在工作区"></a>停止跟踪指定文件，但该文件会保留在工作区</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached 文件名</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="删除工作区文件，并且将这次删除放入暂存区"><a href="#删除工作区文件，并且将这次删除放入暂存区" class="headerlink" title="删除工作区文件，并且将这次删除放入暂存区"></a>删除工作区文件，并且将这次删除放入暂存区</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm 文件名</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="改名文件，并且将这个改名放入暂存区"><a href="#改名文件，并且将这个改名放入暂存区" class="headerlink" title="改名文件，并且将这个改名放入暂存区"></a>改名文件，并且将这个改名放入暂存区</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mv 原名 重命名</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="恢复暂存区的指定文件到工作区"><a href="#恢复暂存区的指定文件到工作区" class="headerlink" title="恢复暂存区的指定文件到工作区"></a>恢复暂存区的指定文件到工作区</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 文件名</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="查看关联的远程仓库的名称"><a href="#查看关联的远程仓库的名称" class="headerlink" title="查看关联的远程仓库的名称"></a>查看关联的远程仓库的名称</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote//远程仓库的一般默认名称为origin.当然你也可以设置其他名称</span><br><span class="line">git remote show 远程仓库名//查看远程仓库信息</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><p>一开始的默认主分支为master,为了避免多人协作时代码提交有误给他人或自己带来的影响。这里我们可以基于master分支创建一个分支，默认新创建的分支会拥有主分支的所有内容。这时候我们就可以对该新分支做修改而不会影响主分支的内容了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch //列出所有分支</span><br><span class="line">git branch 分支名 //创建一个分支</span><br><span class="line">git branch -b 分支名 //基于当前分支新建一个分支，并切换到暂存区</span><br><span class="line">git checkout -b 分支名 master //基于master分支创建一个分支并切换到该分支</span><br><span class="line">git merge 分支名 //合并分支</span><br><span class="line">git branch -d 分支名 //删除分支</span><br><span class="line">cheak out 分支名 //切换分支</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/06/git和github/1564972384899.png" alt="1564972384899"></p>
+<h3 id="github基本使用"><a href="#github基本使用" class="headerlink" title="github基本使用"></a>github基本使用</h3><p>1.通过git clone 命令下载远程仓库到本地</p>
+<p>2.修改完成后通过git命令放到本地仓库</p>
+<p>3.通过git push命令提交到远程仓库进行代码托管</p>
+<h3 id="git开源项目协作工作流程"><a href="#git开源项目协作工作流程" class="headerlink" title="git开源项目协作工作流程"></a>git开源项目协作工作流程</h3><p>1.fork一个项目</p>
+<p>2.clone项目到本地</p>
+<p>3.在本地修改完之后，push项目到自己fork过来的仓库中。</p>
+<p>4.pull request提交请求给对方</p>
+<p>5.对方审查通过没有问题之后选择是否合并你的改动</p>
+<p>6.对方合并你的改动</p>
+<p>7.流程结束</p>
+<h3 id="Github-Pages-结合-hexo框架制作个人博客"><a href="#Github-Pages-结合-hexo框架制作个人博客" class="headerlink" title="Github Pages 结合 hexo框架制作个人博客"></a>Github Pages 结合 hexo框架制作个人博客</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h4 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.下载</span><br><span class="line">npm install -g hexo -cli</span><br><span class="line">2.初始化文件夹</span><br><span class="line">hexo init 文件夹名</span><br><span class="line">3.进入文件夹</span><br><span class="line">cd 文件夹名</span><br><span class="line">4.启动本地服务预览</span><br><span class="line">hexo server//默认端口为4000</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/06/git和github/1564992984356.png" alt="1564992984356"></p>
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 文章标题</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-config-yml文件自动发布文章"><a href="#配置-config-yml文件自动发布文章" class="headerlink" title="配置_config.yml文件自动发布文章"></a>配置_config.yml文件自动发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delopy:</span><br><span class="line">type: git</span><br><span class="line">repo: https://daomiaru:li130162..@github.com/daomiaru/daomiaru.github.io.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装自动发布插件"><a href="#安装自动发布插件" class="headerlink" title="安装自动发布插件"></a>安装自动发布插件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用命令一键发布"><a href="#使用命令一键发布" class="headerlink" title="使用命令一键发布"></a>使用命令一键发布</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo generate --deploy</span><br><span class="line">hexo deplot --generate</span><br><span class="line">发布可能有延时，稍微等待即可</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
