@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-08T15:24:42.688Z</updated>
+  <updated>2019-08-10T14:21:17.850Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>响应式开发--bootstrap前端框架（二）</title>
+    <link href="http://yoursite.com/2019/08/10/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91-bootstrap%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/10/响应式开发-bootstrap前端框架（二）/</id>
+    <published>2019-08-10T14:11:09.000Z</published>
+    <updated>2019-08-10T14:21:17.850Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;响应式开发–bootstrap前端框架（二）&quot;&gt;&lt;a href=&quot;#响应式开发–bootstrap前端框架（二）&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>响应式开发--bootstrap前端框架（一）</title>
