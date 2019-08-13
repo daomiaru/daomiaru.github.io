@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-12T14:32:39.573Z</updated>
+  <updated>2019-08-13T14:00:34.982Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>跨域问题及其解决方法</title>
+    <link href="http://yoursite.com/2019/08/13/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/08/13/跨域问题及其解决方法/</id>
+    <published>2019-08-13T13:55:53.000Z</published>
+    <updated>2019-08-13T14:00:34.982Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;跨域及其解决&quot;&gt;&lt;a href=&quot;#跨域及其解决&quot; class=&quot;headerlink&quot; title=&quot;跨域及其解决&quot;&gt;&lt;/a&gt;跨域及其解决&lt;/h1&gt;&lt;h3 id=&quot;1-什么是跨域请求？&quot;&gt;&lt;a href=&quot;#1-什么是跨域请求？&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术 javascript" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-javascript/"/>
+    
+    
+      <category term="跨域" scheme="http://yoursite.com/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>响应式开发--bootstrap框架（三）</title>
     <link href="http://yoursite.com/2019/08/12/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91-bootstrap%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%89%EF%BC%89/"/>
     <id>http://yoursite.com/2019/08/12/响应式开发-bootstrap框架（三）/</id>
     <published>2019-08-12T14:21:26.000Z</published>
-    <updated>2019-08-12T14:32:39.573Z</updated>
+    <updated>2019-08-13T14:00:29.625Z</updated>
     
     <summary type="html">
     
