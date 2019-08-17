@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vue前端框架（二） - 夏槿凉安</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="Vue前端框架（二）v-html指令可以渲染html标签格式的字符串
+123&amp;lt;div id=&#34;app&#34;&amp;gt;    &amp;lt;div v-html=&#34;html&#34;&amp;gt;&amp;lt;/div&amp;gt;,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title="夏槿凉安" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">夏槿凉安</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Vue前端框架（二）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Vue前端框架（二）</h1>
+        <div class="stuff">
+            <span>八月 17, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Vue前端框架（二）"><a href="#Vue前端框架（二）" class="headerlink" title="Vue前端框架（二）"></a>Vue前端框架（二）</h1><h4 id="v-html指令"><a href="#v-html指令" class="headerlink" title="v-html指令"></a><strong>v-html指令</strong></h4><p>可以渲染html标签格式的字符串</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"html"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        html: <span class="string">'&lt;h1&gt;hello&lt;/h1&gt;'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/17/Vue前端框架（二）/1565835883717.png" alt="1565835883717"></p>
+<h4 id="指令修饰符"><a href="#指令修饰符" class="headerlink" title="指令修饰符"></a><strong>指令修饰符</strong></h4><p>.prevent阻止默认事件绑定方法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.prevent</span>=<span class="string">"add"</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="案例：TodoMVC"><a href="#案例：TodoMVC" class="headerlink" title="案例：TodoMVC"></a>案例：TodoMVC</h3><p>下载模板</p>
+<p><a href="https://github.com/tastejs/todomvc-app-template" target="_blank" rel="noopener">https://github.com/tastejs/todomvc-app-template</a></p>
+<p>clone到本地后cd进入文件夹</p>
+<p>npm install 下载依赖</p>
+<p>查看index.html</p>
+<p><img src="/2019/08/17/Vue前端框架（二）/1565861362401.png" alt="1565861362401"></p>
+<p>下载sync插件实现浏览器同步刷新预览</p>
+<ol>
+<li><p>npm  install  –save-dev browser-sync</p>
+</li>
+<li><p>在package.json文件中配置scripts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;browser-sync start --server --files \&quot;*.html, css/*.css, js/*.js\&quot;&quot;,</span><br><span class="line">  &quot;start&quot;: &quot;npm run dev&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>3.启动开发服务npm start 或者 npm run dev</p>
+<h4 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h4><p><strong>li标签主要有3种类样式，第一种为completed(已完成)</strong></p>
+<p><img src="/2019/08/17/Vue前端框架（二）/1565945662782.png" alt="1565945662782"></p>
+<p><strong>无类样式（未完成）</strong></p>
+<p><img src="/2019/08/17/Vue前端框架（二）/1565945698580.png" alt="1565945698580"></p>
+<p><strong>editing(编辑样式)</strong></p>
+<p><img src="/2019/08/17/Vue前端框架（二）/1565945726537.png" alt="1565945726537"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Template • TodoMVC<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"node_modules/todomvc-common/base.css"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"node_modules/todomvc-app-css/index.css"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- CSS overrides - remove if you don't need it --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/app.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"todoapp"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>todos<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"new-todo"</span> <span class="attr">placeholder</span>=<span class="string">"What needs to be done?"</span>  @<span class="attr">keydown.enter</span>=<span class="string">"add"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--当没有todos的时候section和footer需要被隐藏,这里可以使用vue中提供的template标签包裹这两个块做条件判断，真正渲染的时候template标签不会被渲染--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"todos.length"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"toggle-all"</span> <span class="attr">class</span>=<span class="string">"toggle-all"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> @<span class="attr">click</span>=<span class="string">"addAll"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"toggle-all"</span>&gt;</span>Mark all as complete<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"todo-list"</span>&gt;</span></span><br><span class="line">					<span class="comment">&lt;!--li标签主要有3种类样式，第一种为completed(已完成)，无类样式（未完成），editing(编辑样式)--&gt;</span></span><br><span class="line"></span><br><span class="line">					<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in todos"</span> <span class="attr">:class</span>=<span class="string">"&#123; completed: item.complate,editing: currentEdit === item &#125;"</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"item.complate"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">label</span> @<span class="attr">click</span>=<span class="string">"edit(item)"</span>&gt;</span>&#123;&#123; item.title &#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"destroy"</span> @<span class="attr">click</span>=<span class="string">"remove(index)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"edit"</span> <span class="attr">:value</span>=<span class="string">"item.title"</span></span></span><br><span class="line"><span class="tag">							   @<span class="attr">keydown.enter</span>=<span class="string">"editAdd(item,index,$event)"</span></span></span><br><span class="line"><span class="tag">							   @<span class="attr">blur</span>=<span class="string">"editAdd(item,index,$event)"</span></span></span><br><span class="line"><span class="tag">							   @<span class="attr">keydown.esc</span>=<span class="string">"editOut"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- This footer should hidden by default and shown when there are todos --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- This should be `0 items left` by default --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"todo-count"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>0<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> item left<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- Remove this if you don't implement routing --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"filters"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"selected"</span> <span class="attr">href</span>=<span class="string">"#/"</span>&gt;</span>All<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/active"</span>&gt;</span>Active<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/completed"</span>&gt;</span>Completed<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- Hidden if no completed items are left ↓ --&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--some函数可以遍历数组中的元素，只要有一个满足条件的元素，结果返回true，若全不满足，返回false--&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--every函数功能与some类似，必须所有元素满足条件，其结果返回true，若有一个不满足，其结果返回false--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">button</span> <span class="attr">v-if</span>=<span class="string">"todos.some(item =&gt; item.complate)"</span> <span class="attr">class</span>=<span class="string">"clear-completed"</span> @<span class="attr">click</span>=<span class="string">"removeAllsuccess"</span>&gt;</span>Clear completed<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>Double-click to edit a todo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- Remove the below line ↓ --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>Template by <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://sindresorhus.com"</span>&gt;</span>Sindre Sorhus<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- Change this out with your name and url ↓ --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>Created by <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://todomvc.com"</span>&gt;</span>you<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>Part of <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://todomvc.com"</span>&gt;</span>TodoMVC<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- Scripts here. Don't remove ↓ --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--&lt;script src="node_modules/todomvc-common/base.js"&gt;&lt;/script&gt;--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/app.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="功能模块"><a href="#功能模块" class="headerlink" title="功能模块"></a>功能模块</h4><p><strong>1.添加列表项</strong></p>
+<ul>
+<li>首先拿到文本框输入的内容</li>
+<li>判断输入是否为空，若为空则return</li>
+<li>不为空，根据输入内容push一个新的对象到todos中</li>
+<li>清空输入框</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">add(e)&#123;</span><br><span class="line">	<span class="comment">/*console.log(e.target.value)*/</span></span><br><span class="line">	<span class="keyword">const</span> todotext = e.target.value.trim()</span><br><span class="line">	<span class="keyword">if</span>(!todotext.length)&#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	todos.push(&#123;</span><br><span class="line">	<span class="comment">/*如果有项，则添加项id根据原最高项id+1。若没有项，添加项id为1*/</span></span><br><span class="line">	id: todos.length ? todos[todos.length<span class="number">-1</span>].id : <span class="number">1</span>,</span><br><span class="line">	title: todotext,</span><br><span class="line">	complate: <span class="literal">false</span></span><br><span class="line">	&#125;)</span><br><span class="line">	e.target.value = <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.点击checkbox实现全选功能</strong></p>
+<ul>
+<li>获取checkbox的checked状态</li>
+<li>遍历列表项，将其complate状态设为与checkbox一致</li>
+<li>因为<input class="toggle" type="checkbox" v-model="item.complate">，双向绑定，所以视图会随着数据的变化而变化</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">addAll(e)&#123;</span><br><span class="line">	<span class="comment">/*点击checkbox触发*/</span></span><br><span class="line">	<span class="comment">/*获取checkbox的checked状态*/</span></span><br><span class="line">	<span class="comment">/*遍历列表项，使其complate状态与checked状态保持一致*/</span></span><br><span class="line">	<span class="keyword">const</span> checked = e.target.checked</span><br><span class="line">	<span class="keyword">this</span>.todos.forEach(<span class="function"><span class="params">item</span> =&gt;</span> item.complate = checked)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.根据索引值删除列表项</strong></p>
+<ul>
+<li>根据遍历生成元素的索引值利用splice()方法删除对应的item</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">remove(index)&#123;</span><br><span class="line">	<span class="keyword">this</span>.todos.splice(index,<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.单击文本框进入编辑样式</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in todos"</span> <span class="attr">:class</span>=<span class="string">"&#123; completed: item.complate,editing: currentEdit === item &#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>currentEdiit是data中的属性，初始为null</li>
+<li>根据操作的item复制给currentEdi</li>
+<li>因为每一个item都是唯一的，所以只有item===currentEdit为true的li标签才会显示编辑样式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">edit(item)&#123;</span><br><span class="line">	<span class="keyword">this</span>.currentEdit = item</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.添加编辑后的文本</strong></p>
+<ul>
+<li>判断编辑后的文本内容是否为空，如果为空，去除该项</li>
+<li>如果不为空，则将编辑后的内容赋值给item.title</li>
+<li>设置currentEdit = null推出编辑样式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">editAdd(item,index,e)&#123;</span><br><span class="line"><span class="comment">/*当进入编辑模式时，获取文本框内容，如果为空，去除该元素。如果有，则将title改为编辑后的title*/</span></span><br><span class="line">	<span class="keyword">if</span>(!e.target.value.length)&#123;</span><br><span class="line">	<span class="keyword">this</span>.todos.splice(index,<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	item.title = e.target.value</span><br><span class="line">	<span class="comment">/*退出编辑样式*/</span></span><br><span class="line">	<span class="keyword">this</span>.currentEdit = <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.esc退出编辑样式</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">editEsc()&#123;</span><br><span class="line">	<span class="keyword">this</span>.currentEdit = <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>7.点击clear completed删除所有已完成</strong></p>
+<ul>
+<li>循环遍历todos</li>
+<li>若列表项为已完成，使用splice()方法根据下标删除</li>
+<li>为了保持删除后数组不会发生改变，i–</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">removeAllsuccess()&#123;</span><br><span class="line">	<span class="keyword">const</span> todos = <span class="keyword">this</span>.todos</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;todos.length;i++)&#123;</span><br><span class="line">	f(todos[i].complate)&#123;</span><br><span class="line">		todos.splice(i,<span class="number">1</span>)</span><br><span class="line">			i--</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
