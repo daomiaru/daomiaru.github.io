@@ -58,6 +58,8 @@
         <div class="stuff">
             <span>八月 17, 2019</span>
             
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/vue/">vue</a></li></ul>
+
 
         </div>
         <div class="content markdown">
@@ -70,6 +72,45 @@
 <h4 id="指令修饰符"><a href="#指令修饰符" class="headerlink" title="指令修饰符"></a><strong>指令修饰符</strong></h4><p>.prevent阻止默认事件绑定方法</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.prevent</span>=<span class="string">"add"</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="计算属性和方法"><a href="#计算属性和方法" class="headerlink" title="计算属性和方法"></a>计算属性和方法</h4><p>模板内的表达式非常便利，但是设计它们的初衷是用于简单计算的，在模板中放入太多的逻辑会使模板过重且难以维护,这种时候我们就可以使用到计算属性或者方法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"todo-count"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; todos.filter( item =&gt; !item.complate).length &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> item left<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法</strong></p>
+<p>把模板内的表达式封装成一个方法，在模板内调用。这样做虽然可以解决模板过重的情况，但是我们每一使用该方法都会重复进行计算。效率不够高。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getcomplated()&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.todos.filter( <span class="function"><span class="params">item</span> =&gt;</span> !item.complate).length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"todo-count"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; getcomplated() &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> item left<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>计算属性</strong></p>
+<p>计算属性本质上也是方法，不过它计算属性具有缓存功能，它会把已经计算过的结果保存起来，避免重复调用方法计算。效率更高。调用的时候将其当作一个属性来调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">	getcomplated()&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.todos.filter( <span class="function"><span class="params">item</span> =&gt;</span> !item.complate).length</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"todo-count"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; getcomplated &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> item left<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h4><p><strong>什么是自定义指令？</strong></p>
+<p>除了使用Vue提供的内置指令之外，我们可以自定义一些自己的指令</p>
+<p><strong>什么时候需要使用自定义指令？</strong></p>
+<p>当你不可避免的需要操作dom的时候，需要使用自定义指令来解决</p>
+<ul>
+<li><p>注册</p>
+<p>全局注册，在任何组件中都可以使用全局注册自定义指令</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册一个全局自定义指令 `v-focus`</span></span><br><span class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</span><br><span class="line">  <span class="comment">// 当被绑定的元素插入到 DOM 中时……</span></span><br><span class="line">  inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 聚焦元素</span></span><br><span class="line">    el.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>  局部注册，只能在当前组件中使用该指令</p>
+<ul>
+<li><p>使用</p>
+<h3 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h3><p>一个自定义指令，从被创建开始就具有生命周期。在一个生命周期中Vue提供了各种函数供我们使用。均为可选</p>
+<p><strong>1.bind</strong>：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。bind中拿不到父元素</p>
+<p><strong>2.inserted</strong>：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。可以拿到父节点</p>
+<p><strong>3.update：</strong>当指令所处的被Vue管理的模板发生变化时调用，获取的更新之前指令绑定DOM的内容</p>
+<p><strong>4.componentUpdated：</strong>当指令所处的被Vue管理的模板发生变化时调用，获取的更新之后指令绑定DOM的内容</p>
+<p><strong>5.unbind</strong>：当DOM被解绑时调用，只调用一次</p>
+</li>
+</ul>
 <h3 id="案例：TodoMVC"><a href="#案例：TodoMVC" class="headerlink" title="案例：TodoMVC"></a>案例：TodoMVC</h3><p>下载模板</p>
 <p><a href="https://github.com/tastejs/todomvc-app-template" target="_blank" rel="noopener">https://github.com/tastejs/todomvc-app-template</a></p>
 <p>clone到本地后cd进入文件夹</p>
@@ -111,6 +152,17 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">addAll(e)&#123;</span><br><span class="line">	<span class="comment">/*点击checkbox触发*/</span></span><br><span class="line">	<span class="comment">/*获取checkbox的checked状态*/</span></span><br><span class="line">	<span class="comment">/*遍历列表项，使其complate状态与checked状态保持一致*/</span></span><br><span class="line">	<span class="keyword">const</span> checked = e.target.checked</span><br><span class="line">	<span class="keyword">this</span>.todos.forEach(<span class="function"><span class="params">item</span> =&gt;</span> item.complate = checked)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>使用v-model和计算属性实现全选完成功能</strong></p>
+<p>计算属性中内置了get和set方法，相当于属性的访问和赋值。当访问时自动调用get方法，当赋值时自动调用set方法</p>
+<p>1.由于toggle-all双向绑定了toggleState，因为是计算属性，当我们一开始访问toggleState时自动调用get方法</p>
+<p>2.根据初始return this.todos.every( item =&gt; item.complate)，所以toggleState为true</p>
+<p>3.当我们点击toggle-all时，checked值发生改变，调用set方法，此时const checked = !this.toggleState得到false</p>
+<p>4.将其遍历分别赋值给任务项的complate.实现全选完成功能</p>
+<p>5.当我们改变任务项的complate值时，因为return this.todos.every( item =&gt; item.complate)，结果返回false.因为双向绑定toggleState变为false.数据影响视图。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">   &#123;</span><br><span class="line">      id: <span class="number">1</span>,</span><br><span class="line">      title: <span class="string">'睡觉'</span>,</span><br><span class="line">      complate: <span class="literal">true</span></span><br><span class="line">   &#125;,</span><br><span class="line">   &#123;</span><br><span class="line">      id: <span class="number">2</span>,</span><br><span class="line">      title: <span class="string">'打游戏'</span>,</span><br><span class="line">      complate: <span class="literal">true</span></span><br><span class="line">   &#125;,</span><br><span class="line">   &#123;</span><br><span class="line">      id: <span class="number">1</span>,</span><br><span class="line">      title: <span class="string">'写代码'</span>,</span><br><span class="line">      complate: <span class="literal">true</span></span><br><span class="line">   &#125;</span><br><span class="line">]</span><br><span class="line">toggleState:&#123;</span><br><span class="line">	<span class="comment">/*当所有的任务项都为true时，gettoggleAll()方法返回true*/</span></span><br><span class="line">	<span class="keyword">get</span>()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.todos.every( <span class="function"><span class="params">item</span> =&gt;</span> item.complate)</span><br><span class="line">		 &#125;,</span><br><span class="line">	<span class="keyword">set</span>()&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.toggleState)</span><br><span class="line">		<span class="keyword">const</span> checked = !<span class="keyword">this</span>.toggleState</span><br><span class="line">		onsole.log(checked)</span><br><span class="line">		<span class="keyword">this</span>.todos.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">			item.complate = checked</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"toggle-all"</span> <span class="attr">class</span>=<span class="string">"toggle-all"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"toggleState"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>3.根据索引值删除列表项</strong></p>
 <ul>
 <li>根据遍历生成元素的索引值利用splice()方法删除对应的item</li>
@@ -146,6 +198,21 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">removeAllsuccess()&#123;</span><br><span class="line">	<span class="keyword">const</span> todos = <span class="keyword">this</span>.todos</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;todos.length;i++)&#123;</span><br><span class="line">	f(todos[i].complate)&#123;</span><br><span class="line">		todos.splice(i,<span class="number">1</span>)</span><br><span class="line">			i--</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>8.数据持久化存储</strong></p>
+<h5 id="Window-localStorage-属性"><a href="#Window-localStorage-属性" class="headerlink" title="Window.localStorage 属性"></a><strong>Window.localStorage 属性</strong></h5><p>1.localStorage 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去删除。</p>
+<p>2.属性允许在浏览器中存储 key/value 对的数据。</p>
+<p><strong>读取数据：localStorage.getItem(‘key’)</strong></p>
+<p><strong>储存数据： localStorage.setItem(‘key’.字符串)</strong></p>
+<p><strong>删除数据：localStorage.removeItem(“key”)</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">todos: <span class="built_in">JSON</span>.parse(<span class="built_in">window</span>.localStorage.getItem(<span class="string">'todos'</span>) || <span class="string">'[]'</span>),</span><br></pre></td></tr></table></figure>
+
+<p>如果没有todos，则读取空数组。因为读取到的数据为字符串。使用JSON.parse()方法将其转换成数组</p>
+<h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a><strong>watch</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">	todos:&#123;</span><br><span class="line">	handler(val, oldVal)&#123;</span><br><span class="line">	<span class="built_in">window</span>.localStorage.setItem(<span class="string">'todos'</span>, <span class="built_in">JSON</span>.stringify(val))</span><br><span class="line">	&#125;,</span><br><span class="line">	deep: <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>watch用于监视数据，当todos改变的话，自动调用handler()方法，val为最新的todos，因为其为数组，利用JSON.stringify()方法将其转换成字符串存储进todos中。</li>
+<li>watch只能监视第一层数据的变化，如果要深度监视的话，deep要设为true</li>
+</ul>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">

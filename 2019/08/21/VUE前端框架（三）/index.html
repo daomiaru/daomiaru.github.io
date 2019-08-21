@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VUE前端框架（三） - 夏槿凉安</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="VUE前端框架（三）1.v-text指令v-text指令可以把data中的数据绑定到标签内容上，类似于语法，但是由于没有直接写到标签中。可以解决浏览器解析渲染时一闪而过的问题
+123&amp;lt;div ,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title="夏槿凉安" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">夏槿凉安</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">VUE前端框架（三）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">VUE前端框架（三）</h1>
+        <div class="stuff">
+            <span>八月 21, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/vue/">vue</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="VUE前端框架（三）"><a href="#VUE前端框架（三）" class="headerlink" title="VUE前端框架（三）"></a>VUE前端框架（三）</h1><h4 id="1-v-text指令"><a href="#1-v-text指令" class="headerlink" title="1.v-text指令"></a>1.v-text指令</h4><p>v-text指令可以把data中的数据绑定到标签内容上，类似于语法，但是由于没有直接写到标签中。可以解决浏览器解析渲染时一闪而过的问题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-text</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: <span class="string">'hello'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/21/VUE前端框架（三）/1566009499882.png" alt="1566009499882"></p>
+<h4 id="2-v-cload指令"><a href="#2-v-cload指令" class="headerlink" title="2.v-cload指令"></a>2.v-cload指令</h4><p>v-cload指令其实就是一个自定义属性，可以给它设置display为none,当vue解析完毕之后会自动把v-cload指令移除.这样子也可以解决语法一闪的问题</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">   <span class="selector-attr">[v-cloak]</span>&#123;</span><br><span class="line">     <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span> <span class="attr">v-cloak</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="v-pre指令"><a href="#v-pre指令" class="headerlink" title="v-pre指令"></a>v-pre指令</h4><p>v-pre告诉Vue不要解析这个节点内部的内容，简单点说就是v-pre指令里面的内容不会被vue解析</p>
+<h3 id="3-全局过滤器"><a href="#3-全局过滤器" class="headerlink" title="3.全局过滤器"></a>3.全局过滤器</h3><p>过滤器可以对要展示的数据做处理之后展示，全局过滤器所有的vue实例都可共享</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"> //第一个参数为原始数据，第二个参数为过滤器名称。中间要用|分隔开</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; mes | getmes &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个全局过滤器，第一个参数为过滤器名称，第二个参数为原始数据</span></span><br><span class="line">Vue.filter(<span class="string">'getmes'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">mes</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mes.replace(<span class="string">'纯洁'</span>,<span class="string">''</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-私有过滤器"><a href="#4-私有过滤器" class="headerlink" title="4.私有过滤器"></a>4.私有过滤器</h3><p>私有过滤器定义在vue实例内部，只能在该实例控制的区域使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">	getmes:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		·····</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-vue实例的生命周期"><a href="#5-vue实例的生命周期" class="headerlink" title="5.vue实例的生命周期"></a>5.vue实例的生命周期</h3><p><img src="https://cn.vuejs.org/images/lifecycle.png" alt="Vue å®ä¾çå½å¨æ"></p>
+<ul>
+<li><p><strong>什么是生命周期</strong>：从vue实例创建、运行、到销毁期间，总是伴随各种各样的事件，这些事件，统称为生命周期。</p>
+</li>
+<li><p><strong>生命周期钩子：</strong>就是生命周期事件的别名而已</p>
+</li>
+<li><p><strong>生命周期钩子</strong>  = 生命周期函数 + 生命周期事件</p>
+</li>
+<li><p><strong>生命周期函数</strong></p>
+<p><strong>实例创建期</strong></p>
+<ul>
+<li>beforeCreate() ：这是我们遇到的 第一个生命周期函数，表示实例完全被创建出来之前，会执行它。  <strong>注意：在beforeCreate生命周期函数执行的时候，data和methods中的数据还没有被初始化</strong></li>
+<li>created()：这是遇到的第二个生命周期函数，<strong>在created()生命周期函数执行的时候，data和methods中的数据就已经被初始化好了</strong></li>
+<li>beforeMount()： 这是遇到的第三个生命周期函数，<strong>表示模板已经编译完成在内存中了。但是还未渲染到页面中</strong></li>
+<li>mounted()：这是遇到的第四个生命周期函数，<strong>表示内存中的模板已经真实的挂载到了页面中，用户可以看到渲染好的页面了。到这里之后组件就已经真正意义上创建好了</strong></li>
+</ul>
+</li>
+</ul>
+<p>  <strong>实例运行期</strong></p>
+<ul>
+<li>beforeUpdate()：<strong>当页面中的数据被改变时触发。所保存的数据是修改前的数据</strong></li>
+<li>Updated()：<strong>事件执行的时候，所获得的数据就是修改后的数据了</strong></li>
+</ul>
+<p>  <strong>实例销毁期</strong></p>
+<ul>
+<li>beforeDestroyed()：当执行beforeDestory()的时候，vue实例就已经从运行阶段，进入到销毁阶段。<strong>此时实例中的指令方法等都处于可用状态，还没有真正执行销毁的过程</strong></li>
+<li>destroyed()：当执行destroyed()的时候，实例已经完全被销毁了，<strong>此时实例中所有的方法指令都不可用了</strong></li>
+</ul>
+<h3 id="6-使用vue-resource实现get-post，jsonp请求"><a href="#6-使用vue-resource实现get-post，jsonp请求" class="headerlink" title="6.使用vue-resource实现get,post，jsonp请求"></a>6.使用vue-resource实现get,post，jsonp请求</h3><p>(<a href="http://github.om/pagekit/vue-resource" target="_blank" rel="noopener">http://github.om/pagekit/vue-resource</a>)</p>
+<p>除了vue-resource之外，还可以使用’axios’的第三方包实现数据的请求</p>
+<p>使用JSONPlaceholder免费在线接口获取数据</p>
+<p><strong>get请求</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1引包</span></span><br><span class="line">&lt;script src=<span class="string">"vue-resource-1.3.4.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2。点击获取数据</span></span><br><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"getinfo"</span> value=<span class="string">"点击获取数据"</span>&gt;点击获取数据&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.发送get请求获取数据</span></span><br><span class="line"> getinfo()&#123;</span><br><span class="line"> <span class="keyword">this</span>.$http.get(<span class="string">'http://jsonplaceholder.typicode.com/posts'</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(data.data[<span class="number">0</span>])</span><br><span class="line">     &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/21/VUE前端框架（三）/1566274451358.png" alt="1566274451358"></p>
+<p><strong>post请求</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getinfo()&#123;</span><br><span class="line"><span class="comment">//手动发起的post请求，默认没有表单格式，所有有的服务器处理不了。</span></span><br><span class="line"><span class="comment">//通过post方法的第三个参数&#123;emulateJSON: true&#125;设置提交的内容为普通表单数据格式</span></span><br><span class="line">    <span class="keyword">this</span>.$http.post(<span class="string">'http://jsonplaceholder.typicode.com/posts'</span>,&#123;&#125;,&#123; <span class="attr">emulateJSON</span>: <span class="literal">true</span> &#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(data.body)</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/21/VUE前端框架（三）/1566275134280.png" alt="1566275134280"></p>
+<p><strong>jsonp请求</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getinfo()&#123;            <span class="keyword">this</span>.$http.jsonp(<span class="string">'http://jsonplaceholder.typicode.com/posts'</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(data.body)</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/21/VUE前端框架（三）/1566275530190.png" alt="1566275530190"></p>
+<h4 id="6-1用nodejs创建服务器剖析jsonp原理"><a href="#6-1用nodejs创建服务器剖析jsonp原理" class="headerlink" title="6.1用nodejs创建服务器剖析jsonp原理"></a>6.1用nodejs创建服务器剖析jsonp原理</h4><p>因为浏览器的同源策略，当我们请求一个与我们所处不同端口或不同ip下的地址会发生跨域问题。</p>
+<p>jsonp的原理就是利用script标签的src属性不受跨域问题的限制来实现的</p>
+<p>客户端</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">'ok'</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">//请求不同端口下的文件，src属性不受跨域影响。将show方法通过?callback=show传给服务器</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://127.0.0.1:3000/getadd?callback=show"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>服务端</p>
+<p>服务器不关心该方法叫什么，服务器拿到路径解析拼接字符串返回给客户端解析调用show方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</span><br><span class="line"><span class="keyword">var</span> server = http.createServer()</span><br><span class="line"></span><br><span class="line">server.on(<span class="string">'request'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> pathObj = url.parse(req.url,<span class="literal">true</span>)<span class="comment">//使用url.parse方法解析路径，当第二个参数为true时，?前的内容保存在pathname中，？后的内容保存在query中</span></span><br><span class="line">    <span class="keyword">var</span> pathname = pathObj.pathname</span><br><span class="line">    <span class="built_in">console</span>.log(pathname)</span><br><span class="line">    <span class="keyword">if</span>(pathname === <span class="string">'/getadd'</span>)</span><br><span class="line">        <span class="keyword">var</span> str = pathObj.query.callback + <span class="string">'()'</span></span><br><span class="line">    <span class="built_in">console</span>.log(str)</span><br><span class="line">    res.end(str)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'running...'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当客户端收到服务端返回的字符串时，此时的script标签实际上已变成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;show()&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/21/VUE前端框架（三）/1566285930892.png" alt="1566285930892"></p>
+<h3 id="7-组件"><a href="#7-组件" class="headerlink" title="7.组件"></a>7.组件</h3><p><img src="/2019/08/21/VUE前端框架（三）/1566196797340.png" alt="1566196797340"></p>
+<p><strong>在Vue中，组件就是来封装视图的，说白了就是封装HTML。</strong></p>
+<p>组件思想就是把一个很大的复杂的Web页面视图根据功能拆分成一块一块的组件视图，然后利用某种特定的逻辑方法将这些组件组合起来。</p>
+<p><strong>组件思想有利于我们对页面的维护与开发，便于人员分工，功能复用，提高代码的可重用性。</strong></p>
+<p><strong>组件的基本使用</strong></p>
+<p>1.先定义注册组件</p>
+<p>2.使用,按照使用html的方式来使用组件</p>
+<p>3.组件是独立的作用域</p>
+<p>4.template模板中只能有一个根元素，否则警告报错</p>
+<p>5.组件是一个特殊的Vue实例，可以有自己的data、methods、computed、watch等选项</p>
+<p>6.组件的data必须是方法，方法中返回一个对象作为组件的data</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个名为 button-counter 的新组件</span></span><br><span class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;button v-on:click="count++"&gt;You clicked me &#123;&#123; count &#125;&#125; times.&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 <code>&lt;button-counter&gt;</code>。我们可以在一个通过 <code>new Vue</code> 创建的 Vue 根实例中，把这个组件作为自定义元素来使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">new Vue(&#123; el: '#components-demo' &#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>全局注册</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注册组件</span></span><br><span class="line">Vue.component(<span class="string">'my-component'</span>,&#123;</span><br><span class="line"> template: <span class="string">'&lt;div&gt; my component &lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/21/VUE前端框架（三）/1566199882131.png" alt="1566199882131"></p>
+<p><strong>局部注册</strong></p>
+<p>通过components来定义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ComponentA = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> ComponentB = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> ComponentC = &#123; <span class="comment">/* ... */</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  components: &#123;</span><br><span class="line">    <span class="string">'component-a'</span>: ComponentA,</span><br><span class="line">    <span class="string">'component-b'</span>: ComponentB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-父子组件通讯之Props和Events-Up"><a href="#8-父子组件通讯之Props和Events-Up" class="headerlink" title="8.父子组件通讯之Props和Events-Up"></a>8.父子组件通讯之Props和Events-Up</h3><p><img src="/2019/08/21/VUE前端框架（三）/1566221077107.png" alt="1566221077107"></p>
+<p><strong>单向数据流</strong></p>
+<p>父组件数据可以影响到孩子，但是在子组件中不允许去修改父亲的数据。</p>
+<p>在 子组件中修改父组件的数据可能会让你的应用数据流变得非常复杂而难以理解</p>
+<h4 id="父-gt-子：PassProps"><a href="#父-gt-子：PassProps" class="headerlink" title="父-&gt;子：PassProps"></a>父-&gt;子：PassProps</h4><ul>
+<li><p>在父组件中通过子组件标签声明属性的方式传递数据</p>
+</li>
+<li><p>在子组件中声明props接收父组件传递给自己的数据</p>
+<p>父</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在父组件中通过子组件标签声明属性的方式传递数据</span></span><br><span class="line"><span class="comment">//注意只有v-vind才可以动态传递数据</span></span><br><span class="line">&lt;todolist :todos=<span class="string">"todos"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">todolist</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数据</span></span><br><span class="line"><span class="keyword">const</span>  todos = [</span><br><span class="line">		&#123;</span><br><span class="line">			id: <span class="number">1</span>,</span><br><span class="line">			title: <span class="string">'吃饭'</span>,</span><br><span class="line">			complate: <span class="literal">true</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			id: <span class="number">2</span>,</span><br><span class="line">			title: <span class="string">'睡觉'</span>,</span><br><span class="line">			complate: <span class="literal">true</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			id: <span class="number">3</span>,</span><br><span class="line">			title: <span class="string">'打游戏'</span>,</span><br><span class="line">			complate: <span class="literal">true</span></span><br><span class="line">		&#125;,</span><br><span class="line">	]</span><br></pre></td></tr></table></figure>
+
+<p>子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在子组件中声明props选项接收父组件传递给自己的数据</span></span><br><span class="line">	props: [<span class="string">'todos'</span>],</span><br><span class="line">	</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">&lt;li v-<span class="keyword">for</span>=<span class="string">"item in todos"</span>&gt;</span><br><span class="line">	&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"view"</span>&gt;</span><br><span class="line">		&lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">"toggle"</span> type=<span class="string">"checkbox"</span> checked&gt;</span><br><span class="line">		&lt;label&gt;&#123;&#123; item.title &#125;&#125;&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">		&lt;button class="destroy"&gt;&lt;/</span>button&gt;</span><br><span class="line">	&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">	&lt;input class="edit" value="Create a TodoMVC template"&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>li&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="子-gt-父：EmitEvents"><a href="#子-gt-父：EmitEvents" class="headerlink" title="子-&gt;父：EmitEvents"></a>子-&gt;父：EmitEvents</h4><p>由于单向数据流的关系，子组件不能修改父组件的数据。子组件若想修改数据可以通过传递数据给父组件，让父组件来修改达到目的</p>
+<ul>
+<li><p>使用$emit定义一个事件让父组件订阅。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">addtodo(e)&#123;</span><br><span class="line">	<span class="keyword">var</span> value = e.target.value.trim()</span><br><span class="line">		<span class="keyword">if</span>(!value.length)&#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*子组件发布一个pushtodo事件告诉父组件可以来拿数据了*/</span></span><br><span class="line">	<span class="keyword">this</span>.$emit(<span class="string">'pushtodo'</span>,value)</span><br><span class="line">	e.target.value = <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>父组件通过@订阅该事件调用方法来修改数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--父组件订阅子组件发布的事件，调用方法--&gt;</span><br><span class="line">	&lt;todoheader @pushtodo=<span class="string">"todoadd"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">todoheader</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">todoadd(todotitle)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!todotitle.trim().length)&#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.todos.push(&#123;</span><br><span class="line">	id: <span class="keyword">this</span>.todos[<span class="keyword">this</span>.todos.length<span class="number">-1</span>].id+<span class="number">1</span>,</span><br><span class="line">	title: todotitle,</span><br><span class="line">	complate: <span class="literal">false</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="父子组件通信小案例"><a href="#父子组件通信小案例" class="headerlink" title="父子组件通信小案例"></a>父子组件通信小案例</h3><p>这是一个父子组件通信添加评论的小案例，评论信息通过localStorage持久化本地存储在‘cmts’中</p>
+<p>1.子组件获取输入信息，将其保存在cmts中</p>
+<p>2.子组件信心准备完毕。发布事件通知父组件</p>
+<p>3.父组件订阅事件调用方法渲染列表</p>
+<p><img src="/2019/08/21/VUE前端框架（三）/1566372081192.png" alt="1566372081192"></p>
+<p>子组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> commentBox = &#123;</span><br><span class="line">        template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="form-group"&gt;</span></span><br><span class="line"><span class="string">        &lt;label&gt;评论人：&lt;/label&gt;</span></span><br><span class="line"><span class="string">        &lt;input type="text" class="form-control" v-model="user"&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;div class="form-group"&gt;</span></span><br><span class="line"><span class="string">        &lt;label&gt;评论内容：&lt;/label&gt;</span></span><br><span class="line"><span class="string">        &lt;textarea class="form-control" v-model="content"&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        &lt;div class="form-group"&gt;</span></span><br><span class="line"><span class="string">        &lt;input type="button" value="发表评论" class="btn-primary" @click="addtalk"&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span>,</span><br><span class="line">    data()&#123;</span><br><span class="line">            <span class="keyword">return</span>&#123;</span><br><span class="line">                user: <span class="string">''</span>,</span><br><span class="line">                content: <span class="string">''</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">            addtalk()&#123;</span><br><span class="line">                <span class="comment">/*判断输入的数据，若果评论人或内容为空直接返回*/</span></span><br><span class="line">                <span class="keyword">if</span>(!<span class="keyword">this</span>.user.trim().length || !<span class="keyword">this</span>.content.trim().length)&#123;</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">/*不为空，定义一个杜希昂保存输入数据*/</span></span><br><span class="line">                <span class="keyword">var</span> userlist = &#123;</span><br><span class="line">                    id: <span class="built_in">Date</span>.now(),</span><br><span class="line">                    user: <span class="keyword">this</span>.user,</span><br><span class="line">                    comment: <span class="keyword">this</span>.content</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">/*通过localStorage方法本地持久化存储数据，先拿到cmts数据，使用JSON。parse方法字符串转数组。若一开始无数据为避免报错，给一个空数组字符串*/</span></span><br><span class="line">                <span class="keyword">var</span> list = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">'cmts'</span>)|| <span class="string">'[]'</span>)</span><br><span class="line">                <span class="comment">/*将数据保存在list数组中*/</span></span><br><span class="line">                list.push(userlist)</span><br><span class="line">                <span class="comment">/*数组转字符串存入本地库cmts*/</span></span><br><span class="line">                localStorage.setItem(<span class="string">'cmts'</span>,<span class="built_in">JSON</span>.stringify(list))</span><br><span class="line">                <span class="comment">/*清空文本框*/</span></span><br><span class="line">                <span class="keyword">this</span>.user = <span class="string">''</span></span><br><span class="line">                <span class="keyword">this</span>.content = <span class="string">''</span></span><br><span class="line">                <span class="comment">/*子组件发布一个func事件告诉父亲数据已准备好了*/</span></span><br><span class="line">                <span class="keyword">this</span>.$emit(<span class="string">'func'</span>)</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>vue实例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app =  <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        list</span><br><span class="line">    &#125;,</span><br><span class="line">created()&#123;</span><br><span class="line">    <span class="comment">/*初始化list*/</span></span><br><span class="line"><span class="keyword">this</span>.loadComments()</span><br><span class="line">       &#125;,</span><br><span class="line"> methods: &#123;</span><br><span class="line">    loadComments() &#123;</span><br><span class="line">      <span class="comment">// 从本地的 localStorage 中，加载评论列表</span></span><br><span class="line">     <span class="keyword">var</span> list = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">'cmts'</span>) || <span class="string">'[]'</span>)</span><br><span class="line">     <span class="comment">/*将list数据保存在this.list中，浏览器解析渲染。数据持久化*/</span></span><br><span class="line">     <span class="keyword">this</span>.list = list</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line">components: &#123;</span><br><span class="line">     talk: commentBox</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>html页面</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--父组件订阅子组件事件，调用loadComments方法--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">talk</span> @<span class="attr">func</span>=<span class="string">"loadComments"</span>&gt;</span><span class="tag">&lt;/<span class="name">talk</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item"</span> <span class="attr">v-for</span>=<span class="string">"item in list"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"badge"</span>&gt;</span>评论人：&#123;&#123; item.user &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">           &#123;&#123; item.comment &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
