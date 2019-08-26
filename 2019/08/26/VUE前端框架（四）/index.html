@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VUE前端框架（四） - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="VUE前端框架（四）1.vue-router基本使用基本使用
+
+声明组件模板对象
+12345678/*组件模板对象*/var login = &amp;#123;    template: &#39;&amp;lt;h1&amp;,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">VUE前端框架（四）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">VUE前端框架（四）</h1>
+        <div class="stuff">
+            <span>八月 26, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/vue/">vue</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="VUE前端框架（四）"><a href="#VUE前端框架（四）" class="headerlink" title="VUE前端框架（四）"></a>VUE前端框架（四）</h2><h3 id="1-vue-router基本使用"><a href="#1-vue-router基本使用" class="headerlink" title="1.vue-router基本使用"></a>1.vue-router基本使用</h3><p>基本使用</p>
+<ul>
+<li><p>声明组件模板对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*组件模板对象*/</span></span><br><span class="line"><span class="keyword">var</span> login = &#123;</span><br><span class="line">    template: <span class="string">'&lt;h1&gt;登录组件&lt;/h1&gt;'</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> register = &#123;</span><br><span class="line">    template: <span class="string">'&lt;h1&gt;注册组件&lt;/h1&gt;'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个路由实例对象,并定义路由规则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*创建一个路由对象*/</span></span><br><span class="line">   <span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">       <span class="comment">/*路由匹配规则，第一个参数为请求路径path,第二个参数为要显示的组件模板component: 组件模板*/</span></span><br><span class="line">       <span class="comment">/*注意component的属性值必须是组件模板对象，不能使组件的引用名*/</span></span><br><span class="line">       routes: [</span><br><span class="line">           &#123; <span class="attr">path</span>: <span class="string">'/login'</span>, <span class="attr">component</span>: login &#125;,</span><br><span class="line">           &#123; <span class="attr">path</span>: <span class="string">'/register'</span>, <span class="attr">component</span>: register &#125;</span><br><span class="line">       ]</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>挂载路由实例对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">  </span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">  </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 将路由规则对象，注册到 vm 实例上，用来监听 URL 地址的变化，然后展示对应的组件</span></span><br><span class="line">    router</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<router-view></router-view>标签渲染模板</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line"> &lt;router-link to=<span class="string">"/login"</span>&gt;登陆&lt;<span class="regexp">/router-link&gt;</span></span><br><span class="line"><span class="regexp"> &lt;router-link to="/</span>register<span class="string">"&gt;注册&lt;/router-link&gt;</span></span><br><span class="line"><span class="string"> &lt;router-view&gt;&lt;/router-view&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>浏览器根据不同的哈希显示不同的组件模板</p>
+<p><img src="/2019/08/26/VUE前端框架（四）/1566436522328.png" alt="1566436522328"></p>
+<p><img src="/2019/08/26/VUE前端框架（四）/1566436532102.png" alt="1566436532102"></p>
+<p><strong>若想设置默认主页为登陆页，有两种方式</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.设置‘/’路径展示登陆组件</span></span><br><span class="line"> &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">component</span>: login &#125;</span><br><span class="line"><span class="comment">//2.设置当请求‘/’路径时，页面重定向到‘/login’</span></span><br><span class="line"> &#123;<span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">redirect</span>: <span class="string">'/login'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-路由传参，使用query获取参数"><a href="#2-路由传参，使用query获取参数" class="headerlink" title="2.路由传参，使用query获取参数"></a>2.路由传参，使用query获取参数</h3><p>路由通过查询字符串？传递的参数保存在$route.query中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/login?id=10"</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> login = &#123;</span><br><span class="line">    template: <span class="string">'&lt;h1&gt;登录组件&lt;/h1&gt;'</span>,</span><br><span class="line">    created()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$route.id)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/26/VUE前端框架（四）/1566438960788.png" alt="1566438960788"></p>
+<h3 id="3-路由传参，使用params获取参数"><a href="#3-路由传参，使用params获取参数" class="headerlink" title="3.路由传参，使用params获取参数"></a>3.路由传参，使用params获取参数</h3><p>先定义路由规则确定要传递的参数，具体是什么值由route-link决定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//路由规则，定义传递的时候有一个id参数</span></span><br><span class="line">&#123; <span class="attr">path</span>: <span class="string">'/login/:id'</span>, <span class="attr">component</span>: login &#125;</span><br><span class="line"><span class="comment">//router-link传递参数id为10</span></span><br><span class="line"> &lt;router-link to=<span class="string">"/login/10"</span>&gt;登陆&lt;<span class="regexp">/router-link&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/参数保存在$route.params中</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/26/VUE前端框架（四）/1566439633062.png" alt="1566439633062"></p>
+<h3 id="4-使用children属性实现路由的嵌套"><a href="#4-使用children属性实现路由的嵌套" class="headerlink" title="4.使用children属性实现路由的嵌套"></a>4.使用children属性实现路由的嵌套</h3><p>当我们点击Acount,根据<router-link to="/acount">Acount</router-link>，页面渲染acount组件</p>
+<p><img src="/2019/08/26/VUE前端框架（四）/1566442090580.png" alt="1566442090580"></p>
+<p>因为是子路由的关系，登陆组件和注册组件应该路径应该为/acount/login和/acount/register，在acount路由模板中使用<router-view></router-view>渲染子组。使用children属性添加acount的子路由。路径默认在前面拼接/acount.</p>
+<p><img src="/2019/08/26/VUE前端框架（四）/1566442294148.png" alt="1566442294148"></p>
+<ul>
+<li><p>先定义父路由，其中嵌套两个子路由</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">     <span class="comment">/*路由匹配规则，第一个参数为请求路径path,第二个参数为要显示的组件模板component: 组件模板*/</span></span><br><span class="line">     <span class="comment">/*注意component的属性值必须是组件模板对象，不能使组件的引用名*/</span></span><br><span class="line">     routes: [</span><br><span class="line">         &#123;<span class="attr">path</span>: <span class="string">'/acount'</span>, <span class="attr">component</span>: acount,</span><br><span class="line">         children: [</span><br><span class="line">             &#123; <span class="attr">path</span>: <span class="string">'login'</span>, <span class="attr">component</span>: login &#125;,</span><br><span class="line">             &#123; <span class="attr">path</span>: <span class="string">'register'</span>, <span class="attr">component</span>: register &#125;</span><br><span class="line">         ]</span><br><span class="line">         &#125;</span><br><span class="line">     ]</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义父组件模板</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> acount = &#123;</span><br><span class="line">    template: <span class="string">`</span></span><br><span class="line"><span class="string">&lt;div&gt;</span></span><br><span class="line"><span class="string">  &lt;h1&gt;Acount组件&lt;/h1&gt;</span></span><br><span class="line"><span class="string"> &lt;router-link to="/acount/login"&gt;登陆&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">&lt;router-link to="/acount/register"&gt;注册&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">  &lt;router-view&gt;&lt;/router-view&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>html页面</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/acount"</span>&gt;</span>Acount<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="使用命名视图"><a href="#使用命名视图" class="headerlink" title="使用命名视图"></a>使用命名视图</h3><p>可以给<router-view></router-view>加上name属性使其显示对应的组件视图</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">name</span>=<span class="string">"aside"</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">name</span>=<span class="string">"main"</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>若想要在一个路径下显示多个不同的组件，可以使用components属性下写多个组件。default表示该路径默认组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">      routes: [</span><br><span class="line">          &#123;<span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">components</span>:&#123;</span><br><span class="line">                  <span class="keyword">default</span>: header,</span><br><span class="line">                  aside: aside,</span><br><span class="line">                  main: main</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      ]</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/26/VUE前端框架（四）/1566459489312.png" alt="1566459489312"></p>
+<p>使用history模式解决hash路径不好看的问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置mode属性为history即可</span></span><br><span class="line">  mode: <span class="string">'history'</span></span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

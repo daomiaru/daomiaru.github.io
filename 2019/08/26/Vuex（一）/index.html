@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vuex（一） - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="
+​                                                                        
+1.什么是Vuex？
+Vuex是一个专门为vue,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Vuex（一）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Vuex（一）</h1>
+        <div class="stuff">
+            <span>八月 26, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Vuex/">Vuex</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566629936725&di=40ab3187b32a9593d43b7c1956457db4&imgtype=0&src=http%3A%2F%2Fyqfile.alicdn.com%2Fd20974c971b5025f40b202746aa1f73912dfaab4.png" alt="img"></p>
+<p>​                                                                        </p>
+<h3 id="1-什么是Vuex？"><a href="#1-什么是Vuex？" class="headerlink" title="1.什么是Vuex？"></a>1.什么是Vuex？</h3><ul>
+<li>Vuex是一个专门为vue,js应用程序开发的状态管理模式（说白了就是管理组件数据的）</li>
+<li>用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式变化</li>
+</ul>
+<h3 id="2-Vuex是怎么管理状态的呢？"><a href="#2-Vuex是怎么管理状态的呢？" class="headerlink" title="2.Vuex是怎么管理状态的呢？"></a>2.Vuex是怎么管理状态的呢？</h3><ul>
+<li>Vuex使用Store对象，来保存和管理整个应用的状态</li>
+<li>Store对象，它包含以下的一些方法<ul>
+<li>state: 存放状态（类似于data,其实就是存放数据的地方，所有的数据都在这里）</li>
+<li>getters: 它是用来获得state里面的数据的，其实就是获取数据的。类似于计算属性</li>
+<li>mutations: 用来更新状态的一些逻辑写在它里面，其实就是操作数据的一些js方法，写在它里面。类似于methods.虽然有一些js的逻辑在里面。但是我们不饿能直接操作mutations，必须要通过actions。（它其实就相当于是一个函数的容器）</li>
+<li>actions: 它是用来操作mutations的。它有两种方式。同步和异步。（它其实就是一个观察者，一个事件的容器，它会根据用户在页面上的操作而引起相应事件的触发。这些事件就会调用相应的 方法引起状态的变化从而引起视图的变化。）</li>
+<li>modules: 它可以将store模块化</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意：</strong></p>
+<p>1.vue中不支持我们直接修改state中的数据（虽然我们可以这么做），但是如果我们这么做vuedevtools就不能监测我们对数据的操作，如果项目过大时我们到时候调试的时候就会很不方便。正确的做法应该时通过<strong>$store.commit(‘方法名’)</strong>提交到mutation,通过mutation中的方法来修改state中的数据。便于devtools监视调试</p>
+<p>2.vue允许我们跳过action直接<strong>$store.commit(‘方法名’)</strong>提交到mutation改变状态。当我们需要进行异步操作时需要经过action再提交到mutation</p>
+<p>3.devtools只能监测到同步操作</p>
+<h3 id="3-为什么要使用Vuex？"><a href="#3-为什么要使用Vuex？" class="headerlink" title="3.为什么要使用Vuex？"></a>3.为什么要使用Vuex？</h3><p>1.在大型应用中，应用的各个组件需要进行数据的共享,比如用户的登陆状态等，使用传统方式繁琐且不可控</p>
+<p>2.Vuex为所有组件提供集中式的可追踪的状态管理</p>
+<p>3.Vuex的状态是响应式的</p>
+<p>4.使用Vuex将摒弃传统的event emmit和props的方式来进行数据的更新和传递</p>
+<h3 id="4-VueX的安装"><a href="#4-VueX的安装" class="headerlink" title="4.VueX的安装"></a>4.VueX的安装</h3><h4 id="直接下载-CDN引用"><a href="#直接下载-CDN引用" class="headerlink" title="直接下载/CDN引用"></a>直接下载/CDN引用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure>
+
+<p><strong>在App.vue中</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">el: <span class="string">'#app'</span></span><br><span class="line"><span class="comment">//实际上是vue.protype.$store = store 就是给在vue的原型链上挂载了一个$store，这样vue实例下的所有组件都可以通过$store来拿到store里面的东西了</span></span><br><span class="line"> store </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>### </p>
+<h3 id="5-1state单一状态树"><a href="#5-1state单一状态树" class="headerlink" title="5.1state单一状态树"></a>5.1state单一状态树</h3><p>什么是单一状态树呢?</p>
+<p><strong>首先我们来看一个多重状态树的小例子</strong></p>
+<p>我们一个人从出生开始，都会产生各种各样的信息，比如上学的档案，工作后的社保纪录，公积金纪录，结婚后的婚姻信息，户口，房产信息等等。这些信息都被分散在国家不同的部门进行管理。当我们要办理某个业务需要某项信息时我们就要到对应的部门去开取信息证明来处理业务。这就是一个多重状态树的简单例子。<strong>这么做的好处是信息安全，便于管理。缺点也很显而易见，就是当我们需要办理的业务需要很多信息的时候。我们需要到各种各样的部门去开取证明。这样会很麻烦。也很浪费时间，同时信息的维护也需要大量的人力和物力。</strong></p>
+<p><strong>单一状态树（单一数据源）</strong></p>
+<p>我们在vue中提出了一种思想就是把所有的信息放到一起。就是把我们的所有信息都保存在一个store中。用一个store来管理全部应用层级的状态。单一状态树能让我们以最直接的方式找到某个状态的片段，而且在之后的维护和调试过程中。也可以非常方便的管理和维护。<strong>这就是单一状态树的基本思想</strong></p>
+<h3 id="5-2getters-类似于计算属性"><a href="#5-2getters-类似于计算属性" class="headerlink" title="5.2getters(类似于计算属性)"></a>5.2getters(类似于计算属性)</h3><p>当我们不希望直接展示state中的数据。或者想要再展示前做进一步的修改。我们可以将其放到getters中定义方法来改变state的值。</p>
+<p>getters中的方法默认有两个参数state和getters。</p>
+<ul>
+<li>state即为store中的state</li>
+<li>getters即为store中的getters</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">100</span></span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    add(state)&#123;</span><br><span class="line">      <span class="keyword">return</span> state.count + <span class="number">100</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/26/Vuex（一）/1566739642119.png" alt="1566739642119"></p>
+<p>可以通过$store.getters.方法名来调用（效果类似计算属性）</p>
+<p><img src="/2019/08/26/Vuex（一）/1566739665004.png" alt="1566739665004"></p>
+<h3 id="5-3mutations"><a href="#5-3mutations" class="headerlink" title="5.3mutations"></a>5.3mutations</h3><p>mutation主要包括两个部分</p>
+<ul>
+<li>字符串的事件类型</li>
+<li>一个回调函数，该回调函数的第一个参数就是state</li>
+</ul>
+<p>mution的定义方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mutation: &#123;</span><br><span class="line">//increment称为事件类型字符串，(state)&#123;state.count++&#125;称为回调函数</span><br><span class="line"> increment(state)&#123;</span><br><span class="line"> 	state.count++</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过mutation更新</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;butto @click=<span class="string">"increment"</span>&gt;+<span class="number">1</span>&lt;button&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  increment()&#123;</span><br><span class="line">   <span class="keyword">this</span>.$store.commit(<span class="string">'increment'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4mutation携带参数"><a href="#5-4mutation携带参数" class="headerlink" title="5.4mutation携带参数"></a>5.4mutation携带参数</h3><p>在通过mutation更新数据的时候，有可能我们需要一些额外的参数。参数被称为mutation的载荷（payload）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;button @click=<span class="string">"increment(5)"</span>&gt;+<span class="number">5</span>&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;h2&gt;&#123;&#123;$store.state.count &#125;&#125;&lt;/</span>h2&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//app.vue</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  increment(count) &#123;</span><br><span class="line">   <span class="keyword">this</span>.$store.commit(<span class="string">'increment'</span>,count)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//store.js</span></span><br><span class="line">mutations: &#123;</span><br><span class="line">  increment(state,count)&#123;</span><br><span class="line">  <span class="keyword">return</span> state.count += count</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-1mutation第二种携带参数方式"><a href="#5-4-1mutation第二种携带参数方式" class="headerlink" title="5.4.1mutation第二种携带参数方式"></a>5.4.1mutation第二种携带参数方式</h3><p>使用type类型进行提交，此时提交的为一个对象payload</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//app.vue</span></span><br><span class="line">methods: &#123;</span><br><span class="line">      increment(count) &#123;</span><br><span class="line">        <span class="keyword">this</span>.$store.commit(&#123;</span><br><span class="line">          type: <span class="string">'increment'</span>,</span><br><span class="line">          count</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//store.js    </span></span><br><span class="line">   mutations: &#123;</span><br><span class="line">    increment(state,payload)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(payload)</span><br><span class="line">      <span class="keyword">return</span> state.count += payload.count</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/08/26/Vuex（一）/1566785006065.png" alt="1566785006065"></p>
+<h3 id="5-5mutation响应式更新数据"><a href="#5-5mutation响应式更新数据" class="headerlink" title="5.5mutation响应式更新数据"></a>5.5mutation响应式更新数据</h3><p>在state中初始化的数据在被定义的时候都会自动加入vue的响应式系统，所以当我们修改数据的时候对应的视图也会发生变化。</p>
+<p><strong>但是我们又时候在外部给state添加属性的时候也希望该属性具有响应式的功能，这时候我们就要用到set方法。</strong></p>
+<p>1.state中初识没有num</p>
+<p><img src="/2019/08/26/Vuex（一）/1566786624126.png" alt="1566786624126"></p>
+<p>2.app.vue点击显示num</p>
+<p><img src="/2019/08/26/Vuex（一）/1566786649230.png" alt="1566786649230"></p>
+<p>3.提交mutation</p>
+<p><img src="/2019/08/26/Vuex（一）/1566786679918.png" alt="1566786679918"></p>
+<p>4.set方法添加属性，属性加入响应式系统.<strong>第一个参数为要修改的数据，第二个参数为添加的属性，第三个参数为属性值</strong></p>
+<p><img src="/2019/08/26/Vuex（一）/1566786709566.png" alt="1566786709566"></p>
+<p>5.查看结果，显然属性已成功加入响应式系统</p>
+<p><img src="/2019/08/26/Vuex（一）/1566786791137.png" alt="1566786791137"></p>
+<p><strong>响应式删除数据</strong></p>
+<p>使用Vue.delete方法</p>
+<p><img src="/2019/08/26/Vuex（一）/1566787108383.png" alt="1566787108383"></p>
+<p>Vue.delete方法第一个参数为要删除的对象名，第二个参数为要删除的属性</p>
+<p><img src="/2019/08/26/Vuex（一）/1566787181694.png" alt="1566787181694"></p>
+<p><img src="/2019/08/26/Vuex（一）/1566787193333.png" alt="1566787193333"></p>
+<p>初始</p>
+<p><img src="/2019/08/26/Vuex（一）/1566787216712.png" alt="1566787216712"></p>
+<p>点击删除</p>
+<p><img src="/2019/08/26/Vuex（一）/1566787237721.png" alt="1566787237721"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
