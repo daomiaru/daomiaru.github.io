@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-09T02:53:04.474Z</updated>
+  <updated>2019-09-09T08:14:54.687Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端经典面试</title>
+    <link href="http://yoursite.com/2019/09/09/%E5%89%8D%E7%AB%AF%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95/"/>
+    <id>http://yoursite.com/2019/09/09/前端经典面试/</id>
+    <published>2019-09-09T08:12:37.000Z</published>
+    <updated>2019-09-09T08:14:54.687Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-作用域&quot;&gt;&lt;a href=&quot;#1-作用域&quot; class=&quot;headerlink&quot; title=&quot;1.作用域&quot;&gt;&lt;/a&gt;1.作用域&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="前端面试例题" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E4%BE%8B%E9%A2%98/"/>
+    
+    
+      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS</title>
@@ -500,32 +526,6 @@
     
     
       <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>回调地狱callback</title>
-    <link href="http://yoursite.com/2019/08/07/%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1callback/"/>
-    <id>http://yoursite.com/2019/08/07/回调地狱callback/</id>
-    <published>2019-08-07T01:46:52.000Z</published>
-    <updated>2019-08-26T13:26:16.050Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;回调地狱callback-hell&quot;&gt;&lt;a href=&quot;#回调地狱callback-hell&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="回调函数" scheme="http://yoursite.com/tags/%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
