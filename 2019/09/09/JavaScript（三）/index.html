@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaScript（三） - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="JavaScript(三)1.对象深度克隆的简单实现深度克隆的原理，因为对象是一种引用类型，如果我们直接拷贝对象的值，其实就是复制了它的指针并且指针指向原数据，显然当原数据发生改变时，拷贝对象和原始,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">JavaScript（三）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaScript（三）</h1>
+        <div class="stuff">
+            <span>九月 09, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/前端面试/">前端面试</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="JavaScript-三"><a href="#JavaScript-三" class="headerlink" title="JavaScript(三)"></a>JavaScript(三)</h2><h3 id="1-对象深度克隆的简单实现"><a href="#1-对象深度克隆的简单实现" class="headerlink" title="1.对象深度克隆的简单实现"></a>1.对象深度克隆的简单实现</h3><p>深度克隆的原理，因为对象是一种引用类型，如果我们直接拷贝对象的值，其实就是复制了它的指针并且指针指向原数据，显然当原数据发生改变时，拷贝对象和原始对象均会发生改变。</p>
+<p>如何让二者对立开来呢？</p>
+<p>答案是利用基本类型的特点，基本数据类型在执行复制操作后，新老数值之间不会产生影响。所以我们将对象不断的分解直到它为基本类型为止，再进行复制操作，这样所得到的拷贝对象就是独立的了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//查看传入的参数是否为数组，instanceof关键字返回是否为Array的原型，</span></span><br><span class="line">    <span class="comment">// 如果传入参数的原型为Array,newwObj 为空数组</span></span><br><span class="line">    <span class="comment">//如果不是 newObj为空对象</span></span><br><span class="line">    <span class="keyword">var</span> newObj = obj <span class="keyword">instanceof</span>  <span class="built_in">Array</span> ? []: &#123;&#125;</span><br><span class="line">    <span class="comment">/* console.log(typeof  newObj)*/</span></span><br><span class="line">    <span class="comment">//for in 循环遍历 obj</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> obj)&#123;</span><br><span class="line">        <span class="comment">//将其拆解成基本类型，深度拷贝</span></span><br><span class="line">        <span class="keyword">var</span> temple = <span class="keyword">typeof</span>  obj[item] == <span class="string">'object'</span> ? deepClone(obj[item]): obj[item]</span><br><span class="line">        newObj[item] = temple</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,&#123;<span class="attr">name</span>: <span class="string">'小明'</span>,<span class="attr">age</span>: <span class="number">18</span>&#125;]</span><br><span class="line"><span class="keyword">var</span> b = deepClone(a)</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="built_in">console</span>.log(b)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567409485190.png" alt="1567409485190"></p>
+<p>ES5的常用的对象克隆的一种方式，注意数组是对象，但是跟对象又有一定区别，所以我们一开是判断了一些类型，决定newObj是对象还是数组。</p>
+<h3 id="2-实现一个once函数，传入参数只执行一次"><a href="#2-实现一个once函数，传入参数只执行一次" class="headerlink" title="2.实现一个once函数，传入参数只执行一次"></a>2.实现一个once函数，传入参数只执行一次</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">once</span>(<span class="params">func</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tag = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tag == <span class="literal">true</span>)&#123;</span><br><span class="line">            func.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">            tag = <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-将原生ajax封装成promise"><a href="#3-将原生ajax封装成promise" class="headerlink" title="3.将原生ajax封装成promise"></a>3.将原生ajax封装成promise</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myNewAjax = <span class="function"><span class="keyword">function</span> (<span class="params">url</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve,reject</span>) </span>&#123;</span><br><span class="line">			<span class="comment">//创建ajax对象</span></span><br><span class="line">            <span class="keyword">var</span> xhr =<span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">           	<span class="comment">// open(方法，请求路径，传输方式)</span></span><br><span class="line">            xhr.open(<span class="string">'get'</span>,url);</span><br><span class="line">           	<span class="comment">//发送请求</span></span><br><span class="line">            xhr.send(data)</span><br><span class="line">            xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(xhr.status==<span class="number">200</span> &amp;&amp; xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">                	<span class="keyword">var</span> json=<span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">                    resolve(json)</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status!=<span class="number">200</span>)&#123;</span><br><span class="line">                    reject(<span class="string">'error'</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-js监听对象属性的改变"><a href="#4-js监听对象属性的改变" class="headerlink" title="4.js监听对象属性的改变"></a>4.js监听对象属性的改变</h3><ul>
+<li><p>在ES5中可以通过Object.defineProperty来实现已有属性的监听</p>
+<p>Object.defineProperty方法顾名思义就是给一个对象定义属性</p>
+<p>第一个参数为要定义的对象名，第二个参数为要修改的属性名，第三个参数为属性描述符其中key为修改的属性值，value默认为undefined。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    name: <span class="string">'张三'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(user,<span class="string">'name'</span>,&#123;</span><br><span class="line">    <span class="keyword">set</span> : function (key,value) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(key)</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'aa'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">  </span><br><span class="line">user.name = <span class="string">'李四'</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567425835516.png" alt="1567425835516"></p>
+</li>
+</ul>
+<p>缺点：若属性不在对象中，则不能监听属性的变化</p>
+<ul>
+<li>在ES6中可以通过Proxy来实现,其中，target指向原对象，key是修改的属性名，value是修改的属性值，receivers是创建的Proxy{}实例</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;,&#123;</span><br><span class="line">    <span class="keyword">set</span>:function (target,key,value,receiver) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(target)</span><br><span class="line">        <span class="built_in">console</span>.log(key)</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">        <span class="built_in">console</span>.log(receiver)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">user.name = <span class="string">'李四'</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567426153128.png" alt="1567426153128"></p>
+<p>这样即使有属性在对象中不存在，也可以监听这个属性的变化</p>
+<h3 id="5-如何实现一个私有变量，用getName方法可以访问，不能直接访问"><a href="#5-如何实现一个私有变量，用getName方法可以访问，不能直接访问" class="headerlink" title="5.如何实现一个私有变量，用getName方法可以访问，不能直接访问"></a>5.如何实现一个私有变量，用getName方法可以访问，不能直接访问</h3><p>通过构造函数的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">product</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> name=<span class="string">'小溪'</span>;</span><br><span class="line">      <span class="keyword">this</span>.getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> name;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span>  obj = <span class="keyword">new</span> product();</span><br><span class="line">  <span class="built_in">console</span>.log(obj.getName())<span class="comment">//小溪</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.name)<span class="comment">//undefined，因为它不是一个对象所以不能.访问</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-和-、以及Object-js的区别"><a href="#6-和-、以及Object-js的区别" class="headerlink" title="6.== 和 ===、以及Object.js的区别"></a>6.== 和 ===、以及Object.js的区别</h3><p>注意：null和undefined的区别，null已定义，并初始化为null。undefined未定义或未初始化</p>
+<p>任何变量只要给其赋值为null,那么这个变量就是null类型的</p>
+<p>在申明变量时若没有将变量赋值的话这个变量就是undefined类型的</p>
+<ul>
+<li><p>==   等同，比较运算符，两边值类型不同的时候，先进行类型转换，再比较；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span> == <span class="number">0</span> <span class="comment">//true</span></span><br><span class="line"><span class="string">"0"</span> == <span class="number">0</span> <span class="comment">//true</span></span><br><span class="line"><span class="number">123</span> == <span class="string">"123"</span> <span class="comment">//true</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>=== ，恒等，严格比较运算符，不做类型转换，类型不同就是不等；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> === <span class="string">"123"</span> <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Object.is()是ES6新增的用来比较两个值是否严格相等的方法，与===的行为基本一致。区别就是+0不等于-0。 NaN等于自身。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+<span class="number">0</span> === <span class="number">-0</span> <span class="comment">//true</span></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span> <span class="comment">//false NaN: not a number 但是它的数据类型，不管你信不信，是number</span></span><br><span class="line"><span class="built_in">Object</span>.js(+<span class="number">0</span>,<span class="number">-0</span>) <span class="comment">//false</span></span><br><span class="line"><span class="built_in">Object</span>.js(<span class="literal">NaN</span>,<span class="literal">NaN</span>) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="7-setTimeout，setlnterval和requestAnimationFrame之间的区别"><a href="#7-setTimeout，setlnterval和requestAnimationFrame之间的区别" class="headerlink" title="7.setTimeout，setlnterval和requestAnimationFrame之间的区别"></a>7.setTimeout，setlnterval和requestAnimationFrame之间的区别</h3><ul>
+<li>setTimeout：在指定的毫秒后调用函数执行</li>
+<li>setInterval：循环执行指定毫秒后的调用函数</li>
+</ul>
+<p>与setTimeout，setlnterval不同，RAF不需要设置时间间隔，大多数电脑显示器的刷新频率是60Hz,大概相当于每秒钟重绘60次，大多数浏览器都会对重绘操作加以限制，不超过显示器的重绘频率，因为即使超过那个频率用户体验也不会有提升，因此，最平滑的最佳循环间隔是1000ms/60次,约等于16.6ms</p>
+<p>RAF采用的是系统时间间隔，不会因为前面的任务而影响，但是如果前面的任务多的话，会影响setTimeout和setlnterval真正运行的时间间隔。</p>
+<p>特点： </p>
+<p>（1）requestAnimationFrame会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率。 </p>
+<p>（2）在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的CPU、GPU 和内存使用量 </p>
+<p>（3）requestAnimationFrame是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了 CPU 开销。</p>
+<h3 id="8-如何实现一个两列等高布局"><a href="#8-如何实现一个两列等高布局" class="headerlink" title="8.如何实现一个两列等高布局"></a>8.如何实现一个两列等高布局</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">    <span class="selector-id">#dd</span> &#123;</span><br><span class="line">       <span class="comment">/* padding: 20px;*/</span></span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid black</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#d1</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: red;</span><br><span class="line">        <span class="attribute">padding-bottom</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">margin-bottom</span>: -<span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid yellow</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#d2</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: blue;</span><br><span class="line">        <span class="attribute">padding-bottom</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">margin-bottom</span>: -<span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid yellow</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"d1"</span>&gt;</span>好好学习天天向上 好好学习天天向上 好好学习天天向上 好好学习天天向上 好好学习天天向上 好好学习天天向上 好好学习天天向上 好好学习天天向上 好好学习天天向上 好好学习天天向上</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"d2"</span>&gt;</span>Superxuyuey<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-自己实现一个bind函数"><a href="#9-自己实现一个bind函数" class="headerlink" title="9.自己实现一个bind函数"></a>9.自己实现一个bind函数</h3><p>原理，通过spply或者call方法来实现</p>
+<p>需求：改变this指向，返回一个函数，可以传递参数，第二个参数为类似于apply的第二个参数为数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需求：改变this指向，返回一个函数，可以传递参数，第二个参数为类似于apply的第二个参数为数组</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.bindTo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//总所周知，arguments对象保存参数， arguments[0]表示传入的第一个参数，即要改变this的主指向</span></span><br><span class="line">    <span class="keyword">var</span> first = <span class="built_in">arguments</span>[<span class="number">0</span>]</span><br><span class="line">    <span class="comment">//获取剩余的参数</span></span><br><span class="line">    <span class="comment">//Array.prototype.slice.call(arguments)将传入的参数转换成一个数组，.sliece(1)表明返回第一个参数之后的参数数组</span></span><br><span class="line">    <span class="keyword">var</span> last = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>).slice(<span class="number">1</span>)</span><br><span class="line">    <span class="comment">//保存this指向</span></span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span></span><br><span class="line">    <span class="comment">//将当前调用bindTo函数的this指向改变，first为表示需要改变的this的指向。通过apply方法来改变</span></span><br><span class="line">    <span class="comment">//last为需要传递的其他参数</span></span><br><span class="line">    <span class="comment">//instanceof关键字用于判断构造函数的原型链是否为该参数的原型链</span></span><br><span class="line">    <span class="comment">//this instanceof fn 判断的是当前是否被new过，如果new过了，则应该让this指向构造函数本身</span></span><br><span class="line">    <span class="comment">//如果没有被new过，则此时this应该指向传递过来的第一个参数（实现this指向的改变）</span></span><br><span class="line">    <span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> newThis = <span class="keyword">this</span> <span class="keyword">instanceof</span>  fn ?<span class="keyword">this</span>:that</span><br><span class="line">        <span class="comment">//改变this指向</span></span><br><span class="line">        _this.apply(newThis,arr)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//实现继承</span></span><br><span class="line">    fn.prototype = &#123;</span><br><span class="line">        <span class="keyword">constructor</span>: fn,</span><br><span class="line">        _proto_: this.prototype</span><br><span class="line">    &#125;</span><br><span class="line">    return fn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-用setTimeout来实现setInterval"><a href="#10-用setTimeout来实现setInterval" class="headerlink" title="10.用setTimeout来实现setInterval"></a>10.用setTimeout来实现setInterval</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'aa'</span>)</span><br><span class="line">    setTimeout(say,<span class="number">2000</span>)</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(say,<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="11-JS怎么控制一次加载一张图片，加载完后再加载下一张"><a href="#11-JS怎么控制一次加载一张图片，加载完后再加载下一张" class="headerlink" title="11.JS怎么控制一次加载一张图片，加载完后再加载下一张"></a>11.JS怎么控制一次加载一张图片，加载完后再加载下一张</h3><p>一开始img中的路径为空</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将图片路径保存为数组</span></span><br><span class="line"><span class="keyword">var</span> imgUrl = [<span class="string">'0.jpg'</span>,<span class="string">'1.jpg'</span>,<span class="string">'2.jpg'</span>]</span><br><span class="line"><span class="comment">//获取img数组</span></span><br><span class="line"><span class="keyword">var</span> a_img = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'img'</span>)</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f_load_img</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//若n&gt;图片个数则返回，因为是数组，应从0开始加载</span></span><br><span class="line">    <span class="keyword">if</span>(n&gt;imgUrl.length<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="comment">//路径赋值</span></span><br><span class="line">    a_img[n].src = imgUrl[n]</span><br><span class="line">   <span class="comment">//上一张图片加载完之后触发onload事件</span></span><br><span class="line">    a_img[n].onload = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//延时500ms,执行回调函数f_load_img(++i)，实现图片一张一张加载</span></span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            f_load_img(++i)</span><br><span class="line">        &#125;,<span class="number">500</span>)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">f_load_img(i)</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-如何实现sleep的效果"><a href="#12-如何实现sleep的效果" class="headerlink" title="12.如何实现sleep的效果"></a>12.如何实现sleep的效果</h3><p>利用promise实现，因为then方法要在resolve执行完之后才能调用，所以我们这里将resolve延时执行，就可以通过then调用输出之后的结果达到sleep的效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">sleep</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temple = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve,reject</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">111</span>)</span><br><span class="line">        setTimeout(resolve,ms)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> temple</span><br><span class="line">&#125;</span><br><span class="line">sleep(<span class="number">2000</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">222</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//先输出111，两秒后输出222</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="13-Function-proto-getPrototypeOf-是什么？"><a href="#13-Function-proto-getPrototypeOf-是什么？" class="headerlink" title="13.Function.proto(getPrototypeOf)是什么？"></a>13.Function.<em>proto</em>(getPrototypeOf)是什么？</h3><p><img src="/2019/09/09/JavaScript（三）/1567498597081.png" alt="1567498597081"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.__proto__==<span class="built_in">Object</span>.prototype <span class="comment">//false </span></span><br><span class="line"><span class="built_in">Function</span>.__proto__==<span class="built_in">Function</span>.prototype<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="14-实现所有对象的深度克隆（包装对象，Date对象，正则对象）"><a href="#14-实现所有对象的深度克隆（包装对象，Date对象，正则对象）" class="headerlink" title="14.实现所有对象的深度克隆（包装对象，Date对象，正则对象）"></a>14.实现所有对象的深度克隆（包装对象，Date对象，正则对象）</h3><p>前面我们介绍了对象的深度克隆，但这种方法只能实现特定的objec的深度复制（比如数组和函数），不能实现包装对象Number，String，Boolean，以及Date 对象，RegExp对象的复制。</p>
+<p>前文的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>?[]:&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> obj)&#123;</span><br><span class="line">        newObj[item] = <span class="keyword">typeof</span> obj[item] == <span class="string">'object'</span>?deepClone(obj[item]): obj[item]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它只能实现数组和对象的深度克隆，不能实现包装对象的克隆</p>
+<p>若想实现对包装对象的克隆，可以使用valueOf()方法，使用valueOf()方法可以返回这个包装对象本身</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baseClone</span>(<span class="params">base</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> base.valueOf()</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>number</p>
+<p><img src="/2019/09/09/JavaScript（三）/1567500106858.png" alt="1567500106858"></p>
+<p>string</p>
+<p><img src="/2019/09/09/JavaScript（三）/1567500119552.png" alt="1567500119552"></p>
+<p>Boolean</p>
+<p><img src="/2019/09/09/JavaScript（三）/1567500152985.png" alt="1567500152985"></p>
+<p>对应Date类型，因为valueOf方法，日期类定义的valueOf()方法会返回它的一个内部表示：1970 年 1 月 1 </p>
+<p>日以来的毫秒数.因此我们可以在 Date 的原型上定义克隆的方法： </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.clone=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">this</span>.valueOf());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567500290406.png" alt="1567500290406"></p>
+<h3 id="15-说一下node中的事件-events-模块"><a href="#15-说一下node中的事件-events-模块" class="headerlink" title="15.说一下node中的事件(events)模块"></a>15.说一下node中的事件(events)模块</h3><p>Node中的事件模型就是我们常见的订阅发布模式,Nodejs核心API都采用异步事件驱动,所有可能触发事件的对象都是一个继承自EventEmitter类的子类实例对象。简单来说就是Node帮我们实现了一个订阅发布模式。</p>
+<h4 id="订阅发布模式"><a href="#订阅发布模式" class="headerlink" title="订阅发布模式"></a>订阅发布模式</h4><p>订阅发布模式定义了一种一对多的依赖关系,在Node中EventEmitter 对象上开放了一个可以用于监听的on(eventName,callback)函数,允许将一个或多个函数绑定到对应的事件上。当 EventEmitter 对象触发一个事件时,所有绑定在该事件上的函数都被同步地调用!这种模式在node中大量被使用,例如：后续文章中我们会说到的流等,那现在我们就来一步步实现Node中的events模块！</p>
+<p><strong>on的作用是对指定事件绑定事件处理函数，emit则是将指定的事件对应的处理函数依次执行</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入事件模块</span></span><br><span class="line"><span class="keyword">var</span> events=<span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="comment">//定义一个EventEmitter实例</span></span><br><span class="line"><span class="keyword">var</span> eventEmitter=<span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"><span class="comment">//绑定say事件，当该事件触发时，所有绑定在该事件上的函数都被同步调用</span></span><br><span class="line">eventEmitter.on(<span class="string">'say'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello'</span>,name); </span><br><span class="line">&#125;)</span><br><span class="line">eventEmitter.emit(<span class="string">'say'</span>,<span class="string">'Jony yu'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567500769174.png" alt="1567500769174"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events=<span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="keyword">var</span> eventEmitter=<span class="keyword">new</span> events.EventEmitter();</span><br><span class="line">eventEmitter.on(<span class="string">'say'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello'</span>,name);</span><br><span class="line">&#125;)</span><br><span class="line">eventEmitter.on(<span class="string">'say'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'world'</span>,name)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">eventEmitter.emit(<span class="string">'say'</span>,<span class="string">'Jony yu'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567501208383.png" alt="1567501208383"></p>
+<h3 id="16-箭头函数中this指向举例"><a href="#16-箭头函数中this指向举例" class="headerlink" title="16.箭头函数中this指向举例"></a>16.箭头函数中this指向举例</h3><p>定义时绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a = 11</span><br><span class="line">function test()&#123;</span><br><span class="line">    this.a = 22</span><br><span class="line">    let b = () =&gt;&#123;</span><br><span class="line">        console.log(this.a)</span><br><span class="line">    &#125;</span><br><span class="line">    b()</span><br><span class="line">&#125;</span><br><span class="line">var x = new test()//输出22</span><br></pre></td></tr></table></figure>
+
+<h3 id="17-js判断类型"><a href="#17-js判断类型" class="headerlink" title="17.js判断类型"></a>17.js判断类型</h3><p>判断方法：typeof()，instanceof，Object.prototype.toString.call()</p>
+<h3 id="18-数组常用方法"><a href="#18-数组常用方法" class="headerlink" title="18.数组常用方法"></a>18.数组常用方法</h3><ul>
+<li><p>push()：添加数组，使用push方法添加数据到数组尾部</p>
+</li>
+<li><p>unshift()：添加数组，使用unshift方法添加数据到数组顶端</p>
+</li>
+<li><p>pop()：删除数组，删除数组末尾的元素，该函数会返回删除的值</p>
+</li>
+<li><p>shift()：删除数组，删除数组顶端的元素，该函数会返回删除的值</p>
+</li>
+<li><p>splice()：删除，替换，插入元素</p>
+<p>第一个参数为起始位置索引，第二个参数为切取元素个数，第三个参数为插入元素(可选)</p>
+<p>切取的元素不包含起始位置，方法返回切取元素组成的新数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> b = a.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a)<span class="comment">//[1,4,5,6]</span></span><br><span class="line"><span class="built_in">console</span>.log(b)<span class="comment">//[2.3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>slice()：切取数组的一段元素，不包含起始位置。方法不会改变原数组，返回切取元素组成的新数组</p>
+<p>第一个参数：起始位置；第二个参数：结束位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> b = a.slice(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a)<span class="comment">//[1,2,3]</span></span><br><span class="line"><span class="built_in">console</span>.log(b)<span class="comment">//[2]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sort()：数组排序，方法按照字符编码顺序进行排序，默认按照首字符的编码进行排序，从小到大</p>
+<p>例如：因为14，17，11，10首字符均为1所以排在前面，首字符相同的情况下比较第二个字符，谁小谁在前面。依次往下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [14,17,6,5,11,3,10]</span><br><span class="line">var b = a.sort()</span><br><span class="line">console.log(a)</span><br><span class="line">console.log(b)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567513609981.png" alt="1567513609981"></p>
+</li>
+</ul>
+<p>若想按照其他标准进行比较，则需要定义比较函数，该函数要比较两个值，然后返回一个用于说明两个值顺序的数字，其返回值如下</p>
+<ul>
+<li>若(a&lt;b),在排序后的数组中,a应该出现在b之前，则返回-1</li>
+<li>若(a&gt;b),则返回0</li>
+<li>若(a=b),则返回1</li>
+</ul>
+<p>例如:这是从小到大；从大到小则把-1换成+1，+1换成-1即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">7</span>,<span class="number">10</span>,<span class="number">32</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">4</span>]</span><br><span class="line">arr.sort(sortFun)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortFun</span>(<span class="params">arr1,arr2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr1&gt;arr2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr1&lt;arr2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//4,6,7,9,10,32</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>reverse()：颠倒数组元素的顺序，反之逆序后的数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'小花'</span>,<span class="string">'小明'</span>,<span class="string">'小美'</span>]</span><br><span class="line">arr.reverse()</span><br><span class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//['小美',‘小明','小花']</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>join()：方法选择数组的输出方式是用什么符号连接，方法返回连接后的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'小花'</span>,<span class="string">'小明'</span>,<span class="string">'小美'</span>]</span><br><span class="line"><span class="keyword">var</span> b = arr.join(<span class="string">'-'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//['小花','小明','小美']</span></span><br><span class="line"><span class="built_in">console</span>.log(b)<span class="comment">//小花-小明-小美</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map()：方法返回经过map参数中的函数处理后的新数组，若无函数参数，方法会遍历并返回原数组</p>
+<p>注意：方法不会对空数组进行检测，方法不会改变原数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = [1,3,5,7]</span><br><span class="line">var b = a.map(function (num) &#123;</span><br><span class="line">    return num*2</span><br><span class="line">&#125;)</span><br><span class="line">console.log(b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>concat()：扩充数组，将多个数组的元素合并为一个数组，方法返回扩充后的新数组。方法不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>]</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">9</span>,<span class="number">10</span>]</span><br><span class="line"><span class="keyword">var</span> c = a.concat(b)</span><br><span class="line"><span class="built_in">console</span>.log(c)<span class="comment">//[1,3,5,7,9,10]</span></span><br><span class="line"><span class="built_in">console</span>.log(a)<span class="comment">//[1,3,5,7]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="19-字符串常用方法"><a href="#19-字符串常用方法" class="headerlink" title="19.字符串常用方法"></a>19.字符串常用方法</h3><ul>
+<li><p>replace()：方法替换正则表达式相匹配字符串，方法返回替换后的字符串，方法不会影响原字符串</p>
+<ul>
+<li>注意该方法只会替换第一个出现的匹配字符</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"Visit Microsoft!"</span></span><br><span class="line"><span class="keyword">var</span> a = str.replace(<span class="string">'Microsoft'</span>, <span class="string">"W3School"</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//Visit W3School!</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以使用该方法去除字符串中指定的字符，replace(“str”,””)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"Visit Microsoft!"</span></span><br><span class="line"><span class="keyword">var</span> a = str.replace(<span class="string">'Microsoft'</span>, <span class="string">""</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//Visit !</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>全局替换：replace(/str/g, “”)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"hello world"</span></span><br><span class="line"><span class="keyword">var</span> a = str.replace(<span class="regexp">/o/g</span>, <span class="string">""</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a)<span class="comment">//hell wrld</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>toUpperCase()：字符串转大写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"hello world"</span></span><br><span class="line"><span class="keyword">var</span> a = str.toUpperCase()</span><br><span class="line"><span class="built_in">console</span>.log(a)<span class="comment">//HELLO WORLD</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="20-数组去重"><a href="#20-数组去重" class="headerlink" title="20.数组去重"></a>20.数组去重</h3><ul>
+<li><p>indexOf()循环去重,indexOf()方法会检索数组，返回某个指定的字符在数组中首次出现的位置。当指定的字符出现时返回该位置，没有则返回-1。方法不会改变原数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">2</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique1</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//创建一个空数组</span></span><br><span class="line">    <span class="keyword">var</span> hash=[];</span><br><span class="line">    <span class="comment">//遍历原数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="comment">//检索原数组，若该项在数组中没有，则将其push进新数组</span></span><br><span class="line">        <span class="keyword">if</span>(hash.indexOf(arr[i])==<span class="number">-1</span>)&#123;</span><br><span class="line">            hash.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回新数组</span></span><br><span class="line">    <span class="keyword">return</span> hash;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = unique1(arr)</span><br><span class="line"><span class="built_in">console</span>.log(b)<span class="comment">//[2,8,5,0,6,7]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6，Set数组去重。ES6提供了新的数据结构—–Set。它类似于数组，但是它的成员都是唯一的，没有重复</p>
+<p>Set本身是一个构造函数，用来生成Set数据结构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">4</span>]</span><br><span class="line"><span class="comment">//创建一个Set实例,它的成员都是唯一的，它会自动去重</span></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set(arr)</span><br><span class="line">//将其转换成数组</span><br><span class="line">let newArr = Array.from(<span class="keyword">set</span>)</span><br><span class="line">console.log(<span class="keyword">set</span>)</span><br><span class="line">console.log(newArr)//[7,8,9,5,4]</span><br><span class="line">console.log(typeof <span class="keyword">set</span>)</span><br><span class="line">console.log(typeof newArr)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567518818246.png" alt="1567518818246"></p>
+</li>
+</ul>
+<h3 id="21-将’-‘线连接的字符串转驼峰式"><a href="#21-将’-‘线连接的字符串转驼峰式" class="headerlink" title="21.将’-‘线连接的字符串转驼峰式"></a>21.将’-‘线连接的字符串转驼峰式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> arr = name.replace(<span class="regexp">/^-/</span>,<span class="string">''</span>).split(<span class="string">'-'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(arr)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        arr[i] = arr[i].replace(<span class="regexp">/^\w/</span>,<span class="function"><span class="keyword">function</span> (<span class="params">ele</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> ele.toUpperCase()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'font-size-bac'</span></span><br><span class="line"><span class="built_in">console</span>.log(change(str))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/JavaScript（三）/1567523596926.png" alt="1567523596926"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HTTP,HTML,浏览器（二） - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="HTTP,HTML,浏览器（二）1.click在ios上有300ms延迟，原因及如何解决？
+粗暴型，禁用缩放
+
+
+利用fastclick，其原理是：
+检测到touchend事件后，立刻出发模拟cli,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">HTTP,HTML,浏览器（二）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">HTTP,HTML,浏览器（二）</h1>
+        <div class="stuff">
+            <span>九月 09, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/html-浏览器/">html 浏览器</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="HTTP-HTML-浏览器（二）"><a href="#HTTP-HTML-浏览器（二）" class="headerlink" title="HTTP,HTML,浏览器（二）"></a>HTTP,HTML,浏览器（二）</h2><h3 id="1-click在ios上有300ms延迟，原因及如何解决？"><a href="#1-click在ios上有300ms延迟，原因及如何解决？" class="headerlink" title="1.click在ios上有300ms延迟，原因及如何解决？"></a>1.click在ios上有300ms延迟，原因及如何解决？</h3><ul>
+<li><p>粗暴型，禁用缩放</p>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+</li>
+<li><p>利用fastclick，其原理是：</p>
+<p>检测到touchend事件后，立刻出发模拟click事件，并且把浏览器300毫秒之后真正触发的事件给阻断掉</p>
+</li>
+</ul>
+<h3 id="2-addEventListener参数"><a href="#2-addEventListener参数" class="headerlink" title="2.addEventListener参数"></a>2.addEventListener参数</h3><p>addEventListener(事件名,function,useCapture)</p>
+<p>其中useCapture指定事件是否在捕获冒泡阶段执行，默认为false冒泡阶段触发，为true时事件在捕获阶段执行。为true的要先于false执行</p>
+<h3 id="3-介绍知道的http返回的状态码"><a href="#3-介绍知道的http返回的状态码" class="headerlink" title="3.介绍知道的http返回的状态码"></a>3.介绍知道的http返回的状态码</h3><ul>
+<li><p>100：continue继续，客户端应继续其请求</p>
+</li>
+<li><p>101：switching protocols，切换协议，服务器根据客户端的请求切换协议。只能切换到更高级的协议。</p>
+</li>
+<li><p>200：OK，请求成功，一般用于GET和POST请求</p>
+</li>
+<li><p>201：created已创建，成功请求并创建了新的资源</p>
+</li>
+<li><p>203：Non-Authoritative Information 非授权信息。请求成功。但返回的 meta 信息不在原 始的服务器，而是一个副本</p>
+</li>
+<li><p>204：no content 无内容，服务器成功处理，但未返回内容，在未更新网页的情况下，可确保浏览器继续显示当前文档。</p>
+</li>
+<li><p>301：永久重定向，　　比如，我们访问 <strong>http</strong>://<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 会跳转到 <strong>https</strong>://<a href="http://www.baidu.com，发送请求之后，就会返回301状态码，然后返回一个location，提示新的地址，浏览器就会拿着这个新的地址去访问。" target="_blank" rel="noopener">www.baidu.com，发送请求之后，就会返回301状态码，然后返回一个location，提示新的地址，浏览器就会拿着这个新的地址去访问。</a></p>
+</li>
+<li><p>302：临时重定向，比如未登陆的用户访问用户中心重定向到登录页面。</p>
+<ul>
+<li><h2 id="301重定向和302重定向的区别"><a href="#301重定向和302重定向的区别" class="headerlink" title="301重定向和302重定向的区别"></a>301重定向和302重定向的区别</h2><p>302重定向只是暂时的重定向，搜索引擎会抓取新的内容而保留旧的地址，<strong>因为服务器返回302，所以，搜索搜索引擎认为新的网址是暂时的。</strong></p>
+<p><strong>而301重定向是永久的重定向，搜索引擎在抓取新的内容的同时也将旧的网址替换为了重定向之后的网址。</strong></p>
+</li>
+</ul>
+</li>
+<li><p>304：not modified未修改，所请求的资源未修改，服务器返回此状态码时，不会返回任何资源，客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源。</p>
+</li>
+<li><p>400：Bad Request，客户端请求的语法错误，服务器无法理解</p>
+</li>
+<li><p>401：Unauthorized 请求要求用户的身份认证</p>
+</li>
+<li><p>403：Forbidden 服务器理解请求客户端的请求，但是拒绝执行此请求</p>
+</li>
+<li><p>404：Not Found 服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</p>
+</li>
+<li><p>410：客户端请求的资源已经不存在。410 不同于 404，如果资源以前有现在被永久删除了可使用 410 代码，网站设计人员可通过 301 代码指定资源的新位置</p>
+</li>
+</ul>
+<h3 id="4-强、协商缓存"><a href="#4-强、协商缓存" class="headerlink" title="4.强、协商缓存"></a>4.强、协商缓存</h3><p>缓存分为两种，强缓存和协商缓存，根据响应的header内容来决定</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>获取资源形式</th>
+<th>状态码</th>
+<th>发送请求到服务器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>强缓存</td>
+<td>从缓存取</td>
+<td>200</td>
+<td>否，直接从缓存取</td>
+</tr>
+<tr>
+<td>协商缓存</td>
+<td>从缓存取</td>
+<td>304</td>
+<td>是，通知服务器来告知缓存是否可用</td>
+</tr>
+</tbody></table>
+<h3 id="5-强缓存、协商缓存什么时候用哪个"><a href="#5-强缓存、协商缓存什么时候用哪个" class="headerlink" title="5.强缓存、协商缓存什么时候用哪个"></a>5.强缓存、协商缓存什么时候用哪个</h3><p>因为服务器上的资源不是一成不变的，大多数情况下它会更新，如果这个时候我们还访问本地缓存，那么对用户来说，那就相当于资源没有更新，用户看到的还是旧的资源，所以我们希望服务器上的资源更新了浏览器就请求新的资源，没有更新就用本地的缓存，以最大程度减少因网络请求而产生的资源浪费。</p>
+<p><img src="/2019/09/09/HTTP-HTML-浏览器（二）/1566977595433.png" alt="1566977595433"></p>
+<h3 id="5-讲讲304"><a href="#5-讲讲304" class="headerlink" title="5.讲讲304"></a>5.讲讲304</h3><p>304，如果客户端发送了一个带条件的GET请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个304状态码</p>
+<h3 id="6-前端优化（性能优化）"><a href="#6-前端优化（性能优化）" class="headerlink" title="6.前端优化（性能优化）"></a>6.前端优化（性能优化）</h3><p>降低请求量：合并资源，减少 HTTP 请求数，minify / gzip 压缩，webP，lazyLoad。</p>
+<p>加快请求速度：预解析 DNS，减少域名数，并行加载，CDN 分发。 </p>
+<p>缓存：HTTP 协议缓存请求，离线缓存 manifest，离线数据缓存 localStorage。 </p>
+<p>渲染：JS/CSS 优化，加载顺序，服务端渲染，pipeline。</p>
+<h3 id="7-GET和POST的区别"><a href="#7-GET和POST的区别" class="headerlink" title="7.GET和POST的区别"></a>7.GET和POST的区别</h3><ul>
+<li>get参数通过url传递，post放在request.body中</li>
+<li>get请求在url中传递的参数是有长度限制的，而post没有</li>
+<li>get不如post安全</li>
+<li>get请求只能进行url编码，而post支持多种编码方式</li>
+<li>get 请求参数会被完整保留在浏览历史记录里，而 post 中的参数不会被保留。</li>
+<li>GET 产生一个TCP 数据包；POST 产生两个TCP 数据包。</li>
+</ul>
+<h3 id="8-http支持的方法"><a href="#8-http支持的方法" class="headerlink" title="8.http支持的方法"></a>8.http支持的方法</h3><p>GET，POST，HEAD，OPTIONS，PUT、DELETE、TRACE、CONNECT</p>
+<h3 id="9-如何画一个三角形"><a href="#9-如何画一个三角形" class="headerlink" title="9.如何画一个三角形"></a>9.如何画一个三角形</h3><p>根据边框的均分原理，在两条边框的直角处两边要均分。在有宽度和高度的时候，它们看起来像一个矩形，当宽高都为0时，均分之后就是一个三角形了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#dv</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line">        <span class="attribute">border</span>:<span class="number">100px</span> solid transparent;</span><br><span class="line">        <span class="attribute">border-bottom-color</span>: pink;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-HTML新增的元素"><a href="#7-HTML新增的元素" class="headerlink" title="7.HTML新增的元素"></a>7.HTML新增的元素</h3><ul>
+<li>为了更好的实现web语义化，增加了header,footer，nav,，aside等语义化标签</li>
+<li>为增强表单，为input增加了cokor，email,data等类型</li>
+<li>在存储方面，提供了sessionStorage，localStorage</li>
+<li>在多媒体方面，提供了audion和vedio标签</li>
+</ul>
+<h3 id="8-在地址栏里输入一个URL，到这个页面呈现出来，中间会发生什么？（必考）"><a href="#8-在地址栏里输入一个URL，到这个页面呈现出来，中间会发生什么？（必考）" class="headerlink" title="8.在地址栏里输入一个URL，到这个页面呈现出来，中间会发生什么？（必考）"></a>8.在地址栏里输入一个URL，到这个页面呈现出来，中间会发生什么？（必考）</h3><ul>
+<li>输入url后，首先需要找到这个url域名的服务器ip,为了寻找这个IP，浏览器首先会寻找缓存，查看缓存中是否有纪录。</li>
+<li>缓存的查找顺序为：浏览器缓存-》系统缓存-》路由器缓存，缓存中没有则查找系统的hosts文件中是否有纪录，如果没有则查询DNS解析服务器，得到服务器的ip地址</li>
+<li>浏览器根据这个ip以及对应的端口号，构造一个http请求，这个请求报文会包括这次请求的信息，主要是请求方法，请求说明和请求附带的数据。并将这个http请求封装在一个tcp包中，这个tcp包会依次经过传输层，网络层，数据链路层，物理层到达服务器。</li>
+<li>服务器解析这个请求做出响应，返回响应的html给浏览器。因为html是一个树形解构，浏览器根据这个html来构建DOM树，在dom树的构建中如果遇到JS脚本和外部JS链接，则会停止DOM树的构建来执行和下载相应的JS代码，这会造成阻塞</li>
+<li>这就是为什么推荐将JS代码放在HTML代码的后面，之后根据外部样式，内部样式，内联样式构建一个CSS模型树，构建完成后与DOM树合并为渲染树。这里主要做的是排除非视觉节点（script,meta，display:none等）之后进行布局。</li>
+<li>布局主要是确定各个元素的位置和尺寸大小，之后是渲染页面，因为HTML文件中含有图片，视频‘，音频等资源，在解析DOM的过程中，遇到这些都会进行并行下载。</li>
+<li>浏览器对每个域的并行下载数量有一定的限制，一般是4-6个，当然在这些所有请求中我们还需要考虑到缓存，缓存一般用过Cache-Control、Last-Modify、Expires等首部字段控制。Cache-Control和Expires 的区别在于Cache-Control使用相对时间，Expires使用的是基于服务器 端的绝对时间。</li>
+<li>因为存在时差问题，一般采用Cache-Control，在请求这些有设置了缓存的数据时，会先查看是否枸杞，如果没有过期则会直接使用本地缓存（强缓存），过期则请求并在服务器校检（协商缓存）文件是否修改</li>
+<li>如果上一次 响应设置了 ETag 值会在这次请求的时候作为 If-None-Match 的值交给服务器校验，如果一致，继续校验 Last-Modified，没有设置 ETag 则 直接验证 Last-Modified，再决定是否返回 304 </li>
+</ul>
+<h3 id="9-cookie和session的区别"><a href="#9-cookie和session的区别" class="headerlink" title="9.cookie和session的区别"></a>9.cookie和session的区别</h3><p>cookie和session都可以用来存储用户信息，cookie存放于客户端，session存放于服务器端。因为cookie存放于客户端有可能被窃取，所以cookie一般用来存放不敏感的信息。敏感的信息用session存储。cookie的大小一般有限制，一般为4K</p>
+<h3 id="10cookie和localStorage和sessionStorage的区别"><a href="#10cookie和localStorage和sessionStorage的区别" class="headerlink" title="10cookie和localStorage和sessionStorage的区别"></a>10cookie和localStorage和sessionStorage的区别</h3><ul>
+<li>生命周期<ul>
+<li>cookie：可设置失效时间，否则默认为关闭浏览器失效</li>
+<li>localStorage：除非被手动清除，否则永久保存</li>
+<li>sessionStorage：仅在当前网页回话下有效，关闭页面或浏览器就会被清除</li>
+</ul>
+</li>
+<li>存放数据<ul>
+<li>cookie：4K左右</li>
+<li>localStorage：5M</li>
+<li>sessionStorage：5M</li>
+</ul>
+</li>
+<li>http请求<ul>
+<li>cookie每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</li>
+<li>其他两个：仅在客户端即浏览器中保存，不参与和服务器的通信</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-HTTP2-0的特性"><a href="#11-HTTP2-0的特性" class="headerlink" title="11.HTTP2.0的特性"></a>11.HTTP2.0的特性</h3><ul>
+<li>内容安全，因为HTTP2.0是基于https的，天然具有安全特性，通过HTTP2.0的特性可以避免单纯使用https的性能下降</li>
+<li>二进制格式，http1.x的解析是基于文本的，http2.0将所有的传输信息分割为更小的消息和帧，并对它们采用二进制格式编码，基于二进制可以让协议有更多的扩展性，比如引入了帧来传输数据和指令</li>
+<li>多路复用，一个连接可以混杂几个不同的request请求，接收方可以根据id将request在归属到各自不同的服务端请求里面。另外多路复用中也支持了流的优先级，允许客户端告诉服务器哪些内容是更优先的资源，可以优先传输</li>
+</ul>
+<h3 id="12-cache-control的值有哪些？"><a href="#12-cache-control的值有哪些？" class="headerlink" title="12.cache-control的值有哪些？"></a>12.cache-control的值有哪些？</h3><p>cache-control是一个通用消息字段被用于HTTP请求和响应中，通过指定指令来实现缓存机制，这个缓存指令是单向的，常见的取值有private、no-cache、max-age，默认为private</p>
+<h3 id="13-浏览器在生成页面的时候，会生成那两颗树？"><a href="#13-浏览器在生成页面的时候，会生成那两颗树？" class="headerlink" title="13.浏览器在生成页面的时候，会生成那两颗树？"></a>13.浏览器在生成页面的时候，会生成那两颗树？</h3><p>DOM树和CSSOM规则树</p>
+<p>当浏览器接收到服务器相应来的 HTML 文档后，会遍历文档节点，生成 DOM 树， </p>
+<p>CSSOM 规则树由浏览器解析 CSS 文件生成，</p>
+<h3 id="14-CSRF和XSS网络攻击及防范"><a href="#14-CSRF和XSS网络攻击及防范" class="headerlink" title="14.CSRF和XSS网络攻击及防范"></a>14.CSRF和XSS网络攻击及防范</h3><ul>
+<li><p>CSRF：跨站请求伪造</p>
+<p>可以理解为攻击者盗用了用户的身份，以用户的名义发送了恶意请求。</p>
+<p>跨站请求攻击，简单地说，是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过的网站并运行一些操作（如发邮件，发消息，甚至财产操作如转账和购买商品）。由于浏览器曾经认证过，所以被访问的网站会认为是真正的用户操作而去运行。这利用了web中用户身份验证的一个漏洞：<strong>简单的身份验证只能保证请求发自某个用户的浏览器，却不能保证请求本身是用户自愿发出的</strong>。</p>
+<p>防范：使用验证码，检查HTTP头部的refer字段，使用token检验</p>
+</li>
+<li><p>XSS：跨站脚本攻击</p>
+<p>攻击者通过注入恶意的脚本，在用户浏览网页的时候进行攻击，比如获取cookie，或者其他用户身份信息。可以分为存储型和反射型。</p>
+<p>存储型是攻击者输入一些数据并且存储到了数据库中，其他浏览者看到的时候进行攻击。</p>
+<p>反射型的话不存储在数据库中，往往表现为将攻击代码放在url地址的请求参数中。</p>
+<p>防范：防御的话为cookie设置httpOnly属性，对用户的输入进行检查，进行特殊字符过滤。</p>
+</li>
+</ul>
+<h3 id="15-介绍HTTP协议"><a href="#15-介绍HTTP协议" class="headerlink" title="15.介绍HTTP协议"></a>15.介绍HTTP协议</h3><p>http基于TCP/IP通信协议来传递数据（HTML、文件、图片、查询结果等），HTTP是一个属于应用层的面向对象的协议，由于其简捷、快捷的方式，适用于分布式超媒体信息系统。HTTP协议工作于客户端-服务端架构上，浏览器作为HTTP客户端通过URL地址向服务端即web服务器发送请求，web服务器收到请求后，向客户端发送响应信息。</p>
+<h3 id="16-输入URL到页面加载显示完成发生了什么"><a href="#16-输入URL到页面加载显示完成发生了什么" class="headerlink" title="16.输入URL到页面加载显示完成发生了什么"></a>16.输入URL到页面加载显示完成发生了什么</h3><ul>
+<li>DNS解析</li>
+<li>TCP连接</li>
+<li>发送HTTP请求</li>
+<li>服务端处理请求并返回HTTP报文</li>
+<li>浏览器解析渲染页面</li>
+</ul>
+<h3 id="17-说一下对cookie和Session的认知道，cookie有哪些限制？"><a href="#17-说一下对cookie和Session的认知道，cookie有哪些限制？" class="headerlink" title="17.说一下对cookie和Session的认知道，cookie有哪些限制？"></a>17.说一下对cookie和Session的认知道，cookie有哪些限制？</h3><ul>
+<li>cookie数据存放于浏览器上，session存放于服务器上</li>
+<li>cookie不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗。我们尽量把敏感信息存放到session中</li>
+<li>session 会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能 考虑到减轻服务器性能方面，应当使用 COOKIE。</li>
+<li>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie</li>
+</ul>
+<h3 id="18-具体有哪些请求头是跟缓存相关的"><a href="#18-具体有哪些请求头是跟缓存相关的" class="headerlink" title="18.具体有哪些请求头是跟缓存相关的"></a>18.具体有哪些请求头是跟缓存相关的</h3><p>缓存分为两种：强缓存和协商缓存，根据响应的header内容来决定</p>
+<ul>
+<li><p>强缓存相关字段有 expires，cache-control。如果 cache-control 与 expires 同时存在的 </p>
+<p>话，cache-control 的优先级高于 expires。</p>
+</li>
+<li><p>协商缓存相关字段有 Last-Modified/If-Modified-Since，Etag/If-None-Match</p>
+</li>
+</ul>
+<h3 id="19-get和post的区别"><a href="#19-get和post的区别" class="headerlink" title="19.get和post的区别"></a>19.get和post的区别</h3><p><img src="/2019/09/09/HTTP-HTML-浏览器（二）/1566998549799.png" alt="1566998549799"></p>
+<h3 id="20-说说301，302，304状态码"><a href="#20-说说301，302，304状态码" class="headerlink" title="20.说说301，302，304状态码"></a>20.说说301，302，304状态码</h3><ul>
+<li>301：永久移动，请求的资源已被永久的移动到新的URL，返回信息会包括新的URL，浏览器会自动定向到新的URL，今后任何新的请求都应用新的URL代替</li>
+<li>302：临时移动，与301类似。但资源只是临时被移动，客户端继续使用原有的URL</li>
+<li>304：为修改，所请求的资源为修改，服务器返回此状态，不会返回任何资源。</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

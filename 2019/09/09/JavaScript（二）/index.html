@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaScript（二） - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="JavaScript  (二)1.说说前端中的事件流HTML中与javascript交互是通过时间驱动来实现的，例如鼠标点击事件onclick、页面的滚动事件onscroll等等，可以向文档或者文档,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">JavaScript（二）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaScript（二）</h1>
+        <div class="stuff">
+            <span>九月 09, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/前端面试/">前端面试</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="JavaScript-二"><a href="#JavaScript-二" class="headerlink" title="JavaScript  (二)"></a>JavaScript  (二)</h2><h3 id="1-说说前端中的事件流"><a href="#1-说说前端中的事件流" class="headerlink" title="1.说说前端中的事件流"></a>1.说说前端中的事件流</h3><p>HTML中与javascript交互是通过时间驱动来实现的，例如鼠标点击事件onclick、页面的滚动事件onscroll等等，可以向文档或者文档中的元素添加事件侦听器来监听事件，想要知道这些事件是在什么时候进行调用的，就需要了解一下“事件流”的概念</p>
+<p>什么是事件流？事件流描述的是从页面中接收事件的顺序。DOM2级事件流包括下面几个阶段</p>
+<ul>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ul>
+<p>addEventListenner是DOM2级事件新增的指定事件处理程序的操作，这个方法接收3个参数</p>
+<ul>
+<li>参数一：事件名</li>
+<li>参数二：事件处理函数</li>
+<li>参数三：布尔值</li>
+</ul>
+<p>最后一个参数如果是true表示在捕获阶段调用事件处理函数，如果是false表示在冒泡阶段调用事件处理函数。</p>
+<p>IE只支持事件冒泡</p>
+<h3 id="2-如何让事件先冒泡后捕获"><a href="#2-如何让事件先冒泡后捕获" class="headerlink" title="2.如何让事件先冒泡后捕获"></a>2.如何让事件先冒泡后捕获</h3><p>在DOM标准事件模型中，是先捕获后冒泡。但是如果要实现先冒泡后捕获的效果，对于同一个事件，监听捕获和冒泡，分别对应响应的处理函数，监听到捕获事件，先暂缓执行，直到冒泡事件被捕获后再执行捕获事件</p>
+<p>根据w3c标准，应先捕获再冒泡。若要实现先冒泡后捕获，给一个元素绑定两个addEventListener，其中一个第三个参数设置为false（即冒泡），另一个第三个参数设置为true（即捕获），调整它们的代码顺序，将设置为false的监听事件放在设置为true的监听事件前面即可  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//CSS</span></span><br><span class="line">   #dv1&#123;</span><br><span class="line">        width: <span class="number">300</span>px;</span><br><span class="line">        height: <span class="number">300</span>px;</span><br><span class="line">       border: <span class="number">2</span>px solid chartreuse;</span><br><span class="line">    &#125;</span><br><span class="line">    #dv2&#123;</span><br><span class="line">        width: <span class="number">200</span>px;</span><br><span class="line">        height: <span class="number">200</span>px;</span><br><span class="line">        border: <span class="number">2</span>px solid salmon;</span><br><span class="line">    &#125;</span><br><span class="line">    #dv3&#123;</span><br><span class="line">        width: <span class="number">100</span>px;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        border: <span class="number">2</span>px solid purple;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">"dv3"</span>&gt;</span><br><span class="line">    &lt;div id=<span class="string">"dv2"</span>&gt;</span><br><span class="line">        &lt;div id=<span class="string">"dv1"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//javascript</span></span><br><span class="line"><span class="keyword">var</span> dv1 = <span class="built_in">document</span>.getElementById(<span class="string">'dv1'</span>)</span><br><span class="line"><span class="keyword">var</span> dv2 = <span class="built_in">document</span>.getElementById(<span class="string">'dv2'</span>)</span><br><span class="line"><span class="keyword">var</span> dv3 = <span class="built_in">document</span>.getElementById(<span class="string">'dv3'</span>)</span><br><span class="line"></span><br><span class="line">dv1.addEventListener(<span class="string">'click'</span>,myfun1,<span class="literal">false</span>)</span><br><span class="line">dv1.addEventListener(<span class="string">'click'</span>,myfun11,<span class="literal">true</span>)</span><br><span class="line">dv2.addEventListener(<span class="string">'click'</span>,myfun2)</span><br><span class="line">dv3.addEventListener(<span class="string">'click'</span>,myfun3)</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">myfun1</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.alert(<span class="string">'我是的dv1,被电击了,我是冒泡'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myfun11</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.alert(<span class="string">'我是的dv1,被电击了，我是捕获'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myfun2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.alert(<span class="string">'我是的dv2,被电击了'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myfun3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.alert(<span class="string">'我是的dv3,被电击了'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-说一下事件委托"><a href="#3-说一下事件委托" class="headerlink" title="3.说一下事件委托"></a>3.说一下事件委托</h3><p>事件委托指的是，不在事件的发生地（直接DOM）上设置监听函数，而是在其父元素上设置监听函数，通过事件冒泡，父元素可以监听到子元素上的触发，通过判断事件发生元素的DOM类型来做出不同的响应。</p>
+<p>举例：最经典的就是ul和li标签的事件监听，比如我们在添加事件的时候，采用事件委托机制，不会在li标签上直接添加，而是在父元素ul上添加</p>
+<p>好处：比较合适动态元素的绑定，新添加的子元素也会有监听函数，也可以有事件触发机制。</p>
+<h3 id="4-说一下图片的懒加载和预加载"><a href="#4-说一下图片的懒加载和预加载" class="headerlink" title="4.说一下图片的懒加载和预加载"></a>4.说一下图片的懒加载和预加载</h3><ul>
+<li>预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染</li>
+<li>懒加载：懒加载的主要目的时作为服务器前端的优化，坚守请求数或延迟请求数。</li>
+</ul>
+<p>两种技术的本质，两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载，懒加载对服务器前端有一定的缓解压力作用，预加载会增加服务器前端压力。</p>
+<h3 id="5-mouseover和mouseenter的区别"><a href="#5-mouseover和mouseenter的区别" class="headerlink" title="5.mouseover和mouseenter的区别"></a>5.mouseover和mouseenter的区别</h3><ul>
+<li>mouseover：当鼠标移入元素或其子元素都会触发事件，所以有一个重复触发，冒泡的过程。对应的移除事件是mouseout。</li>
+<li>mouseenter：当鼠标移入元素本身（不包含元素的子元素）会触发事件，也就是不会冒泡，对应的移除事件是mouseleave</li>
+</ul>
+<h3 id="6-js的new操作符做了哪些事情"><a href="#6-js的new操作符做了哪些事情" class="headerlink" title="6.js的new操作符做了哪些事情"></a>6.js的new操作符做了哪些事情</h3><p>new操作符新建了一个空对象，这个对象原型指向构造函数的prototype，执行构造函数后返回这个对象</p>
+<h3 id="7-改变函数内部this指针的指向函数（bind-apply，call）的区别"><a href="#7-改变函数内部this指针的指向函数（bind-apply，call）的区别" class="headerlink" title="7.改变函数内部this指针的指向函数（bind,apply，call）的区别"></a>7.改变函数内部this指针的指向函数（bind,apply，call）的区别</h3><ul>
+<li>通过apply和call改变函数的this指向，它们两个函数的第一个参数都是一样的表示要改变指向的哪个对象</li>
+<li>第二个参数，apply是数组，而call则是arg1,arg2…这种形式</li>
+<li>通过bind改变this作用域会返回一个新的函数，这个函数不会马上执行</li>
+</ul>
+<h3 id="8-js的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别"><a href="#8-js的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别" class="headerlink" title="8.js的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别"></a>8.js的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别</h3><ul>
+<li>clientHeight：表示的是可视区域的高度，不包含border和滚动条</li>
+<li>offsetHelight：表示可是区域的高度，包含了border和滚动条</li>
+<li>scrollHelight：表示了所有区域的高度，包含了因为滚动被隐藏的部分</li>
+<li>scrollTop：获取元素滚动条的距离（上下）</li>
+<li>clientTop：表示边框border的厚度，在未指定的情况下一般为0</li>
+</ul>
+<h3 id="9-js拖拽功能的实现"><a href="#9-js拖拽功能的实现" class="headerlink" title="9.js拖拽功能的实现"></a>9.js拖拽功能的实现</h3><p>主要就是利用mosedown,mousemove,mouseip这三个事件</p>
+<p>当鼠标按下时，记录当前鼠标x至左边框的距离，以及当前鼠标y至上边框的距离</p>
+<p>当鼠标移动时，计算移动距离，然后动态改变left,和top的值（注意，这里设置position绝对定位脱离文档流）</p>
+<p>当鼠标松开时，为了预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）。设置mousemove和mouseup为 null</p>
+<p>补充：也可以通过 html5 的拖放（Drag 和 drop）来实现 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">"drag"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line">#drag&#123;</span><br><span class="line"><span class="comment">/*  设置决定定位，脱离文档流便于拖拽*/</span></span><br><span class="line">    position: absolute;</span><br><span class="line">    width: <span class="number">200</span>px;</span><br><span class="line">    height: <span class="number">200</span>px;</span><br><span class="line">    background-color: aqua;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//js</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> drag = <span class="built_in">document</span>.getElementById(<span class="string">'drag'</span>)</span><br><span class="line">    drag.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取点击时刻鼠标的x 至元素左边框的距离</span></span><br><span class="line">        <span class="keyword">var</span> x = e.clientX - drag.offsetLeft</span><br><span class="line">        <span class="comment">//获取点击时刻鼠标的y 至元素上边框的距离</span></span><br><span class="line">        <span class="keyword">var</span> y = e.clientY - drag.offsetTop</span><br><span class="line"></span><br><span class="line">        drag.onmousemove = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="comment">//获取元素移动x</span></span><br><span class="line">            <span class="keyword">var</span> moveX = e.clientX - x</span><br><span class="line">            <span class="comment">//获取元素移动y</span></span><br><span class="line">            <span class="keyword">var</span> moveY = e.clientY - y</span><br><span class="line"></span><br><span class="line">            drag.style.left =  moveX+ <span class="string">'px'</span>;</span><br><span class="line">            drag.style.top = moveY + <span class="string">'px'</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        drag.onmouseup = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="comment">//当鼠标弹起来的时候不再移动</span></span><br><span class="line">            <span class="keyword">this</span>.onmousemove = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">this</span>.onmouseup = <span class="literal">null</span>; <span class="comment">//预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="10-ajax解决浏览器缓存"><a href="#10-ajax解决浏览器缓存" class="headerlink" title="10.ajax解决浏览器缓存"></a>10.ajax解决浏览器缓存</h3><p>浏览器的缓存问题是当浏览器读取一个文件时是按照url地址来解析的，当我们的文件内容发生变化时，浏览器读取的url地址也应该发生变化。</p>
+<ul>
+<li>在ajax发送请求前加上  anyAjaxObj.setRequestHeader(“If-Modified-Since”,”0”)</li>
+<li>在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader(“Cache-Control”,”no-cache”)。</li>
+<li>在 URL 后面加上一个随机数： “test?url” + Math.random()。</li>
+<li>如果时使用jquery,直接执行 $.ajaxSetup({cache:false})。这样页面的所有ajax请求都会执行这条语句不需要保存缓存纪录</li>
+</ul>
+<h3 id="11-JS中的垃圾回收机制"><a href="#11-JS中的垃圾回收机制" class="headerlink" title="11.JS中的垃圾回收机制"></a>11.JS中的垃圾回收机制</h3><p><strong>不再用到的内存，没有及时释放，就叫做内存泄漏。</strong></p>
+<p>垃圾回收机制的原理：</p>
+<p><strong>解决内存的泄露，垃圾回收机制会定期（周期性）找出那些不再用到的内存（变量），然后释放其内存。</strong></p>
+<p><strong>现在各大浏览器通常采用的垃圾回收机制有两种方法：标记清除，引用计数。</strong></p>
+<p>由于字符串，对象和数组没有固定大小，所以当它们的大小已知时才能对它们进行动态的存储分配。JS程序每次创建字符串，数组或对象时，解释器都必须分配内存来存储哪个实体。只有像这样动态地分配了内存，最终再释放这些内存以便它们能够被再用，否则JS的解释器将会消耗完系统中所有可用的内存，造成系统崩溃。</p>
+<p>以上解释了系统为什么要设置垃圾回收机制，JS不像C/C++,它们有自己的一套垃圾回收机制。JS的解释器可以检测到何时程序不再使用一个对象了，当他确定了一个对象是无用的时候，它就会把其所占用的内存释放掉</p>
+<p>例如</p>
+<figure class="highlight plain"><figcaption><span>a</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var b=&quot;world&quot;; </span><br><span class="line"></span><br><span class="line">var a=b;</span><br><span class="line"></span><br><span class="line">//这时，会释放掉&quot;hello world&quot;，释放内存以便再引用</span><br><span class="line"></span><br><span class="line">垃圾回收的方法：标记清除，计数引用</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">function test()&#123;</span><br><span class="line">    var a = 10;    //被标记&quot;进入环境&quot;</span><br><span class="line">    var b = &quot;hello&quot;;    //被标记&quot;进入环境&quot;</span><br><span class="line">&#125;</span><br><span class="line">test();    //执行完毕后之后，a和b又被标记&quot;离开环境&quot;，被回收</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>标记清除：这是最常见的垃圾回收方式，当变量进入环境时，就标记这个变量为：“进入环境”，从逻辑上讲，永远不能释放进入环境的变量所占的内存，只要执行流程进入相应的环境，就可能用到它们。当离开环境时，就标记为离开环境</p>
+<p>垃圾回收器在运行的时候会给存储在内存中的变量都加上标记，然后去掉环境变量中的变量，以及被环境变量中的变量所引用的变量，而在此之后剩下的带有标记的变量会被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了，最后垃圾回收机制到下一个周期运行时，将这些变量的内存释放，以回收它们所占用的空间</p>
+</li>
+</ul>
+<h3 id="13-JS的节流与防抖"><a href="#13-JS的节流与防抖" class="headerlink" title="13.JS的节流与防抖"></a>13.JS的节流与防抖</h3><h4 id="13-1防抖"><a href="#13-1防抖" class="headerlink" title="13.1防抖"></a>13.1防抖</h4><p>当我们在客户端向服务器发起一个ajax请求的时候，有时候服务器可能不会对我们的操作立刻做出响应或者客户端网速较慢等各种原因导致用户以为发出的请求并没有成功，那么他就有可能会连续点击发起同一请求，这样子就会造成资源的浪费，对于前端性能来说是很不利的</p>
+<p>这个时候我们就要用到防抖这一概念来解决以上问题，那么什么是防抖呢？</p>
+<p><strong>防抖主要是针对事件的处理，我们可以让当前事件发出后延时一会儿再执行，若在这一会儿时间内客户又连续触发了相同的事件。我们就把上一次事件清除，再重新计时，直到当前事件发出的延时时间内不会有相同的事件触发。再执行相应的操作</strong></p>
+<p><strong>总的来说就是合并多次触发操作</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;防抖&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button id=<span class="string">"btn"</span>&gt;点击测试&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    function getdata(a,b) &#123;</span></span><br><span class="line"><span class="regexp">        console.log(a)</span></span><br><span class="line"><span class="regexp">        console.log(b)</span></span><br><span class="line"><span class="regexp">        console.log('点击完成')</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    function  dedbounce(fn,delay) &#123;</span></span><br><span class="line"><span class="regexp">        var timer</span></span><br><span class="line"><span class="regexp">        return function (...args) &#123;</span></span><br><span class="line"><span class="regexp">           clearTimeout(timer)</span></span><br><span class="line"><span class="regexp">           timer =  setTimeout(function () &#123;</span></span><br><span class="line"><span class="regexp">               /</span><span class="regexp">/为了防止this作用域修改，它始终指向getdata</span></span><br><span class="line"><span class="regexp">               /</span><span class="regexp">/同样若getdata方法中有参数，我们也可以给其指定参数</span></span><br><span class="line"><span class="regexp">               fn.apply(this,[10,20])</span></span><br><span class="line"><span class="regexp">           &#125;,delay)</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    var btn =document.getElementById('btn')</span></span><br><span class="line"><span class="regexp">   btn.addEventListener('click',dedbounce(getdata,1000))</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="13-2节流"><a href="#13-2节流" class="headerlink" title="13.2节流"></a>13.2节流</h4><p>举个例子，当我么使用搜索引擎的时候我们没输入一个字符其实都会触发一个keyup事件，而该事件向服务器发起了一个ajax请求。可是我们真正想要搜索的结果并不是我们刚开始输的那几个字符，也就是说其实一开始的请求是没有必要的。就好像我只想要获得“皮卡丘”这三个字的请求，而我们在输入“皮”，或者“皮卡”的时候都会发送不必要的请求，这样子就会造成资源的浪费同时会加大服务器的负载。</p>
+<p>如果我们可以设置一个定时器，当我们输入结束后，过1秒钟再触发事件请求，就可以有效得减少我们对服务器得请求次数，大大降低了对资源的消耗这也就是所谓的节流。</p>
+<p>触发函数事件后，短时间间隔内无法连续调用，只有上一次函数执行后，过了规定的时间间隔，才能进行下一次的函数调用。<strong>（说白了就是水一直在流，只不过水龙头过一段时间才打开一次）</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span></span><br><span class="line">          content=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;节流&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input type=<span class="string">"text"</span> id=<span class="string">"put"</span>&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">output</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> val = put.value</span><br><span class="line">        <span class="built_in">console</span>.log(a,b)</span><br><span class="line">        <span class="built_in">console</span>.log(val)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> timer</span><br><span class="line">        <span class="keyword">return</span>  <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">            clearTimeout(timer)</span><br><span class="line">            timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                fn.apply(<span class="keyword">this</span>,[<span class="number">10</span>,<span class="number">20</span>])</span><br><span class="line">            &#125;,delay)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> put = <span class="built_in">document</span>.getElementById(<span class="string">'put'</span>)</span><br><span class="line">    put.addEventListener(<span class="string">'keyup'</span>,throttle(output,<span class="number">1000</span>))</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="13-3节流与防抖的区别"><a href="#13-3节流与防抖的区别" class="headerlink" title="13.3节流与防抖的区别"></a>13.3节流与防抖的区别</h4><h4 id="函数节流不管时间触发有多频繁，都会保证在规定的时间内一定会执行一次真正的时间处理函数，而函数防抖只是在最后一次事件后才触发一次函数，比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间后发一次ajax请求，而不是当用户停下滚动操作才去请求。这样的场景就适合用节流数据来是实现"><a href="#函数节流不管时间触发有多频繁，都会保证在规定的时间内一定会执行一次真正的时间处理函数，而函数防抖只是在最后一次事件后才触发一次函数，比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间后发一次ajax请求，而不是当用户停下滚动操作才去请求。这样的场景就适合用节流数据来是实现" class="headerlink" title="函数节流不管时间触发有多频繁，都会保证在规定的时间内一定会执行一次真正的时间处理函数，而函数防抖只是在最后一次事件后才触发一次函数，比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间后发一次ajax请求，而不是当用户停下滚动操作才去请求。这样的场景就适合用节流数据来是实现"></a>函数节流不管时间触发有多频繁，都会保证在规定的时间内一定会执行一次真正的时间处理函数，而函数防抖只是在最后一次事件后才触发一次函数，比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间后发一次ajax请求，而不是当用户停下滚动操作才去请求。这样的场景就适合用节流数据来是实现</h4><h3 id="14-eval是做什么的"><a href="#14-eval是做什么的" class="headerlink" title="14.eval是做什么的"></a>14.eval是做什么的</h3><p>它的功能是将对应的字符串解析成js并执行，应该避免使用js，因为非常消耗性能（2次，一次解析成js,一次执行）</p>
+<h3 id="15-如何理解前端模块化"><a href="#15-如何理解前端模块化" class="headerlink" title="15.如何理解前端模块化"></a>15.如何理解前端模块化</h3><p>前端模块化就是将复杂的文件编成一个一个独立的模块，比如js文件等等，分成独立的模块有利于重复利用和维护，这样做的后果会引来模块之间相互依赖的问题，所以就有了commonJS规范，AMD，CMD规范等等。以及用于js打包（编译等处理）的工具webpack.</p>
+<p>在我们开发大型的项目的时候，不同的功能对应不同的文件就是所谓的功能模块化有利于对项目的维护等。</p>
+<h3 id="16-说一下Commontjs、AMD、CMD"><a href="#16-说一下Commontjs、AMD、CMD" class="headerlink" title="16.说一下Commontjs、AMD、CMD"></a>16.说一下Commontjs、AMD、CMD</h3><p>一个模块是能实现特定功能的文件，有了模块就可以方便的使用别人的代码，想要什么功能就加载什么模块</p>
+<ul>
+<li><p>Common.js，开始于服务器端的模块化，同步定义的模块化，每个模块都是一个单独的作用域，若想要在别的模块中使用另一个模块的内容。可以使用modules.exports导出，使用require()加载模块</p>
+</li>
+<li><p>AMD：中文名异步模块定义的意思。requireJS实现了AMD规范，主要用于解决下述两个问题</p>
+<ul>
+<li>多个文件有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器</li>
+<li>加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应的时间越长</li>
+</ul>
+<p>语法：requireJS定义了一个函数define，它是全局变量，用来定义模块</p>
+<p>define([‘依赖模块’],回调函数)</p>
+<p>在页面上使用require(‘[依赖模块]’,回调函数)</p>
+<p>例如：</p>
+<p>alert,js模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'dataService'</span>],<span class="function"><span class="keyword">function</span> (<span class="params">dataService</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> msg = <span class="string">'alert,js'</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showMsg</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(msg,dataService.getName())</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//导出函数</span></span><br><span class="line">   <span class="keyword">return</span> &#123;showMsg&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>main.js主模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    requirejs.config(&#123;</span><br><span class="line">        <span class="comment">//指定加载模块路径</span></span><br><span class="line">        paths: &#123;</span><br><span class="line">            dataService: <span class="string">'../modules/dataService'</span>,</span><br><span class="line">            alert: <span class="string">'../modules/alert'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'[alert]'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">alert</span>) </span>&#123;</span><br><span class="line">        alert.showMsg()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p>conmmentjs主要是适用于服务器，因为文件直接保存在硬盘中，加载速度很快可以使用同步加载，而requireJS主要使用于浏览器，受限于网速的影响，如果使用同步加载的化可能会出现阻塞。因此要采用异步加载，这样浏览器不会失去响应，它指定的回调函数只有在前面的模块加载成功，才会去执行。</p>
+<p>因为网页在加载js的时候会停止渲染，因此我们可以通过异步的方式取加载js,而如果需要某些依赖也是异步去执行。依赖后再执行某些方法。</p>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

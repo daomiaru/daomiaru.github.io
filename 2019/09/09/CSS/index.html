@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CSS - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="CSS1.说一下css盒模型简介：就是用来装页面上的元素的矩形区域，css中的盒子模型包括IE盒子模型和标准的W3C盒子模型
+box-sizing：border-box，content-box
+标准,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">CSS</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">CSS</h1>
+        <div class="stuff">
+            <span>九月 09, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="1-说一下css盒模型"><a href="#1-说一下css盒模型" class="headerlink" title="1.说一下css盒模型"></a>1.说一下css盒模型</h3><p>简介：就是用来装页面上的元素的矩形区域，css中的盒子模型包括IE盒子模型和标准的W3C盒子模型</p>
+<p>box-sizing：border-box，content-box</p>
+<p><strong>标准盒子模型</strong></p>
+<p><img src="/2019/09/09/CSS/1566999049125.png" alt="1566999049125"></p>
+<p><strong>IE盒子模型</strong></p>
+<p><img src="/2019/09/09/CSS/1566999090127.png" alt="1566999090127"></p>
+<p>从图中我们可以看出，这两种盒子模型最主要的区别就是width的包含范围</p>
+<ul>
+<li>在标准的盒子模型中，width指的是content部分的宽度；</li>
+<li>在IE盒子模型中。width表示content+padding+border这三个部分的内容</li>
+</ul>
+<p>在CSS3中引入了box-sizing属性</p>
+<ul>
+<li>box-sizing：content-box表示标准的盒子模型</li>
+<li>box-sizing：border-box表示的是IE盒子模型。</li>
+</ul>
+<h3 id="2-画一条0-5px的线"><a href="#2-画一条0-5px的线" class="headerlink" title="2.画一条0.5px的线"></a>2.画一条0.5px的线</h3><ul>
+<li><p>采用transform：scale()缩放的方式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//css</span><br><span class="line"><span class="selector-id">#dv1</span>&#123;</span><br><span class="line">   <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">   <span class="attribute">background-color</span>: purple;</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(0.5);</span><br><span class="line">   &#125;</span><br><span class="line"><span class="selector-id">#dv2</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: purple;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">//html</span><br><span class="line">&lt;div id="dv1"&gt;&lt;/div&gt;</span><br><span class="line">&lt;<span class="selector-tag">br</span>&gt;&lt;<span class="selector-tag">br</span>&gt;</span><br><span class="line">&lt;div id="dv2"&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/CSS/1567000662024.png" alt="1567000662024"></p>
+</li>
+</ul>
+<h3 id="3-link标签和import标签的区别"><a href="#3-link标签和import标签的区别" class="headerlink" title="3.link标签和import标签的区别"></a>3.link标签和import标签的区别</h3><ul>
+<li>link属于html标签，而@import是css提供的</li>
+<li>页面被加载时，link会同时被加载，而@import引用的css会等到页面加载结束后加载</li>
+<li>link方式样式的权重高于@import</li>
+</ul>
+<h3 id="4-transiton和animation的区别"><a href="#4-transiton和animation的区别" class="headerlink" title="4.transiton和animation的区别"></a>4.transiton和animation的区别</h3><p>transtion和animation大部分属性时相同的，它们都是随时间改变元素的的属性值，它们的主要区别时transition需要触发一个时间才能改变属性，而animation不需要触发任何时间。并且transition为两帧，而animation可以做到不止两帧</p>
+<h3 id="5-flex布局（弹性布局）"><a href="#5-flex布局（弹性布局）" class="headerlink" title="5.flex布局（弹性布局）"></a>5.flex布局（弹性布局）</h3><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 布局的传统解决方案，基于盒状模型，依赖 display 属性 + position 属性 + float 属性。它 对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</p>
+<p><strong>PS：主轴就是弹性盒子子元素沿着排列的轴，与主轴垂直的轴称为侧轴</strong></p>
+<p>常用属性：</p>
+<ul>
+<li>flex-direction(适用于父容器上)：决定子item的排列方式（即决定主轴的方向）<ul>
+<li>row：左对齐横向排列（默认）</li>
+<li>row-reverse：右对齐横向排列</li>
+<li>column：纵向排列（自上而下）</li>
+<li>column-reverse：纵向排列（自下而上）</li>
+</ul>
+</li>
+<li>flex-wrap(适用于父容器上)：决定item超出父容器是否换行<ul>
+<li>wrap：当子元素溢出父容器换行</li>
+<li>nowrap：当子元素溢出父容器时不换行</li>
+<li>wrap-reverse：当子元素溢出父容器时换行，方向和wrapx相反</li>
+</ul>
+</li>
+<li>flex-flow(复合属性)：可同时设置flez-direction和flex-wrap</li>
+<li>justify-conten(适用于父容器上)：设置子元素在主轴上的对齐方式<ul>
+<li>flex-start：盒子元素向行起始位置对齐</li>
+<li>flex-end：盒子元素向行结束位置对齐</li>
+<li>centter：向行中间位置对齐</li>
+<li>space-between：平均分布在行里</li>
+<li>space-around：平均分布在行里，并在两端保留子元素与子元素之间间距大小的一半</li>
+</ul>
+</li>
+<li>align-items(适用于父容器上)：设置子元素在侧轴上的对齐方式<ul>
+<li>flex-start：侧轴起始处开始</li>
+<li>flex-end：侧轴结束位置</li>
+<li>center：侧重中间对齐</li>
+</ul>
+</li>
+<li>a;ien-self(适用于单独的子元素)：设置单独子元素的alien-items对齐方式。默认为auto,表示继承父元素的alien-item</li>
+<li>order(适用于子元素)：设置子元素的排列顺序，数值小的排在前面，可以为负值</li>
+<li>flex-basis：固定px</li>
+<li>flex-grow(适用于子元素)：根据扩展因子比率分配空间</li>
+<li>flex-shirk(适用于子元素)：根据收缩因子比率来分配空间</li>
+</ul>
+<h3 id="6-垂直居中的方法"><a href="#6-垂直居中的方法" class="headerlink" title="6.垂直居中的方法"></a>6.垂直居中的方法</h3><ul>
+<li><p>transfrom法：可以通过设置top:50%,left:50%，然后transform: translate(-50%,-50%);向后平移自身的一半</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//css</span><br><span class="line">.container&#123;</span><br><span class="line">            width: 500px;</span><br><span class="line">            height: 500px;</span><br><span class="line">            border: 2px solid seagreen;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 50%;</span><br><span class="line">            left: 50%;</span><br><span class="line">            transform: translate(-50%,-50%);</span><br><span class="line">        &#125;</span><br><span class="line">        .inner&#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: paleturquoise;</span><br><span class="line">            position: relative;</span><br><span class="line">            top: 50%;</span><br><span class="line">            left: 50%;</span><br><span class="line">            transform: translate(-50%,-50%);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">//html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>magin:auto法：可以通过定位position：absolute,设置上下左右均为0，magin:auto自动计算，达到垂直居中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> //css</span><br><span class="line"> div&#123;</span><br><span class="line">            width: 400px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            position: absolute;</span><br><span class="line">            border: 1px solid #465468;</span><br><span class="line">            margin:  auto;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            right: 0;</span><br><span class="line">            bottom: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        #dv&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            margin:  auto;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            right: 0;</span><br><span class="line">            bottom: 0;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">//html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dv"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用flex，将父容器设置为flex,并且设置alien-items:center，justify-content：center</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">   //css</span><br><span class="line">   #dv1&#123;</span><br><span class="line">        width: 500px;</span><br><span class="line">        height: 500px;</span><br><span class="line">        border: 2px solid skyblue;</span><br><span class="line">        display: flex;</span><br><span class="line">        justify-content: center;</span><br><span class="line">        align-items: center;</span><br><span class="line">    &#125;</span><br><span class="line">    #dv2&#123;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">        background-color: blueviolet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dv1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dv2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="7-关于js动画和css3动画的差异性"><a href="#7-关于js动画和css3动画的差异性" class="headerlink" title="7.关于js动画和css3动画的差异性"></a>7.关于js动画和css3动画的差异性</h3><ul>
+<li>功能涵盖面，js比css大</li>
+<li>css3比js更加简单</li>
+<li>对帧速表现不好的低版本浏览器，css3可以左到自然降级</li>
+</ul>
+<h3 id="8-说一下块元素和行元素"><a href="#8-说一下块元素和行元素" class="headerlink" title="8.说一下块元素和行元素"></a>8.说一下块元素和行元素</h3><p>块元素：独占一行，并且可以自动填满父元素，可以设置margin和padding以及高度和宽度</p>
+<p>行元素：不会独占一行，width和height会失效，并且在垂直方向的padding和magin会失效</p>
+<h3 id="10-visibility-hidden-opacity-0，display-none"><a href="#10-visibility-hidden-opacity-0，display-none" class="headerlink" title="10.visibility=hidden, opacity=0，display:none"></a>10.visibility=hidden, opacity=0，display:none</h3><ul>
+<li>opacity=0：该元素隐藏起来了，但不会改变页面布局，并且，如果该元素已经绑定一些时间。比如说click,那么点击该区域，也能触发该事件</li>
+<li>visibility=hidden：该元素隐藏起来了，但不会改变页面布局，也不会触发已经绑定的事件</li>
+<li>display=none：把元素隐藏起来了，并且会改变页面布局，可以理解为在页面中把该元素删除了一样</li>
+</ul>
+<h3 id="11-双边距重叠问题（外边距折叠）"><a href="#11-双边距重叠问题（外边距折叠）" class="headerlink" title="11.双边距重叠问题（外边距折叠）"></a>11.双边距重叠问题（外边距折叠）</h3><p>多个相邻普通流的块元素垂直方向magin会重叠</p>
+<p>折叠的结果为：</p>
+<ul>
+<li>两个相邻的外边距都是正数时，折叠结果是它们之间较大的值</li>
+<li>两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值</li>
+<li>两个外边距一正一负时，折叠结果是两者相加的和</li>
+</ul>
+<h3 id="12-position属性"><a href="#12-position属性" class="headerlink" title="12.position属性"></a>12.position属性</h3><ul>
+<li>固定定位fixed：元素的位置相对于浏览器窗口是固定位置，即使窗口是滚动的它也不会移动。fixed定位是元素的位置与文档流无关，因此不占据空间。fixed定位ide元素和其他元素重叠</li>
+<li>相对定位relative：如果对一个元素进行相对定位，它会相对于其正常位置进行定位，使用相对定位时无论是否进行移动，元素仍然占据原来的空间，因此，移动元素会导致它覆盖其他框</li>
+<li>绝对定位absolute：绝对定位的元素的位置相对于其最近的非static定位的父元素。若没有已定位的父元素，则其相对于htm页面进行定位。absolute定位的元素于文档流无关，因此不占据空间，absolute定位的元素可以与其他元素重叠</li>
+<li>默认定位static：没有定位，元素出现在正常流中</li>
+</ul>
+<h3 id="13-清除浮动"><a href="#13-清除浮动" class="headerlink" title="13.清除浮动"></a>13.清除浮动</h3><ul>
+<li>使用clears属性，clear:both清除所有浮动，clear:left清除左浮动，clear:right清除右浮动</li>
+<li>在容器结束前加一个di，给该div引入clear:both样式</li>
+<li>对父级容器定义overflow:hidden</li>
+<li>给浮动容器添加浮动属性（这样会使该容器全为浮动，不推荐）</li>
+</ul>
+<h3 id="14-CSS3新特性"><a href="#14-CSS3新特性" class="headerlink" title="14.CSS3新特性"></a>14.CSS3新特性</h3><p>CSS3边框如border-radius，box-shadow等；CSS3背景如background-size等；CSS3 2D,3D转换如transfrom等</p>
+<h3 id="15-CSS选择器有哪些，优先级呢？"><a href="#15-CSS选择器有哪些，优先级呢？" class="headerlink" title="15.CSS选择器有哪些，优先级呢？"></a>15.CSS选择器有哪些，优先级呢？</h3><p>id选择器，class选择器，标签选择器，伪元素选择器，伪类选择器</p>
+<ul>
+<li>同一元素引用了多个样式时，排在后面的样式属性的优先级高</li>
+<li>根据选择器的类型不同，优先顺序为：id选择器&gt;class选择器&gt;标签选择器</li>
+<li>标签之间存在层级包含关系时，后代元素会继承祖先元素的样式。如果后代元素定义了与祖先元素相同的样式，则祖先元素的相同样式属性会被覆盖，继承的样式的优先级比较低，至少比标签选择器的优先级低</li>
+<li>带有!important标记的样式属性的优先级最高</li>
+<li>样式表的来源不同时，优先级顺序为：内联样式&gt;内部样式&gt;外部样式&gt;浏览器用户自定义样式&gt;浏览器默认样式</li>
+</ul>
+<h3 id="16-CSS动画如何实现"><a href="#16-CSS动画如何实现" class="headerlink" title="16.CSS动画如何实现"></a>16.CSS动画如何实现</h3><ul>
+<li>创建动画序列，需要使用animation属性或其子属性。它可以设置动画时长，绑定动画，动画运行速度等一些动画细节。但它不能配置动画的具体表现。动画的实际表现由@keyframes规则实现</li>
+<li>transition也可实现动画。transition强调过渡，是元素的一个或多个属性发生变化时产生的过渡效果。同一个元素通过两个不同的途径获得样式，当第二个途径根据某种状态发生（如hover）改变原样式时，就会产生过渡动画。</li>
+</ul>
+<h3 id="17-CSS3中对溢出的处理"><a href="#17-CSS3中对溢出的处理" class="headerlink" title="17.CSS3中对溢出的处理"></a>17.CSS3中对溢出的处理</h3><p>text-overflow属性，值为clip是修剪文本；ellipsis为用省略符号来代替被修建的文本；string为使用给定的字符串来代替被修建的文本</p>
+<h3 id="18-float的元素，display是什么"><a href="#18-float的元素，display是什么" class="headerlink" title="18.float的元素，display是什么"></a>18.float的元素，display是什么</h3><p>display为block</p>
+<h3 id="19-圣杯布局实现原理"><a href="#19-圣杯布局实现原理" class="headerlink" title="19.圣杯布局实现原理"></a>19.圣杯布局实现原理</h3><p>圣杯布局的共呢个实现一个两侧宽度固定，中间宽度自适应的三列布局</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"center"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>首先设置左侧国定宽度为200px,右侧固定宽度为150px.则首先在container</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span> &#123;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">200px</span>; </span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="/2019/09/09/CSS/1567068726833.png" alt="1567068726833"></p>
+<ul>
+<li><p>然后分别为三列设置宽度与浮动，同时对footer清除浮动</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span> <span class="selector-class">.column</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#center</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#right</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="/2019/09/09/CSS/1567068743745.png" alt="1567068743745"></p>
+<ul>
+<li><p>由于center的宽度为100%的原因，即完全占据了第一行所以left和right被挤到了第二行</p>
+</li>
+<li><p>接下来将left放到预留的位置上，先使用负外边距</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>; </span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="/2019/09/09/CSS/1567068757112.png" alt="1567068757112"></p>
+<ul>
+<li><p>最后再使用position定位方法。将left在原有位置上左移200px，完成对left的防止</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>; </span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/CSS/1567068852938.png" alt="1567068852938"></p>
+</li>
+<li><p>接下来防止right,只需要一步</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#right</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>; </span><br><span class="line">  <span class="attribute">margin-right</span>: -<span class="number">150px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/CSS/1567069013401.png" alt="1567069013401"></p>
+</li>
+</ul>
+<p>为了保证其正常显我们还要给页面设置最小宽度，由于，之前使用了relative定位，意味着在center内部还占据着一个200px的宽度，所以页面最小宽度应该为(200+200+150)px = 550px</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">550px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>圣杯布局正式完成！</p>
+<h3 id="20-三栏布局的实现方式"><a href="#20-三栏布局的实现方式" class="headerlink" title="20.三栏布局的实现方式"></a>20.三栏布局的实现方式</h3><p>三列布局又分为两种，两列定宽一列自适应，以及两侧定宽中间自适应</p>
+<ul>
+<li><p>使用flex,定义父容器为flex，中间main部分设置flex-grow为1，左右两侧固定宽度使用flex-basis属性设置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">    //css</span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.container</span>&#123;</span></span><br><span class="line">            display: flex;</span><br><span class="line">            min-height: 130px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.main</span>&#123;</span></span><br><span class="line">            flex-grow: 1;</span><br><span class="line">            background-color: green;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">            order: -1;</span><br><span class="line">            flex-basis: 100px;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">            flex-basis: 200px;</span><br><span class="line">            background-color: blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    //html</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>main<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="20-什么是BFC？"><a href="#20-什么是BFC？" class="headerlink" title="20.什么是BFC？"></a>20.什么是BFC？</h3><p>BFC也就是常说的块格式化上下文，这是一个独立的渲染区域，规定了内部如何布局，并且这个区域的子元素不会影响到外面的元素，其中比较重要的布局规则有内部box垂直放置，计算BFC高度的时候，浮动元素也参与计算，触发BFC的规则有根元素，浮动元素，position为absolu或fixed的元素。display为inline-block，table-ce，table-caption，flex,，inline-flex的元素</p>
+<h3 id="21-z-index的定位方法"><a href="#21-z-index的定位方法" class="headerlink" title="21.z-index的定位方法"></a>21.z-index的定位方法</h3><p>z-index属性设置元素的堆叠顺序，数字越大越优先，越大越在上面。可以为负数。</p>
+<h3 id="23-如果想要改变一个DOM元素的字体颜色，不在它本身上进行操作"><a href="#23-如果想要改变一个DOM元素的字体颜色，不在它本身上进行操作" class="headerlink" title="23.如果想要改变一个DOM元素的字体颜色，不在它本身上进行操作"></a>23.如果想要改变一个DOM元素的字体颜色，不在它本身上进行操作</h3><p>可以更改父元素的color</p>
+<h3 id="24-对CSS的新属性有了解过吗？"><a href="#24-对CSS的新属性有了解过吗？" class="headerlink" title="24.对CSS的新属性有了解过吗？"></a>24.对CSS的新属性有了解过吗？</h3><p>在css3的新特性中，在布局方面新增了flex布局，在选择器方面新增了例如E:nth-child()等选择器，在盒模型方面添加了box-sizing来改变盒模型，在动画方面增加了animation等。在字体方面允许嵌入字体和设置字体阴影，最后还有媒体查询等</p>
+<h3 id="25-line-height和height的区别"><a href="#25-line-height和height的区别" class="headerlink" title="25.line-height和height的区别"></a>25.line-height和height的区别</h3><p>line-height一般是指布局里面一段文字上下行之间的高度，是针对字体来设置的，height一般是指容器的整体高度</p>
+<h3 id="26-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#26-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="26.设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>26.设置一个元素的背景颜色，背景颜色会填充哪些区域？</h3><p>background-color设置的背景颜色会填充元素的content、padding、border区域</p>
+<h3 id="27-inline-block、inline和block的区别"><a href="#27-inline-block、inline和block的区别" class="headerlink" title="27.inline-block、inline和block的区别"></a>27.inline-block、inline和block的区别</h3><ul>
+<li>block是块级元素，其前后都会有换行符，能设置宽度，高度，margin/padding水平垂直方向都有效</li>
+<li>inline：设置width和height无效，magrin在竖直方向上无效，padding在水平垂直方向都有效，前后无换行符</li>
+<li>inline-block：能设置高度和宽度，margin/padding水平垂直方向都有效，前后无换行符</li>
+</ul>
+<h3 id="28-说说盒子模型"><a href="#28-说说盒子模型" class="headerlink" title="28.说说盒子模型"></a>28.说说盒子模型</h3><p>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容</p>
+<ul>
+<li>标准盒模型：一个块的总宽度 = width+margin+padding+border</li>
+<li>怪异盒模型：一个块的总宽度 = width+margin（即width已经包含了padding和border）</li>
+</ul>
+<h3 id="29-说一说网格布局grid"><a href="#29-说一说网格布局grid" class="headerlink" title="29.说一说网格布局grid"></a>29.说一说网格布局grid</h3><p>flex布局是轴线布局，只能指定针对轴线的位置，可以看作是一维布局，grid布局则是将容器划分成“行”，“列”，产生单元格，然后指定“项目所在”的单元格，可以看作是二维布局。grid布局远比flex布局强大</p>
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>1.容器和项目</p>
+<p>采用网格布局的区域，被称为“容器”（container），容器内部采用网格定位的子元素，被称为“项目”（item）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>3<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：项目只能是容器的顶级子元素，不包含项目的子元素。比如上面代码的p元素就不是项，grid布局只对项目有效</p>
+<p>2.行和列</p>
+<p><img src="/2019/09/09/CSS/1567132167919.png" alt="1567132167919"></p>
+<p>3.单元格</p>
+<p>行和列的交叉区域，称为”单元格”（cell）。正常情况下，<code>n</code>行和<code>m</code>列会产生<code>n x m</code>个单元格。比如，3行3列会产生9个单元格。</p>
+<p>4.网格线</p>
+<p>划分网格的线，称为”网格线”（grid line）。水平网格线划分出行，垂直网格线划分出列。</p>
+<p><img src="/2019/09/09/CSS/1567132286163.png" alt="1567132286163"></p>
+<p>5.容器属性</p>
+<p>grid布局的属性分为两类，一类定义在容器上面，称为容器属性。另一类定义在项目上面，称为项目水属性。</p>
+<p>display：grid指定一个容器采用网格布局。默认情况下，容器元素都是块级元素，但也可以设成行内元素。display：inline-grid</p>
+<p>注意，设为网格布局以后，容器子元素（项目）的<code>float</code>、<code>display: inline-block</code>、<code>display: table-cell</code>、<code>vertical-align</code>和<code>column-*</code>等设置都将失效。</p>
+<ul>
+<li>grid-template-cows: 设置每一行行高</li>
+<li>grid-template-cloum: 设置每一列宽</li>
+<li>fr: 等分单位</li>
+<li>grid-gap: 每一项之间的距离</li>
+<li>repeat(）:重复函数，第一个参数为重复次数，第二客参数可以为px也可以为fr</li>
+<li>grid-row-start:  行起始网格线</li>
+<li>grid-row-end：行结束网格线</li>
+<li>grid-colum-start: 列起始网格线</li>
+<li>grid-colum-end: 列结束网格线</li>
+<li>grid-area：起始行网格线/结束行网格线/列起始网格线/列结束网格线</li>
+</ul>
+<p>6.网格区域命名</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.container</span>&#123;</span></span><br><span class="line">            display: grid;</span><br><span class="line">            grid-template-rows: 1fr 5fr 1fr;</span><br><span class="line">            grid-template-columns: 3fr 5fr 2fr;</span><br><span class="line">            grid-template-areas:</span><br><span class="line">                    "header header header"</span><br><span class="line">                    "nav main aside"</span><br><span class="line">                    "footer footer footer";</span><br><span class="line">            grid-gap: 10px;</span><br><span class="line">        &#125;</span><br><span class="line">        header&#123;</span><br><span class="line">           grid-area: header;</span><br><span class="line">            background-color: skyblue;</span><br><span class="line">        &#125;</span><br><span class="line">        nav&#123;</span><br><span class="line">            grid-area: nav;</span><br><span class="line">            background-color: salmon;</span><br><span class="line">        &#125;</span><br><span class="line">        main&#123;</span><br><span class="line">            grid-area: main;</span><br><span class="line">            background-color: blueviolet;</span><br><span class="line">        &#125;</span><br><span class="line">        aside&#123;</span><br><span class="line">            grid-area: aside;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line">        footer&#123;</span><br><span class="line"><span class="css">            <span class="selector-tag">grid-area</span><span class="selector-pseudo">:footer</span>;</span></span><br><span class="line">            background-color: chartreuse;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span>header<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span>nav<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">main</span>&gt;</span>main<span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aside</span>&gt;</span>aside<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/09/CSS/1567139624950.png" alt="1567139624950"></p>
+<h3 id="30-relative定位规则"><a href="#30-relative定位规则" class="headerlink" title="30.relative定位规则"></a>30.relative定位规则</h3><p>如果对一个元素进行相对定位，它将出现在它所在的位置上。然后，可以通过设置垂直或水平位置，让这个元素“相对于”它的起点进行移动，在使用相对定位时，无论是否进行移动，元素仍然占据原来的空间，因此移动元素会导致它覆盖其他框。</p>
+<h3 id="31-CSS预处理器有什么？"><a href="#31-CSS预处理器有什么？" class="headerlink" title="31.CSS预处理器有什么？"></a>31.CSS预处理器有什么？</h3><p>less,sass等</p>
+<h3 id="33-讲讲什么是BFC他能解决什么问题"><a href="#33-讲讲什么是BFC他能解决什么问题" class="headerlink" title="33.讲讲什么是BFC他能解决什么问题"></a>33.讲讲什么是BFC他能解决什么问题</h3><p>前端程序员在布局时,经常会遇到很多问题,比如当我们定义一个盒子时,理论上盒子里面的元素应该不会影响到盒子外面的元素。但是实际结果并不是我们想的那样</p>
+<p>从理论上来说被包含在父元素中的元素是不会影响到父元素外的元素，但实际上并不是如此。那么有没有什么方法将子元素与父元素外部的元素隔离开来呢？</p>
+<p><strong>答案就是使用BFC(block formatting context) “块级格式化上下文”,它的目的就是形成一个完全独立的空间，让空间里的子元素不会影响到外面的布局</strong></p>
+<p><strong>我们通过为元素设置一些CSS属性，就能触发这一空间</strong></p>
+<ul>
+<li>float不设为none</li>
+<li>position不为relative和static（脱离文档流）</li>
+<li>overflow为hidden、auto和scroll</li>
+<li>dispaly的值为table-cell和inline-block</li>
+</ul>
+<h4 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h4><h5 id="第一种：解决浮动元素高度坍塌的问题"><a href="#第一种：解决浮动元素高度坍塌的问题" class="headerlink" title="第一种：解决浮动元素高度坍塌的问题"></a>第一种：解决浮动元素高度坍塌的问题</h5><p>假设一个父元素中有几个子元素，子元素设置float，则父元素的高度会坍塌。这是因为子元素脱离了文档流，导致父元素无法检测到它们的存在导致高度坍塌了，后面的布局也会乱掉。</p>
+<p><img src="/2019/09/09/CSS/1567434147243.png" alt="1567434147243"></p>
+<p>这个时候我们就可以给父元素设置BFC，触发了BFC的容器就是页面上的一个完全隔离开的容器，容器中的元素绝对不会影响到容器外面的元素，为了保证这个规则，触发了BFC的父元素在计算高度时，不得不让浮动的子元素也参与进来</p>
+<ul>
+<li>overflow:hidden</li>
+<li>display:table-cell 、block 、inline-block</li>
+<li>position:fixed、absolute</li>
+<li>float:flet 这样会让父元素也脱离文档流，优点时代码量少，缺点是这是一种将错就错的方法，会影响之后的元素排列</li>
+</ul>
+<h5 id="第二种：解决自适应布局的问题"><a href="#第二种：解决自适应布局的问题" class="headerlink" title="第二种：解决自适应布局的问题"></a>第二种：解决自适应布局的问题</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dv1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dv2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>两栏布局：左侧定宽，右侧自适应，利用块级元素会尽量占满一行的效果，保证右侧自适应</p>
+<p><img src="/2019/09/09/CSS/1567434992088.png" alt="1567434992088"></p>
+<ul>
+<li><p>左边float:left，width:200px  </p>
+<p>右边：margin-left:200px</p>
+</li>
+<li><p>左边绝对定位，top：0，left：0，boottom：0，width:200px</p>
+<p>右边：margin-left：200px</p>
+</li>
+<li><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#dv1</span>&#123;</span><br><span class="line">       <span class="attribute">position</span>: absolute;</span><br><span class="line">       <span class="attribute">top</span>: <span class="number">0px</span>;</span><br><span class="line">       <span class="attribute">left</span>: <span class="number">0px</span>;</span><br><span class="line">       <span class="attribute">bottom</span>: <span class="number">0px</span>;</span><br><span class="line">       <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">       <span class="attribute">background-color</span>: <span class="number">#7abaff</span>;</span><br><span class="line">   &#125;</span><br><span class="line"> <span class="selector-id">#dv2</span>&#123;</span><br><span class="line">         <span class="attribute">position</span>: absolute;</span><br><span class="line">         <span class="attribute">top</span>: <span class="number">0px</span>;</span><br><span class="line">         <span class="attribute">bottom</span>: <span class="number">0px</span>;</span><br><span class="line">         <span class="attribute">right</span>: <span class="number">0px</span>;</span><br><span class="line">         <span class="attribute">left</span>: <span class="number">200px</span>;</span><br><span class="line">         <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">         <span class="attribute">background-color</span>: yellow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="第三种：解决外边距垂直方向重合问题"><a href="#第三种：解决外边距垂直方向重合问题" class="headerlink" title="第三种：解决外边距垂直方向重合问题"></a>第三种：解决外边距垂直方向重合问题</h5><p>理想</p>
+<p><img src="/2019/09/09/CSS/1567435893921.png" alt="1567435893921"></p>
+<p>实际</p>
+<p><img src="/2019/09/09/CSS/1567435921844.png" alt="1567435921844"></p>
+<ul>
+<li>将其中一个元素包裹一个父元素，将其设置为BFC容器</li>
+<li>padding-top : 20px</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
