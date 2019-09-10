@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-09T08:14:54.687Z</updated>
+  <updated>2019-09-10T04:11:44.663Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue前端面试</title>
+    <link href="http://yoursite.com/2019/09/10/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    <id>http://yoursite.com/2019/09/10/vue前端面试/</id>
+    <published>2019-09-10T04:11:06.000Z</published>
+    <updated>2019-09-10T04:11:44.663Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-对MVVM的理解&quot;&gt;&lt;a href=&quot;#1-对MVVM的理解&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
+    
+    
+      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>前端经典面试</title>
@@ -499,33 +525,6 @@
     
     
       <category term="bootstrap前端框架" scheme="http://yoursite.com/tags/bootstrap%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6语法基础</title>
-    <link href="http://yoursite.com/2019/08/07/ES6%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/"/>
-    <id>http://yoursite.com/2019/08/07/ES6语法基础/</id>
-    <published>2019-08-07T10:11:19.000Z</published>
-    <updated>2019-08-26T13:25:31.816Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;/2019/08/07/ES6语法基础/1565074465771.png&quot; alt=&quot;1565146120715&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;ES6基础入门&quot;&gt;&lt;a href=&quot;#ES6基础入门&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
     
   </entry>
   

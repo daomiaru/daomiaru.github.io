@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>vue前端面试 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="1.对MVVM的理解MVVM是model-view-viewmodel的缩写
+model,模型层，表示的是数据模型
+view,视图层，表现页面上的ui组件，它会将数据模型转换成ui展现出来
+view,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">vue前端面试</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">vue前端面试</h1>
+        <div class="stuff">
+            <span>九月 10, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/面试/">面试</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1-对MVVM的理解"><a href="#1-对MVVM的理解" class="headerlink" title="1.对MVVM的理解"></a>1.对MVVM的理解</h3><p>MVVM是model-view-viewmodel的缩写</p>
+<p>model,模型层，表示的是数据模型</p>
+<p>view,视图层，表现页面上的ui组件，它会将数据模型转换成ui展现出来</p>
+<p>viewmodel：通过双向绑定，将视图层和数据模型层连接起来。view和model的同步工作完全是自动的，开发者只需要关注业务逻辑，不需要手动操作DOM，不需要关注的同步问题</p>
+<p>view的数据变化会同步到model中，而model数据的变化也会作用在view上\</p>
+<h3 id="2-vue实例的生命周期"><a href="#2-vue实例的生命周期" class="headerlink" title="2.vue实例的生命周期"></a>2.vue实例的生命周期</h3><p>在vue 实例创建、运行到销毁阶段总是伴随着各种各样的事件，这些事件统称为vue的生命周期</p>
+<h5 id="实例创建期"><a href="#实例创建期" class="headerlink" title="实例创建期"></a>实例创建期</h5><ul>
+<li>beforeCreate() ：这是我们遇到的 第一个生命周期函数，表示实例完全被创建出来之前，会执行它。  <strong>注意：在beforeCreate生命周期函数执行的时候，data和methods中的数据还没有被初始化</strong></li>
+<li>created()：这是遇到的第二个生命周期函数，<strong>在created()生命周期函数执行的时候，data和methods中的数据就已经被初始化好了</strong></li>
+<li>beforeMount()： 这是遇到的第三个生命周期函数，<strong>表示模板已经编译完成在内存中了。但是还未渲染到页面中</strong></li>
+<li>mounted()：这是遇到的第四个生命周期函数，<strong>表示内存中的模板已经真实的挂载到了页面中，用户可以看到渲染好的页面了。到这里之后组件就已经真正意义上创建好了</strong></li>
+</ul>
+<p><strong>实例运行期</strong></p>
+<ul>
+<li>beforeUpdate()：<strong>当页面中的数据被改变时触发。所保存的数据是修改前的数据</strong></li>
+<li>Updated()：<strong>事件执行的时候，所获得的数据就是修改后的数据了</strong></li>
+</ul>
+<p><strong>实例销毁期</strong></p>
+<ul>
+<li>beforeDestroyed()：当执行beforeDestory()的时候，vue实例就已经从运行阶段，进入到销毁阶段。<strong>此时实例中的指令方法等都处于可用状态，还没有真正执行销毁的过程</strong></li>
+<li>destroyed()：当执行destroyed()的时候，实例已经完全被销毁了，**此时实例中所有的方法指令都不可用</li>
+</ul>
+<h4 id="vue生命周期的作用是什么"><a href="#vue生命周期的作用是什么" class="headerlink" title="vue生命周期的作用是什么"></a>vue生命周期的作用是什么</h4><p>它的生命周期中有多个事件钩子，让我们在控制整个vue实例的过程时形成更好的逻辑</p>
+<h4 id="vue生命周期有几个阶段"><a href="#vue生命周期有几个阶段" class="headerlink" title="vue生命周期有几个阶段"></a>vue生命周期有几个阶段</h4><p>8个阶段，创建前/后，载入前/后，修改前/后，销毁前/后</p>
+<h4 id="第一次页面加载会触发哪几个钩子"><a href="#第一次页面加载会触发哪几个钩子" class="headerlink" title="第一次页面加载会触发哪几个钩子"></a>第一次页面加载会触发哪几个钩子</h4><p>beforeCreate、created、beforemount、mounted</p>
+<h4 id="DOM渲染在哪个周期就已经完成"><a href="#DOM渲染在哪个周期就已经完成" class="headerlink" title="DOM渲染在哪个周期就已经完成"></a>DOM渲染在哪个周期就已经完成</h4><p>mounted</p>
+<h3 id="3-vue实现双向数据绑定的原理：Object-defineProperty（）"><a href="#3-vue实现双向数据绑定的原理：Object-defineProperty（）" class="headerlink" title="3.vue实现双向数据绑定的原理：Object.defineProperty（）"></a>3.vue实现双向数据绑定的原理：Object.defineProperty（）</h3><p>vue实现双向绑定的原理主要是：采用数据劫持结合发布者-订阅者模式的方式，通过<strong>Object.defineProperty（）</strong>来劫持各个属性的setter和getter。在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
+<p>当把一个普通的js对象传给Vue实例来作为它的data选项时，vue将遍历它的属性，用 Object.defineProperty 将它们转为 getter/setter。用户看不到getter和setter,但是在内部它们让vue追踪依赖，再属性被访问和修改时通知变化</p>
+<p>js实现简单的双向绑定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> id=<span class="string">"txt"</span>&gt;</span><br><span class="line">    &lt;p id=<span class="string">"show"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, <span class="string">'txt'</span>, &#123;</span><br><span class="line">        <span class="keyword">get</span>: function () &#123;</span><br><span class="line">            <span class="keyword">return</span> obj</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>: function (newValue) &#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">'txt'</span>).value = newValue</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">'show'</span>).innerHTML = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        obj.txt = e.target.value</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-vue组件间的传值"><a href="#4-vue组件间的传值" class="headerlink" title="4.vue组件间的传值"></a>4.vue组件间的传值</h3><p>父传子：父组件在子组件上绑定属性，子组件通过props接收数据</p>
+<p>子传父：子组件通过$emit方法发布一个事件，父组件通过@订阅该事件并调用回调函数拿取数据</p>
+<h3 id="5-vue的路由实现，hash模式和history模式"><a href="#5-vue的路由实现，hash模式和history模式" class="headerlink" title="5.vue的路由实现，hash模式和history模式"></a>5.vue的路由实现，hash模式和history模式</h3><h5 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式:"></a>hash模式:</h5><p>在浏览器中带“#”号，#以及#后面的字符称之为hash，用window.location.hash读取特点：hash虽然在url中，但不被包含在http请求中，对服务端安全无用，hash不会重新加载页面。</p>
+<p>hash模式下，仅hash符号之前的内容会被包含在http请求中，如[<a href="http://www.xxx.com]，因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回404错误" target="_blank" rel="noopener">http://www.xxx.com]，因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回404错误</a></p>
+<h5 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h5><p>history模式下，前端的URL和实际向后端发起请求的url一致，后端如果缺少对前端url的路由处理，将返回404错误，因此要玩好这种模式需要后端配合支持。应该在服务端增加一个覆盖所有情况的候选资源，如果URL匹配不到任何静态资源时，返回一个index,html页面而不是返回404</p>
+<h3 id="6-vue路由的钩子函数"><a href="#6-vue路由的钩子函数" class="headerlink" title="6.vue路由的钩子函数"></a>6.vue路由的钩子函数</h3><p>首页可以控制导航跳转，beforeEach，afterEach等，一般用于页面title的修改。一些需要登录才能调整页面的重定向功能。</p>
+<p><strong>beforeEach</strong>主要有3个参数to，from，next：</p>
+<p><strong>to</strong>：route即将进入的目标路由对象，</p>
+<p><strong>from</strong>：route当前导航正要离开的路由</p>
+<p><strong>next</strong>：function一定要调用该方法resolve这个钩子。执行效果依赖next方法的调用参数。可以控制网页的跳转。</p>
+<h3 id="7-vuex是什么？怎么使用-哪种场景使用它"><a href="#7-vuex是什么？怎么使用-哪种场景使用它" class="headerlink" title="7.vuex是什么？怎么使用? 哪种场景使用它"></a>7.vuex是什么？怎么使用? 哪种场景使用它</h3><p>vuex是一个专门为vue.js应用程序开发的状态管理模式（就是用来管理组件数据的，因为页面组件一旦过多，传统的组件传值方式就不太方便了）</p>
+<p>用集中式存储管理应用的所有组件的状态。</p>
+<p>state存放状态的</p>
+<p>getters类似于计算属性，当我们想要在展示state之前作修改时可以使用</p>
+<p>mutation用于修改state中的数据，vuex希望里面的方法是同步的</p>
+<p>action用来处理异步操作的，dispath来分发action</p>
+<p>modules模块，项目特别复杂时，允许每一个模块有自己的state、mutation、action、getters、使得结构非常清晰，方便管理</p>
+<h3 id="8-对keep-alive的了解"><a href="#8-对keep-alive的了解" class="headerlink" title="8.对keep-alive的了解"></a>8.对keep-alive的了解</h3><p><strong>keep-alive</strong>是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。</p>
+<h3 id="9-如何定义一个过滤器"><a href="#9-如何定义一个过滤器" class="headerlink" title="9.如何定义一个过滤器"></a>9.如何定义一个过滤器</h3><p>过滤器可以对要展示的数据做处理之后展示，全局过滤器所有的vue实例都可共享</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"> //第一个参数为原始数据，第二个参数为过滤器名称。中间要用|分隔开</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; mes | getmes &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个全局过滤器，第一个参数为过滤器名称，第二个参数为原始数据</span></span><br><span class="line">Vue.filter(<span class="string">'getmes'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">mes</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mes.replace(<span class="string">'纯洁'</span>,<span class="string">''</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-私有过滤器"><a href="#10-私有过滤器" class="headerlink" title="10.私有过滤器"></a>10.私有过滤器</h3><p>私有过滤器定义在vue实例内部，只能在该实例控制的区域使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">	getmes:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		·····</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="11-route和-router的区别"><a href="#11-route和-router的区别" class="headerlink" title="11.$route和$router的区别"></a>11.$route和$router的区别</h3><p>答：$route是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name等路由信息参数。而$router是“路由实例”对象包括了路由的跳转方法，钩子函数等。</p>
+<h3 id="12-OSI模型（应表会传网数物）"><a href="#12-OSI模型（应表会传网数物）" class="headerlink" title="12.OSI模型（应表会传网数物）"></a>12.OSI模型（应表会传网数物）</h3><p>应用层</p>
+<p>表示层</p>
+<p>会话层</p>
+<p>传输层</p>
+<p>网络层</p>
+<p>数据链路层</p>
+<p>物理层</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
