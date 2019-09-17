@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小程序和vue的区别 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="小程序input实现双向数据绑定先说下，小程序并不像前端主流框架那样，实现了双向数据绑定，（例如vue，直接利用v-model指令即可），对于微信小程序来说由于它是单向的数据流，而我们开发的时候习惯,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">小程序和vue的区别</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">小程序和vue的区别</h1>
+        <div class="stuff">
+            <span>九月 17, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="小程序input实现双向数据绑定"><a href="#小程序input实现双向数据绑定" class="headerlink" title="小程序input实现双向数据绑定"></a>小程序input实现双向数据绑定</h3><p>先说下，小程序并不像前端主流框架那样，实现了双向数据绑定，（例如vue，直接利用v-model指令即可），对于微信小程序来说由于它是单向的数据流，而我们开发的时候习惯了双向数据绑定，那怎么办呢？</p>
+<p>我们可以通过bindinput方法，来实现双向数据绑定</p>
+<p>bindinput方法当用户输入时触发该事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> data: &#123;</span><br><span class="line">    peopleNumber: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">inputedit(e)&#123;</span><br><span class="line">  <span class="keyword">let</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="comment">//双向绑定</span></span><br><span class="line">  <span class="keyword">let</span> dataset = e.currentTarget.dataset</span><br><span class="line">  <span class="comment">//data-开头的是一个自定义属性，可以通过e.currentTarget.dataset获取到，dataset是一个json对象</span></span><br><span class="line">  <span class="keyword">let</span> value = e.detail.value</span><br><span class="line">  <span class="comment">//获取name属性值</span></span><br><span class="line">  <span class="keyword">let</span> name = dataset.name</span><br><span class="line"> </span><br><span class="line">  that.setData(&#123;</span><br><span class="line">    peopleNumber: value</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(that.data[name])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">bindinput</span>=<span class="string">"inputedit"</span> <span class="attr">data-name</span>=<span class="string">"peopleNumber"</span> <span class="attr">data-val</span>=<span class="string">"aa"</span> <span class="attr">placeholder</span>=<span class="string">"输入人数"</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;peopleNumber&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;peopleNumber&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>此时我们输入会引起js中的数据也改变。实现双向数据绑定</p>
+<h3 id="扩展：vue和微信小程序的区别"><a href="#扩展：vue和微信小程序的区别" class="headerlink" title="扩展：vue和微信小程序的区别"></a>扩展：vue和微信小程序的区别</h3><h4 id="1-生命周期"><a href="#1-生命周期" class="headerlink" title="1.生命周期"></a>1.生命周期</h4><p>vue的生命周期</p>
+<p><img src="/2019/09/17/小程序和vue的区别/1568706500249.png" alt="1568706500249"></p>
+<p>小程序生命周期</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面加载</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面初次渲染完成</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onReady: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面显示</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onShow: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面隐藏</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onHide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面卸载</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onUnload: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>相比之下小程序的钩子函数要简单德多</p>
+<p>vue的钩子函数在跳转新页面时，钩子函数都会触发，但是小程序的钩子函数，页面不同的跳转方式，触发的钩子并不一样。</p>
+<ul>
+<li><code>onLoad</code>: 页面加载<br>一个页面只会调用一次，可以在 <code>onLoad</code> 中获取打开当前页面所调用的 <code>query</code> 参数。</li>
+<li><code>onShow</code>: 页面显示<br>每次打开页面都会调用一次。</li>
+<li><code>onReady</code>: 页面初次渲染完成<br>一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。<br>对界面的设置如<code>wx.setNavigationBarTitle</code>请在<code>onReady</code>之后设置。详见生命周期</li>
+<li><code>onHide</code>: 页面隐藏<br>当<code>navigateTo</code>或底部tab切换时调用。</li>
+<li><code>onUnload</code>: 页面卸载<br>当<code>redirectTo</code>或<code>navigateBack</code>的时候调用。</li>
+</ul>
+<h5 id="数据请求：在页面加载请求数据时，两者钩子的使用有些类似，vue一般会在created或者mounted中请求数据，而在小程序，会在onload或者onshow中请求数据"><a href="#数据请求：在页面加载请求数据时，两者钩子的使用有些类似，vue一般会在created或者mounted中请求数据，而在小程序，会在onload或者onshow中请求数据" class="headerlink" title="数据请求：在页面加载请求数据时，两者钩子的使用有些类似，vue一般会在created或者mounted中请求数据，而在小程序，会在onload或者onshow中请求数据"></a>数据请求：在页面加载请求数据时，两者钩子的使用有些类似，vue一般会在created或者mounted中请求数据，而在小程序，会在onload或者onshow中请求数据</h5><h3 id="2-数据绑定"><a href="#2-数据绑定" class="headerlink" title="2.数据绑定"></a>2.数据绑定</h3><p>vue：vue动态绑定一个变量的值为元素的某个属性的值的时候，会在变量前面加上冒号：，例如</p>
+<h3 id><a href="#" class="headerlink" title></a><img :src="imgSrc"></h3><p>小程序：绑定某个变量的值为元素属性时，会用两个大括号括起来，如果不加括号，会被认为时字符串。例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;image&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">iamge</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-列表渲染"><a href="#3-列表渲染" class="headerlink" title="3.列表渲染"></a>3.列表渲染</h3><p>VUE:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"example-1"</span>&gt;</span><br><span class="line">  &lt;li v-<span class="keyword">for</span>=<span class="string">"item in items"</span>&gt;</span><br><span class="line">    &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>小程序：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123; message: 'Foo' &#125;,</span><br><span class="line">      &#123; message: 'Bar' &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">text</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;items&#125;&#125;"</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-显示与隐藏元素"><a href="#4-显示与隐藏元素" class="headerlink" title="4.显示与隐藏元素"></a>4.显示与隐藏元素</h3><p>vue中，使用v-if和v-show控制元素的显示和隐藏</p>
+<p>小程序中，使用wx-if和hidden控制元素的显示和隐藏</p>
+<h3 id="5-事件处理"><a href="#5-事件处理" class="headerlink" title="5.事件处理"></a>5.事件处理</h3><p>vue:使用v-on：event绑定事件，或者使用@event绑定事件，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"counter += 1"</span>&gt;</span>Add 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click.stop</span>=<span class="string">"counter+=1"</span>&gt;</span>Add1<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  //阻止事件冒泡</span><br></pre></td></tr></table></figure>
+
+<p>小程序：全用bindtap(bind+event)，或者catchtap(catch+event)绑定事件，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"noWork"</span>&gt;</span>明天不上班<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">catchtap</span>=<span class="string">"noWork"</span>&gt;</span>明天不上班<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  //阻止事件冒泡</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-数据双向绑定"><a href="#6-数据双向绑定" class="headerlink" title="6.数据双向绑定"></a>6.数据双向绑定</h3><p>在vue中，只需要在表单上加上v-model，然后再绑定data中对应的一个值，当表单元素内容发生变化时，data中对应的值也会相应改变，这是vue中非常nice的一点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"reason"</span> <span class="attr">placeholder</span>=<span class="string">"填写理由"</span> <span class="attr">class</span>=<span class="string">'reason'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: '#app',</span><br><span class="line">  data: &#123;</span><br><span class="line">   reason:''</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>但是在小程序中却没有这个功能，那怎么办呢？我们可以利用bindinput方法，触发回调函数通过e.detail.value拿到输入的数据，再通过this.setData()方法给要双向绑定的data数据赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;input bindinput=<span class="string">"bindReason"</span> placeholder=<span class="string">"填写理由"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">'reason'</span> value=<span class="string">'&#123;&#123;reason&#125;&#125;'</span> name=<span class="string">"reason"</span> /&gt;</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">data:&#123;</span><br><span class="line">    reason:<span class="string">''</span></span><br><span class="line">&#125;,</span><br><span class="line">bindReason(e) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      reason: e.detail.value</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当页面表单元素很多的时候，更改值就是一件体力活了。和<code>小程序</code>一比较，<code>vue</code>的<code>v-model</code>简直爽的不要不要的。</p>
+<h3 id="7-取值"><a href="#7-取值" class="headerlink" title="7.取值"></a>7.取值</h3><p>对于同样保存再data中的数据，例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">   reason:<span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>vue取值：this.reason</p>
+<p>小程序取值：this.data.reason</p>
+<h3 id="8-绑定事件传参"><a href="#8-绑定事件传参" class="headerlink" title="8.绑定事件传参"></a>8.绑定事件传参</h3><p>在vue中，绑定事件传参挺简单，只需要在触发事件的方法中，把需要传递的数据作为形参传入就可以了，例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=<span class="string">"say('明天不上班')"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    say(arg)&#123;</span><br><span class="line">    consloe.log(arg)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在小程序中，不能直接在绑定的事件的方法中传入参数，需要将参数作为属性值，绑定到元素的data-属性上，然后在方法中，通过e.currentTarget.dataset.。返回的结果是一个json对象。很麻烦有没有</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;view <span class="class"><span class="keyword">class</span></span>=<span class="string">'tr'</span> bindtap=<span class="string">'toApprove'</span> data-id=<span class="string">"明天不上班"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line">Page(&#123;</span><br><span class="line">data:&#123;</span><br><span class="line">    reason:<span class="string">''</span></span><br><span class="line">&#125;,</span><br><span class="line">toApprove(e) &#123;</span><br><span class="line">    <span class="keyword">let</span> id = e.currentTarget.dataset.id;</span><br><span class="line">    <span class="built_in">console</span>.log(id)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-子组件的使用"><a href="#9-子组件的使用" class="headerlink" title="9.子组件的使用"></a>9.子组件的使用</h3><h5 id="子组件的使用"><a href="#子组件的使用" class="headerlink" title="子组件的使用"></a>子组件的使用</h5><p>在Vue中，需要：</p>
+<p>1.编写子组件</p>
+<p>2.在需要使用的父组件中通过import引入</p>
+<p>3.在vue的components中注册</p>
+<p>4.在模板中使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子组件 bar.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"search-box"</span>&gt;</span><br><span class="line">    &lt;div @click=<span class="string">"say"</span> :title=<span class="string">"title"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-dismiss"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">props:&#123;</span><br><span class="line">    title:&#123;</span><br><span class="line">       type:<span class="built_in">String</span>,</span><br><span class="line">       <span class="keyword">default</span>:<span class="string">''</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">    say()&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'明天不上班'</span>);</span><br><span class="line">       <span class="keyword">this</span>.$emit(<span class="string">'helloWorld'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 父组件 foo.vue</span></span><br><span class="line"><span class="regexp">&lt;template&gt;</span></span><br><span class="line"><span class="regexp">  &lt;div class="container"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;bar :title="title" @helloWorld="helloWorld"&gt;&lt;/</span>bar&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> Bar <span class="keyword">from</span> <span class="string">'./bar.vue'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">data:&#123;</span><br><span class="line">    title:<span class="string">"我是标题"</span></span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">    helloWorld()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我接收到子组件传递的事件了'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">components:&#123;</span><br><span class="line">    Bar</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在小程序中就显得很简单了，在一开始接触小程序的时候我几乎没有任何标签的概念，可以说小程序将标签都做和很好的封装，不同的组件都有相应的api，我更愿意称呼它们为组件，而不是传统的标签</p>
+<p>在小程序中，需要</p>
+<p>1.编写子组件</p>
+<p>2.在组件的json文件中，将该文件声明为组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"component"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.在需要引入的父组件的json文件中，指明子组件的路径和填写引入的组件名（不知道为什么这里挺爽的，可能对于我来说这种逻辑比较好理解，咳咳咳咳咳！！！）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"usingComponents"</span>: &#123;</span><br><span class="line">    <span class="string">"tab-bar"</span>: <span class="string">"../../components/tabBar/tabBar"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.在父组件中，直接引入即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;tab-bar currentpage=<span class="string">"index"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">tab-bar</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="10-父子组件通信"><a href="#10-父子组件通信" class="headerlink" title="10.父子组件通信"></a>10.父子组件通信</h3><h5 id="在vue中"><a href="#在vue中" class="headerlink" title="在vue中"></a>在vue中</h5><p>父-&gt;子，父组件绑定一个属性，子组件同过props接收即可</p>
+<p>子-&gt;父：子组件通过$emit发布一个事件，其中携带参数，父组件通过@订阅该事件并通过回调函数拿到传入的数据</p>
+<p>slot插槽通信</p>
+<p>vuex状态管理这些就不一一说了</p>
+<h5 id="在小程序中"><a href="#在小程序中" class="headerlink" title="在小程序中"></a>在小程序中</h5><p>父-&gt;子</p>
+<p>在父组件中在使用的子组件上定义属性，例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">index父组件</span><br><span class="line">&lt;bar aa=<span class="string">"bb"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">bar</span>&gt;</span></span></span><br><span class="line">bar子组件</span><br></pre></td></tr></table></figure>
+
+<p>在子组件中通过properties接收该数据，其中type必须指定，value表示初始值，可选。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line">  aa: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    value: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在子组件中通过this.properties.aa获取传入的数据</p>
+<p>这里有一个问题就是发当我们在子组件的data中获取该数据时会报路径错误。而当我们通过别的方式调用的话（例如方法）,就不会报错</p>
+<p><img src="/2019/09/17/小程序和vue的区别/1568712351680.png" alt="1568712351680"></p>
+<p>子-&gt;父</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子组件中</span></span><br><span class="line">methods: &#123;   </span><br><span class="line">    <span class="comment">// 传递给父组件</span></span><br><span class="line">    cancelBut: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">      <span class="keyword">var</span> myEventDetail = &#123; <span class="attr">pickerShow</span>: <span class="literal">false</span>, <span class="attr">type</span>: <span class="string">'cancel'</span> &#125; <span class="comment">// detail对象，提供给事件监听函数</span></span><br><span class="line">      <span class="keyword">this</span>.triggerEvent(<span class="string">'myevent'</span>, myEventDetail) <span class="comment">//myevent自定义名称事件，父组件中使用</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//父组件中</span></span><br><span class="line">&lt;bar bind:myevent=<span class="string">"toggleToast"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">bar</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取子组件信息</span></span><br><span class="line">toggleToast(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.detail)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/17/小程序和vue的区别/1568712654634.png" alt="1568712654634"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

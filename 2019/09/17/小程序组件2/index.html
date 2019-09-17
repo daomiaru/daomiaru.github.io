@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小程序组件2 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="小程序组件2原生组件的使用限制
+原生组件的层级是最高的，所以页面中的其他组件无论设置z-index为多少，都无法覆盖在原生组件上
+
+后插入的原生组件可以覆盖之前的组件
+
+
+原生组件还无法在picke,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">小程序组件2</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">小程序组件2</h1>
+        <div class="stuff">
+            <span>九月 17, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="小程序组件2"><a href="#小程序组件2" class="headerlink" title="小程序组件2"></a>小程序组件2</h3><h5 id="原生组件的使用限制"><a href="#原生组件的使用限制" class="headerlink" title="原生组件的使用限制"></a>原生组件的使用限制</h5><ul>
+<li><p>原生组件的层级是最高的，所以页面中的其他组件无论设置z-index为多少，都无法覆盖在原生组件上</p>
+<ul>
+<li>后插入的原生组件可以覆盖之前的组件</li>
+</ul>
+</li>
+<li><p>原生组件还无法在picker-view中使用</p>
+<ul>
+<li>原生组件不支持在scroll-view、swiper、movable-view中使用</li>
+</ul>
+</li>
+<li><p>部分CSS样式无法应用于原生组件，例如：</p>
+<ul>
+<li>无法对原生组件设置CSS动画</li>
+<li>无法定义原生组件为position：fixed</li>
+<li>不能再父级节点使用overflow：hidden来裁剪原生组件的显示区域</li>
+</ul>
+</li>
+<li><p>原生组件的事件监听不能使用 <code>bind:eventname</code> 的写法，只支持 <code>bindeventname</code>。原生组件也不支持 catch 和 capture 的事件绑定方式。</p>
+</li>
+<li><p>原生组件会遮挡 vConsole 弹出的调试面板。 <em>在工具上，原生组件是用web组件模拟的，因此很多情况并不能很好的还原真机的表现，建议开发者在使用到原生组件时尽量在真机上进行调试。*</em></p>
+</li>
+</ul>
+<h4 id="1-switch组件"><a href="#1-switch组件" class="headerlink" title="1.switch组件"></a>1.switch组件</h4><p>开关选择器</p>
+<p><img src="/2019/09/17/小程序组件2/1568684221735.png" alt="1568684221735"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"body-view"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">switch</span> <span class="attr">checked</span> <span class="attr">bindchange</span>=<span class="string">"switch1Change"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">switch</span> <span class="attr">bindchange</span>=<span class="string">"switch2Change"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  switch1Change: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'switch1 发生 change 事件，携带值为'</span>, e.detail.value)</span><br><span class="line">  &#125;,</span><br><span class="line">  switch2Change: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'switch2 发生 change 事件，携带值为'</span>, e.detail.value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/17/小程序组件2/1568684455831.png" alt="1568684455831"></p>
+<h4 id="2-textarea组件"><a href="#2-textarea组件" class="headerlink" title="2.textarea组件"></a>2.textarea组件</h4><p>多行输入文本框</p>
+<p><img src="/2019/09/17/小程序组件2/1568685293009.png" alt="1568685293009"></p>
+<p><img src="/2019/09/17/小程序组件2/1568685302722.png" alt="1568685302722"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">bindblur</span>=<span class="string">"bindTextAreaBlur"</span> <span class="attr">auto-height</span> <span class="attr">placeholder</span>=<span class="string">"自动变高"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">placeholder</span>=<span class="string">"placeholder颜色是红色的"</span> <span class="attr">placeholder-style</span>=<span class="string">"color:red;"</span>  /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">placeholder</span>=<span class="string">"这是一个可以自动聚焦的textarea"</span> <span class="attr">auto-focus</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">placeholder</span>=<span class="string">"这个只有在按钮点击的时候才聚焦"</span> <span class="attr">focus</span>=<span class="string">"&#123;&#123;focus&#125;&#125;"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"btn-area"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"bindButtonTap"</span>&gt;</span>使得输入框获取焦点<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">bindsubmit</span>=<span class="string">"bindFormSubmit"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">placeholder</span>=<span class="string">"form 中的 textarea"</span> <span class="attr">name</span>=<span class="string">"textarea"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">form-type</span>=<span class="string">"submit"</span>&gt;</span> 提交 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    height: <span class="number">20</span>,</span><br><span class="line">    focus: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  bindButtonTap: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      focus: <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  bindTextAreaBlur: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.detail.value)</span><br><span class="line">  &#125;,</span><br><span class="line">  bindFormSubmit: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.detail.value.textarea)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-functional-page-navigator"><a href="#4-functional-page-navigator" class="headerlink" title="4.functional-page-navigator"></a>4.functional-page-navigator</h4><p><img src="/2019/09/17/小程序组件2/1568685804265.png" alt="1568685804265"></p>
+<p><img src="/2019/09/17/小程序组件2/1568685852774.png" alt="1568685852774"></p>
+<h4 id="5-navigator组件"><a href="#5-navigator组件" class="headerlink" title="5.navigator组件"></a>5.navigator组件</h4><p>页面链接</p>
+<p><img src="/2019/09/17/小程序组件2/1568686074340.png" alt="1568686074340"></p>
+<p><img src="/2019/09/17/小程序组件2/1568686093005.png" alt="1568686093005"></p>
+<h4 id="6-audio组件"><a href="#6-audio组件" class="headerlink" title="6.audio组件"></a>6.audio组件</h4><p>音频组件</p>
+<p>如何获取页面上的音频元素，可以通过wx.createAudioContext(‘id’)获取</p>
+<p><img src="/2019/09/17/小程序组件2/1568686656138.png" alt="1568686656138"></p>
+<p><img src="/2019/09/17/小程序组件2/1568686699429.png" alt="1568686699429"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- audio.wxml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">poster</span>=<span class="string">"&#123;&#123;poster&#125;&#125;"</span> <span class="attr">name</span>=<span class="string">"&#123;&#123;name&#125;&#125;"</span> <span class="attr">author</span>=<span class="string">"&#123;&#123;author&#125;&#125;"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;src&#125;&#125;"</span> <span class="attr">id</span>=<span class="string">"myAudio"</span> <span class="attr">controls</span> <span class="attr">loop</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"audioPlay"</span>&gt;</span>播放<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"audioPause"</span>&gt;</span>暂停<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"audio14"</span>&gt;</span>设置当前播放时间为14秒<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">bindtap</span>=<span class="string">"audioStart"</span>&gt;</span>回到开头<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// audio.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  onReady: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 使用 wx.createAudioContext 获取 audio 上下文 context</span></span><br><span class="line">    <span class="keyword">this</span>.audioCtx = wx.createAudioContext(<span class="string">'myAudio'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    poster: <span class="string">'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000'</span>,</span><br><span class="line">    name: <span class="string">'此时此刻'</span>,</span><br><span class="line">    author: <span class="string">'许巍'</span>,</span><br><span class="line">    src: <span class="string">'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&amp;uin=346897220&amp;vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&amp;fromtag=46'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  audioPlay: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.audioCtx.play()</span><br><span class="line">  &#125;,</span><br><span class="line">  audioPause: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.audioCtx.pause()</span><br><span class="line">  &#125;,</span><br><span class="line">  audio14: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.audioCtx.seek(<span class="number">14</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  audioStart: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.audioCtx.seek(<span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-camera相机组件"><a href="#7-camera相机组件" class="headerlink" title="7.camera相机组件"></a>7.camera相机组件</h4><p><img src="/2019/09/17/小程序组件2/1568688795149.png" alt="1568688795149"></p>
+<p><img src="/2019/09/17/小程序组件2/1568688816919.png" alt="1568688816919"></p>
+<p><img src="/2019/09/17/小程序组件2/1568688828206.png" alt="1568688828206"></p>
+<h4 id="8-live-player"><a href="#8-live-player" class="headerlink" title="8.live-player"></a>8.live-player</h4><p>实时音频播放组件</p>
+<p><img src="/2019/09/17/小程序组件2/1568689563822.png" alt="1568689563822"></p>
+<h4 id="9-live-pusher实时音频录制组件"><a href="#9-live-pusher实时音频录制组件" class="headerlink" title="9.live-pusher实时音频录制组件"></a>9.live-pusher实时音频录制组件</h4><p><img src="/2019/09/17/小程序组件2/1568689592990.png" alt="1568689592990"></p>
+<h4 id="10-video组件"><a href="#10-video组件" class="headerlink" title="10.video组件"></a>10.video组件</h4><p>视频组件，看到这里稍微有点感觉了，像我么在微信中所要用到的基本功能都已经封装好了，像弹幕发送的话原生的js可能需要设置动画来实现。但是在小程序的api中这只是一个函数我们可以直接调用就行</p>
+<p><img src="/2019/09/17/小程序组件2/1568690523976.png" alt="1568690523976"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"section tc"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;src&#125;&#125;"</span>   <span class="attr">controls</span> &gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"btn-area"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"bindButtonTap"</span>&gt;</span>获取视频<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"section tc"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"myVideo"</span> <span class="attr">src</span>=<span class="string">"http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&amp;bizid=1023&amp;hy=SH&amp;fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"</span> <span class="attr">danmu-list</span>=<span class="string">"&#123;&#123;danmuList&#125;&#125;"</span> <span class="attr">enable-danmu</span> <span class="attr">danmu-btn</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"btn-area"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"bindButtonTap"</span>&gt;</span>获取视频<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">bindblur</span>=<span class="string">"bindInputBlur"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"bindSendDanmu"</span>&gt;</span>发送弹幕<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandomColor</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> rgb = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; <span class="number">3</span>; ++i)&#123;</span><br><span class="line">    <span class="keyword">let</span> color = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">256</span>).toString(<span class="number">16</span>)</span><br><span class="line">    color = color.length == <span class="number">1</span> ? <span class="string">'0'</span> + color : color</span><br><span class="line">    rgb.push(color)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'#'</span> + rgb.join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">  onReady: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.videoContext = wx.createVideoContext(<span class="string">'myVideo'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  inputValue: <span class="string">''</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    src: <span class="string">''</span>,</span><br><span class="line">    danmuList: [</span><br><span class="line">      &#123;</span><br><span class="line">        text: <span class="string">'第 1s 出现的弹幕'</span>,</span><br><span class="line">        color: <span class="string">'#ff0000'</span>,</span><br><span class="line">        time: <span class="number">1</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        text: <span class="string">'第 3s 出现的弹幕'</span>,</span><br><span class="line">        color: <span class="string">'#ff00ff'</span>,</span><br><span class="line">        time: <span class="number">3</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  bindInputBlur: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.inputValue = e.detail.value</span><br><span class="line">  &#125;,</span><br><span class="line">  bindButtonTap: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">    wx.chooseVideo(&#123;</span><br><span class="line">      sourceType: [<span class="string">'album'</span>, <span class="string">'camera'</span>],</span><br><span class="line">      maxDuration: <span class="number">60</span>,</span><br><span class="line">      camera: [<span class="string">'front'</span>,<span class="string">'back'</span>],</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">        that.setData(&#123;</span><br><span class="line">          src: res.tempFilePath</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  bindSendDanmu: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.videoContext.sendDanmu(&#123;</span><br><span class="line">      text: <span class="keyword">this</span>.inputValue,</span><br><span class="line">      color: getRandomColor()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>关于小程序的学习，我们要想实现一个功能时要先去查文档看看有没有相应的组件，根据组件去查它相应的api这样问题就比较好解决！</p>
+<h4 id="11-map组件"><a href="#11-map组件" class="headerlink" title="11.map组件"></a>11.map组件</h4><p>地图组件</p>
+<p><img src="/2019/09/17/小程序组件2/1568691292224.png" alt="1568691292224"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">map</span> <span class="attr">id</span>=<span class="string">"map"</span> <span class="attr">longitude</span>=<span class="string">"113.324520"</span> <span class="attr">latitude</span>=<span class="string">"23.099994"</span> <span class="attr">scale</span>=<span class="string">"14"</span> <span class="attr">controls</span>=<span class="string">"&#123;&#123;controls&#125;&#125;"</span> <span class="attr">bindcontroltap</span>=<span class="string">"controltap"</span> <span class="attr">markers</span>=<span class="string">"&#123;&#123;markers&#125;&#125;"</span> <span class="attr">bindmarkertap</span>=<span class="string">"markertap"</span> <span class="attr">polyline</span>=<span class="string">"&#123;&#123;polyline&#125;&#125;"</span> <span class="attr">bindregionchange</span>=<span class="string">"regionchange"</span> <span class="attr">show-location</span> <span class="attr">style</span>=<span class="string">"width: 100%; height: 300px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    markers: [&#123;</span><br><span class="line">      iconPath: <span class="string">"/resources/others.png"</span>,</span><br><span class="line">      id: <span class="number">0</span>,</span><br><span class="line">      latitude: <span class="number">23.099994</span>,</span><br><span class="line">      longitude: <span class="number">113.324520</span>,</span><br><span class="line">      width: <span class="number">50</span>,</span><br><span class="line">      height: <span class="number">50</span></span><br><span class="line">    &#125;],</span><br><span class="line">    polyline: [&#123;</span><br><span class="line">      points: [&#123;</span><br><span class="line">        longitude: <span class="number">113.3245211</span>,</span><br><span class="line">        latitude: <span class="number">23.10229</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        longitude: <span class="number">113.324520</span>,</span><br><span class="line">        latitude: <span class="number">23.21229</span></span><br><span class="line">      &#125;],</span><br><span class="line">      color: <span class="string">"#FF0000DD"</span>,</span><br><span class="line">      width: <span class="number">2</span>,</span><br><span class="line">      dottedLine: <span class="literal">true</span></span><br><span class="line">    &#125;],</span><br><span class="line">    controls: [&#123;</span><br><span class="line">      id: <span class="number">1</span>,</span><br><span class="line">      iconPath: <span class="string">'/resources/location.png'</span>,</span><br><span class="line">      position: &#123;</span><br><span class="line">        left: <span class="number">0</span>,</span><br><span class="line">        top: <span class="number">300</span> - <span class="number">50</span>,</span><br><span class="line">        width: <span class="number">50</span>,</span><br><span class="line">        height: <span class="number">50</span></span><br><span class="line">      &#125;,</span><br><span class="line">      clickable: <span class="literal">true</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  regionchange(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.type)</span><br><span class="line">  &#125;,</span><br><span class="line">  markertap(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.markerId)</span><br><span class="line">  &#125;,</span><br><span class="line">  controltap(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.controlId)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/17/小程序组件2/1568691410576.png" alt="1568691410576"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
