@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-15T11:22:14.331Z</updated>
+  <updated>2019-09-17T00:57:40.831Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>什么是回流和重绘</title>
+    <link href="http://yoursite.com/2019/09/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/"/>
+    <id>http://yoursite.com/2019/09/17/什么是回流和重绘/</id>
+    <published>2019-09-17T00:55:15.000Z</published>
+    <updated>2019-09-17T00:57:40.831Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;什么是回流和重绘？&quot;&gt;&lt;a href=&quot;#什么是回流和重绘？&quot; class=&quot;headerlink&quot; title=&quot;什么是回流和重绘？&quot;&gt;&lt;/a&gt;什么是回流和重绘？&lt;/h3&gt;&lt;h4 id=&quot;1-页面加载的过程&quot;&gt;&lt;a href=&quot;#1-页面加载的过程&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="页面加载" scheme="http://yoursite.com/categories/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/"/>
+    
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序组件</title>
+    <link href="http://yoursite.com/2019/09/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6/"/>
+    <id>http://yoursite.com/2019/09/17/小程序组件/</id>
+    <published>2019-09-17T00:46:46.000Z</published>
+    <updated>2019-09-17T00:58:09.863Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;小程序组件&quot;&gt;&lt;a href=&quot;#小程序组件&quot; class=&quot;headerlink&quot; title=&quot;小程序组件&quot;&gt;&lt;/a&gt;小程序组件&lt;/h3&gt;&lt;h4 id=&quot;1-cover-image&quot;&gt;&lt;a href=&quot;#1-cover-image&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="微信小程序" scheme="http://yoursite.com/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="小程序" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>小程序项目之bilibili</title>
@@ -478,58 +530,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>跨域问题及其解决方法</title>
-    <link href="http://yoursite.com/2019/08/13/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/08/13/跨域问题及其解决方法/</id>
-    <published>2019-08-13T13:55:53.000Z</published>
-    <updated>2019-08-26T13:26:19.231Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;跨域及其解决&quot;&gt;&lt;a href=&quot;#跨域及其解决&quot; class=&quot;headerlink&quot; title=&quot;跨域及其解决&quot;&gt;&lt;/a&gt;跨域及其解决&lt;/h1&gt;&lt;h3 id=&quot;1-什么是跨域请求？&quot;&gt;&lt;a href=&quot;#1-什么是跨域请求？&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="技术 javascript" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-javascript/"/>
-    
-    
-      <category term="跨域" scheme="http://yoursite.com/tags/%E8%B7%A8%E5%9F%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>响应式开发--bootstrap框架（三）</title>
-    <link href="http://yoursite.com/2019/08/12/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91-bootstrap%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/12/响应式开发-bootstrap前端框架（三）/</id>
-    <published>2019-08-12T14:21:26.000Z</published>
-    <updated>2019-08-26T13:26:08.823Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;响应式开发–bootstrap前端框架（三）&quot;&gt;&lt;a href=&quot;#响应式开发–bootstrap前端框架（三）&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="前端框架" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="bootstrap" scheme="http://yoursite.com/tags/bootstrap/"/>
     
   </entry>
   

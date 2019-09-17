@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小程序组件 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="小程序组件1.cover-image覆盖在原生组件之上的图片视图，可覆盖的原生组件同cover-view，支持嵌套在cover-view里
+
+
+
+属性
+类型
+默认值
+必填
+说明
+最低版本
+
+
+
+sr,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">小程序组件</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">小程序组件</h1>
+        <div class="stuff">
+            <span>九月 17, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/小程序/">小程序</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="小程序组件"><a href="#小程序组件" class="headerlink" title="小程序组件"></a>小程序组件</h3><h4 id="1-cover-image"><a href="#1-cover-image" class="headerlink" title="1.cover-image"></a>1.cover-image</h4><p>覆盖在原生组件之上的图片视图，可覆盖的原生组件同cover-view，支持嵌套在cover-view里</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+<th align="left">必填</th>
+<th align="left">说明</th>
+<th align="left">最低版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">src</td>
+<td align="left">string</td>
+<td align="left"></td>
+<td align="left">否</td>
+<td align="left">图标路径，支持临时路径、网络地址（1.6.0起支持）、云文件ID（2.2.3起支持）。暂不支持base64格式。</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">1.4.0</a></td>
+</tr>
+<tr>
+<td align="left">bindload</td>
+<td align="left">eventhandle</td>
+<td align="left"></td>
+<td align="left">否</td>
+<td align="left">图片加载成功时触发</td>
+<td align="left"><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html" target="_blank" rel="noopener">2.1.0</a></td>
+</tr>
+<tr>
+<td align="left">binderror</td>
+<td align="left">eventhandle</td>
+<td align="left"></td>
+<td align="left">否</td>
+<td align="left">图片加载失败时触发</td>
+<td align="left">[2.1.0]</td>
+</tr>
+</tbody></table>
+<h4 id="2-cover-view"><a href="#2-cover-view" class="headerlink" title="2.cover-view"></a>2.cover-view</h4><p>覆盖在原生组件之上的文本视图</p>
+<p>可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher</p>
+<h4 id="3-movable-area"><a href="#3-movable-area" class="headerlink" title="3.movable-area"></a>3.movable-area</h4><p>movable-view的可移动区域</p>
+<h4 id="4-movable-view"><a href="#4-movable-view" class="headerlink" title="4.movable-view"></a>4.movable-view</h4><p>可移动的视图容器，在页面中可以拖拽滑动。movable-view必须在movable-area组件中，并且必须是直接子节点否则不能移动</p>
+<p>属性</p>
+<ul>
+<li>direction：定义movable-view的移动方向，属性值有all、vertical、horizontal、none<ul>
+<li>all：任意移动</li>
+<li>vertical：仅y轴移动</li>
+<li>horizontal：仅x轴移动</li>
+<li>none：不能移动</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2019/09/17/小程序组件/1568680980047.png" alt="1568680980047"></p>
+<p><img src="/2019/09/17/小程序组件/1568680999153.png" alt="1568680999153"></p>
+<h4 id="5-bloc组件"><a href="#5-bloc组件" class="headerlink" title="5.bloc组件"></a>5.bloc组件</h4><p>block组件可以充当一个容器，其标签内容在页面中不会被渲染</p>
+<h4 id="6-picker组件"><a href="#6-picker组件" class="headerlink" title="6.picker组件"></a>6.picker组件</h4><p>从底部弹起的一个选择器</p>
+<p>通过设置mode属性指定其为什么模式的选择器，默认值为selector</p>
+<p><img src="/2019/09/17/小程序组件/1568624967872.png" alt="1568624967872"></p>
+<p>当选择确定时触发bindchange事件，通过调用回调函数来处理，range设置选择数组。value设置数组索引值。</p>
+<p>bindcancel取消选择时触发</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picker</span> <span class="attr">bindchange</span>=<span class="string">"bindPickerChange"</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;index&#125;&#125;"</span> <span class="attr">range</span>=<span class="string">"&#123;&#123;array&#125;&#125;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"picker"</span>&gt;</span></span><br><span class="line">    当前选择：&#123;&#123;array[index]&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    index: <span class="number">0</span>,</span><br><span class="line">    array: [<span class="string">'美国'</span>, <span class="string">'中国'</span>, <span class="string">'巴西'</span>, <span class="string">'日本'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">  bindPickerChange: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'picker发送选择改变，携带值为'</span>, e.detail.value)</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      index: e.detail.value</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>index默认为0，通过改变当前index的值，使其渲染不同的选择。value值保存在e.detail中</p>
+<p><img src="/2019/09/17/小程序组件/1568681040489.png" alt="1568681040489"></p>
+<p><img src="/2019/09/17/小程序组件/1568681059785.png" alt="1568681059785"></p>
+<h4 id="7-picker-view组件"><a href="#7-picker-view组件" class="headerlink" title="7.picker-view组件"></a>7.picker-view组件</h4><p>嵌入页面的滚动选择器，其中只可放置picker-view-cplumn组件，其他节点不会显示</p>
+<p>indicator-style：设置选择器中间选中框的样式</p>
+<p><img src="/2019/09/17/小程序组件/1568681076278.png" alt="1568681076278"></p>
+<h4 id="8-picker-view-column"><a href="#8-picker-view-column" class="headerlink" title="8.picker-view-column"></a>8.picker-view-column</h4><p>滚动选择器子项，仅可放置于picker-view中，其孩子节点的高度会自动设置成picker-view的选中框的高度一致</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">picker-view</span> <span class="attr">indicator-style</span>=<span class="string">"height: 50px;"</span> <span class="attr">style</span>=<span class="string">"width: 100%; height: 300px;"</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;value&#125;&#125;"</span> <span class="attr">bindchange</span>=<span class="string">"bindChange"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">picker-view-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;years&#125;&#125;"</span> <span class="attr">style</span>=<span class="string">"line-height: 50px"</span>&gt;</span>&#123;&#123;item&#125;&#125;年<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">picker-view-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">picker-view-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;months&#125;&#125;"</span> <span class="attr">style</span>=<span class="string">"line-height: 50px"</span>&gt;</span>&#123;&#123;item&#125;&#125;月<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">picker-view-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">picker-view-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;days&#125;&#125;"</span> <span class="attr">style</span>=<span class="string">"line-height: 50px"</span>&gt;</span>&#123;&#123;item&#125;&#125;日<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">picker-view-column</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">picker-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">31</span>; i++) &#123;</span><br><span class="line">  days.push(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    years: years,</span><br><span class="line">    year: date.getFullYear(),</span><br><span class="line">    months: months,</span><br><span class="line">    month: <span class="number">2</span>,</span><br><span class="line">    days: days,</span><br><span class="line">    day: <span class="number">2</span>,</span><br><span class="line">    value: [<span class="number">9999</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">  bindChange: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> val = e.detail.value</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      year: <span class="keyword">this</span>.data.years[val[<span class="number">0</span>]],</span><br><span class="line">      month: <span class="keyword">this</span>.data.months[val[<span class="number">1</span>]],</span><br><span class="line">      day: <span class="keyword">this</span>.data.days[val[<span class="number">2</span>]]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/17/小程序组件/1568681098659.png" alt="1568681098659"></p>
+<h4 id="9-radio组件"><a href="#9-radio组件" class="headerlink" title="9.radio组件"></a>9.radio组件</h4><p>单选框</p>
+<p><img src="/2019/09/17/小程序组件/1568681115986.png" alt="1568681115986"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">radio-group</span> <span class="attr">class</span>=<span class="string">"radio-group"</span> <span class="attr">bindchange</span>=<span class="string">"radioChange"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"radio"</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;items&#125;&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">radio</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;item.name&#125;&#125;"</span> <span class="attr">checked</span>=<span class="string">"&#123;&#123;item.checked&#125;&#125;"</span>/&gt;</span>&#123;&#123;item.value&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">radio-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">      &#123; <span class="attr">name</span>: <span class="string">'BRA'</span>, <span class="attr">value</span>: <span class="string">'巴西'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">name</span>: <span class="string">'JPN'</span>, <span class="attr">value</span>: <span class="string">'日本'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">name</span>: <span class="string">'ENG'</span>, <span class="attr">value</span>: <span class="string">'英国'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">name</span>: <span class="string">'TUR'</span>, <span class="attr">value</span>: <span class="string">'法国'</span> &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  radioChange: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'radio发生change事件，携带value值为：'</span>, e.detail.value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-滑动组件slider"><a href="#10-滑动组件slider" class="headerlink" title="10.滑动组件slider"></a>10.滑动组件slider</h4><p><img src="/2019/09/17/小程序组件/1568681134164.png" alt="1568681134164"></p>
+<p><img src="/2019/09/17/小程序组件/1568681148026.png" alt="1568681148026"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
