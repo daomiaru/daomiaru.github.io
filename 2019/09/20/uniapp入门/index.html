@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>uniapp入门 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="uni-app快速人们1.什么是uni-appuni-app是一个使用Vue.js开发跨平台应用的前端框架，开发者编写一套代码，可编译到IOS、Android、H5、小程序等多个平台
+uni-app,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">uniapp入门</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">uniapp入门</h1>
+        <div class="stuff">
+            <span>九月 20, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/uniapp/">uniapp</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="uni-app快速人们"><a href="#uni-app快速人们" class="headerlink" title="uni-app快速人们"></a>uni-app快速人们</h2><h3 id="1-什么是uni-app"><a href="#1-什么是uni-app" class="headerlink" title="1.什么是uni-app"></a>1.什么是uni-app</h3><p>uni-app是一个使用Vue.js开发跨平台应用的前端框架，开发者编写一套代码，可编译到IOS、Android、H5、小程序等多个平台</p>
+<p>uni-app框架由<a href="https://www.dcloud.io/" target="_blank" rel="noopener">Dcloud</a>即数字天堂(北京)网络技术有限公司推出，该公司主要产品有Web开发IDE Hbuiler、HbuilderX，前端框架mui、uni-app，增强版的手机浏览器引擎H5plus等。</p>
+<p><strong>看了下uniapp的项目，给我最深刻的感觉就是uniapp = 小程序 + Vue.js。太爽了有木有！！！</strong></p>
+<p>我们可以利用它的这个特点来使用小程序中的精华和Vue的精华部分，为什么这么说呢？</p>
+<p>在小程序中，我们所开发工程中要使用到的基本组件小程序基本都给我们做了封装，尽管对于Vue来说，我们可以使用Element ui这个组件库。还可以下载各种插件来使用组件。但是有时候某些组件的使用在Vue里面不是很方便对于小程序来说却很简单</p>
+<p>例如一个简单的轮播图组件。对于小程序来说，直接swiper组件就能实现，Vue的话还需要下载插件才能使用。小程序内部就内置了这个组件所以它的使用比Vue来说要轻松太多了。</p>
+<p>但是小程序也有它不方便的地方，对于用惯了Vue的人来说，发现转到小程序之后，这特么是单向数据流？what the fuck!!!</p>
+<p><img src="/2019/09/20/uniapp入门/1568941463979.png" alt="1568941463979"></p>
+<p>在HBuider X中的页面文件全都是Vue，我们可以在HBuider X编写一套页面然后编译到不同端下，编译器会自动帮我们生成各端的目录，例如微信小程序端的目录为mp-weixin</p>
+<h3 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2.环境搭建"></a>2.环境搭建</h3><p>使用 <code>HBuilderX</code>可视化界面快速创建项目，HBuilderX内置处理了相关环境依赖。</p>
+<p>HBuilderX：IDE。<a href="http://www.dcloud.io/hbuilderx.html" target="_blank" rel="noopener">最新版本下载地址</a><br>微信开发者工具：调试预览工具。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="noopener">最新版本下载地址</a></p>
+<p><img src="/2019/09/20/uniapp入门/1568942501335.png" alt="1568942501335"></p>
+<p>uni-app使用Vue的语法+小程序的标签和API</p>
+<h3 id="3-开发规范"><a href="#3-开发规范" class="headerlink" title="3.开发规范"></a>3.开发规范</h3><p>为了实现多端兼容，综合考虑编译速度、运行性能等因素，uni-app约定了如下开发规范：</p>
+<ul>
+<li>页面文件遵循Vue单文件组件(SFC)规范</li>
+<li>组件标签靠近小程序规范、详见uni-app组件规范</li>
+<li>接口能力(JS API)靠近微信小程序规范，但需将前缀wx替换成uni,详见uni-app接口规范</li>
+<li>数据绑定及事件处理同Vue.js规范，同时补充了App及页面的生命周期</li>
+<li>为兼容多端运行，建议使用flex布局进行开发</li>
+</ul>
+<h3 id="4-目录结构"><a href="#4-目录结构" class="headerlink" title="4.目录结构"></a>4.目录结构</h3><p><img src="/2019/09/20/uniapp入门/1568942906243.png" alt="1568942906243"></p>
+<p><img src="/2019/09/20/uniapp入门/1568943037187.png" alt="1568943037187"></p>
+<h3 id="5-生命周期"><a href="#5-生命周期" class="headerlink" title="5.生命周期"></a>5.生命周期</h3><h4 id="应用生命周期"><a href="#应用生命周期" class="headerlink" title="应用生命周期"></a>应用生命周期</h4><p>uni-app支持如下应用生命周期函数：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onLaunch</td>
+<td>当<code>uni-app</code> 初始化完成时触发（全局只触发一次）</td>
+</tr>
+<tr>
+<td>onShow</td>
+<td>当 <code>uni-app</code> 启动，或从后台进入前台显示</td>
+</tr>
+<tr>
+<td>onHide</td>
+<td>当 <code>uni-app</code> 从前台进入后台</td>
+</tr>
+<tr>
+<td>onUniNViewMessage</td>
+<td>对 <code>nvue</code> 页面发送的数据进行监听，可参考 <a href="https://uniapp.dcloud.io/use-weex?id=nvue-向-vue-通讯" target="_blank" rel="noopener">nvue 向 vue 通讯</a></td>
+</tr>
+</tbody></table>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><ul>
+<li>应用生命周期仅可在App.vue中监听，在其他页面监听无效</li>
+<li>onlaunch里面进行页面跳转，如遇白屏报错，请参考<a href="https://ask.dcloud.net.cn/article/35942" target="_blank" rel="noopener">https://ask.dcloud.net.cn/article/35942</a></li>
+</ul>
+<p><strong>onshow和onload的区别</strong></p>
+<p>onload在全局只执行一次，onshow可以多次执行。</p>
+<p>例如：</p>
+<p>当页面加载时onload执行，onshow也执行。但当我们跳转到别的页面再跳回原页面时，onload就不会再执行了。相反onload此时仍然会执行。</p>
+<h2 id="uni-API"><a href="#uni-API" class="headerlink" title="uni-API"></a>uni-API</h2><p><strong>@符号为根路径</strong></p>
+<p>uniAPI的调用方式和小程序API的调用方式基本一样，区别就是在uniapp中的调用方式为uni.，而小程序中的调用方式为wx.。当我们使用</p>
+<p><strong>在uniapp中给data中赋值的方法为=</strong></p>
+<hr>
+<h5 id="1-uni-showLoding"><a href="#1-uni-showLoding" class="headerlink" title="1.uni.showLoding"></a>1.uni.showLoding</h5><p>显示加载提示框</p>
+<p><img src="/2019/09/20/uniapp入门/1568959245027.png" alt="1568959245027"></p>
+<p>若不想显示加载提示框需要调用uni.hideLoading()隐藏</p>
+<h5 id="2-uni-request-OBJECT-发起网络请求"><a href="#2-uni-request-OBJECT-发起网络请求" class="headerlink" title="2.uni.request(OBJECT)发起网络请求"></a>2.uni.request(OBJECT)发起网络请求</h5><p>在各个小程序平台运行时，网络相关的 API 在使用前需要配置域名白名单。</p>
+<p><img src="/2019/09/20/uniapp入门/1568960613461.png" alt="1568960613461"></p>
+<p><img src="/2019/09/20/uniapp入门/1568960636876.png" alt="1568960636876"></p>
+<p><img src="/2019/09/20/uniapp入门/1568960644404.png" alt="1568960644404"></p>
+<p><strong>data 数据说明</strong></p>
+<p>最终发送给服务器的数据是 String 类型，如果传入的 data 不是 String 类型，会被转换成 String。转换规则如下：</p>
+<ul>
+<li>对于 <code>GET</code> 方法，会将数据转换为 query string。例如 <code>{ name: &#39;name&#39;, age: 18 }</code> 转换后的结果是 <code>name=name&amp;age=18</code>。</li>
+<li>对于 <code>POST</code> 方法且 <code>header[&#39;content-type&#39;]</code> 为 <code>application/json</code> 的数据，会进行 JSON 序列化。</li>
+<li>对于 <code>POST</code> 方法且 <code>header[&#39;content-type&#39;]</code> 为 <code>application/x-www-form-urlencoded</code> 的数据，会将数据转换为 query string。</li>
+</ul>
+<h5 id="3-uni-navigateTo"><a href="#3-uni-navigateTo" class="headerlink" title="3.uni.navigateTo()"></a>3.uni.navigateTo()</h5><p>页面跳转，路径后可以添加参数，参数拼接为 ： <strong>url +? + 键值 = 参数</strong></p>
+<p>使用<code>uni.navigateBack</code>可以返回到原页面。</p>
+<p><img src="/2019/09/20/uniapp入门/1568961687249.png" alt="1568961687249"></p>
+<h5 id="uni-navigateTo-和navigator组件的区别"><a href="#uni-navigateTo-和navigator组件的区别" class="headerlink" title="uni.navigateTo()和navigator组件的区别"></a>uni.navigateTo()和navigator组件的区别</h5><ul>
+<li>第一个跳转url附带的参数保存在e中</li>
+<li>第二个跳转url附带的参数保存在option中</li>
+</ul>
+<h5 id="4-uni-showToast显示提示框"><a href="#4-uni-showToast显示提示框" class="headerlink" title="4.uni.showToast显示提示框"></a>4.uni.showToast显示提示框</h5><p><img src="/2019/09/20/uniapp入门/1568964562414.png" alt="1568964562414"></p>
+<h5 id="5-数据缓存"><a href="#5-数据缓存" class="headerlink" title="5.数据缓存"></a>5.数据缓存</h5><h5 id="uni-setStorage-OBJECT"><a href="#uni-setStorage-OBJECT" class="headerlink" title="uni.setStorage(OBJECT)"></a>uni.setStorage(OBJECT)</h5><p>将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口。各个小程序端为其自带的storage api，数据存储生命周期跟小程序本身一致，即除用户主动删除或超过一定时间被自动清理，否则数据都一直可用。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970570798.png" alt="1568970570798"></p>
+<h6 id="uni-setStorageSync-KEY-DATA"><a href="#uni-setStorageSync-KEY-DATA" class="headerlink" title="uni.setStorageSync(KEY,DATA)"></a>uni.setStorageSync(KEY,DATA)</h6><p>将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970655381.png" alt="1568970655381"></p>
+<h5 id="uni-getStorage-OBJECT"><a href="#uni-getStorage-OBJECT" class="headerlink" title="uni.getStorage(OBJECT)"></a>uni.getStorage(OBJECT)</h5><p>从本地缓存中异步获取指定 key 对应的内容。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970691257.png" alt="1568970691257"></p>
+<h5 id="uni-getStorageSync-KEY"><a href="#uni-getStorageSync-KEY" class="headerlink" title="uni.getStorageSync(KEY)"></a>uni.getStorageSync(KEY)</h5><p>从本地缓存中同步获取指定 key 对应的内容。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970739520.png" alt="1568970739520"></p>
+<h5 id="uni-getStorageInfo-OBJECT"><a href="#uni-getStorageInfo-OBJECT" class="headerlink" title="uni.getStorageInfo(OBJECT)"></a>uni.getStorageInfo(OBJECT)</h5><p>异步获取当前 storage 的相关信息。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970795197.png" alt="1568970795197"></p>
+<p><img src="/2019/09/20/uniapp入门/1568970803192.png" alt="1568970803192"></p>
+<h5 id="uni-getStorageInfoSync"><a href="#uni-getStorageInfoSync" class="headerlink" title="uni.getStorageInfoSync()"></a>uni.getStorageInfoSync()</h5><p>同步获取当前 storage 的相关信息。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970876671.png" alt="1568970876671"></p>
+<h5 id="uni-removeStorage-OBJECT"><a href="#uni-removeStorage-OBJECT" class="headerlink" title="uni.removeStorage(OBJECT)"></a>uni.removeStorage(OBJECT)</h5><p>从本地缓存中异步移除指定 key。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970924967.png" alt="1568970924967"></p>
+<h5 id="uni-removeStorageSync-KEY"><a href="#uni-removeStorageSync-KEY" class="headerlink" title="uni.removeStorageSync(KEY)"></a>uni.removeStorageSync(KEY)</h5><p>从本地缓存中同步移除指定 key。</p>
+<p><img src="/2019/09/20/uniapp入门/1568970979583.png" alt="1568970979583"></p>
+<h5 id="uni-clearStorage"><a href="#uni-clearStorage" class="headerlink" title="uni.clearStorage()"></a>uni.clearStorage()</h5><p>清理本地数据缓存，暴力清除全部清空</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uni.clearStorage();</span><br></pre></td></tr></table></figure>
+
+<h5 id="uni-clearStorageSync"><a href="#uni-clearStorageSync" class="headerlink" title="uni.clearStorageSync()"></a>uni.clearStorageSync()</h5><p>同步清理本地数据缓存。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    uni.clearStorageSync();</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="comment">// error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/09/20/uniapp入门/1568971184039.png" alt="1568971184039"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

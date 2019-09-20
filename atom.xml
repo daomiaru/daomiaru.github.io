@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-17T09:54:36.491Z</updated>
+  <updated>2019-09-20T09:35:37.277Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>uniapp入门</title>
+    <link href="http://yoursite.com/2019/09/20/uniapp%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2019/09/20/uniapp入门/</id>
+    <published>2019-09-20T09:29:38.000Z</published>
+    <updated>2019-09-20T09:35:37.277Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;uni-app快速人们&quot;&gt;&lt;a href=&quot;#uni-app快速人们&quot; class=&quot;headerlink&quot; title=&quot;uni-app快速人们&quot;&gt;&lt;/a&gt;uni-app快速人们&lt;/h2&gt;&lt;h3 id=&quot;1-什么是uni-app&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="uniapp" scheme="http://yoursite.com/categories/uniapp/"/>
+    
+    
+      <category term="uniapp" scheme="http://yoursite.com/tags/uniapp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序组件基本常用API</title>
+    <link href="http://yoursite.com/2019/09/20/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6%E5%9F%BA%E6%9C%AC%E5%B8%B8%E7%94%A8API/"/>
+    <id>http://yoursite.com/2019/09/20/小程序组件基本常用API/</id>
+    <published>2019-09-20T09:25:07.000Z</published>
+    <updated>2019-09-20T09:35:42.592Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;图片&quot;&gt;&lt;a href=&quot;#图片&quot; class=&quot;headerlink&quot; title=&quot;图片&quot;&gt;&lt;/a&gt;图片&lt;/h2&gt;&lt;h3 id=&quot;1-wx-previewImage图片预览&quot;&gt;&lt;a href=&quot;#1-wx-previewImage图片预览&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="微信小程序" scheme="http://yoursite.com/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="小程序API" scheme="http://yoursite.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8FAPI/"/>
+    
+  </entry>
   
   <entry>
     <title>小程序和vue的区别</title>
@@ -474,58 +526,6 @@
     
     
       <category term="Vuex" scheme="http://yoursite.com/tags/Vuex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE前端框架（四）</title>
-    <link href="http://yoursite.com/2019/08/26/VUE%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/26/VUE前端框架（四）/</id>
-    <published>2019-08-26T11:44:37.000Z</published>
-    <updated>2019-08-26T13:26:04.856Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;VUE前端框架（四）&quot;&gt;&lt;a href=&quot;#VUE前端框架（四）&quot; class=&quot;headerlink&quot; title=&quot;VUE前端框架（四）&quot;&gt;&lt;/a&gt;VUE前端框架（四）&lt;/h2&gt;&lt;h3 id=&quot;1-vue-router基本使用&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="前端框架" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE前端框架（三）</title>
-    <link href="http://yoursite.com/2019/08/21/VUE%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/21/VUE前端框架（三）/</id>
-    <published>2019-08-21T07:31:11.000Z</published>
-    <updated>2019-08-26T13:25:52.718Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;VUE前端框架（三）&quot;&gt;&lt;a href=&quot;#VUE前端框架（三）&quot; class=&quot;headerlink&quot; title=&quot;VUE前端框架（三）&quot;&gt;&lt;/a&gt;VUE前端框架（三）&lt;/h1&gt;&lt;h4 id=&quot;1-v-text指令&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   

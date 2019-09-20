@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小程序组件基本常用API - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="图片1.wx.previewImage图片预览在新页面中全屏预览图片，预览的过程中用户可以进行保存图片，发送给朋友等操作
+
+实例代码1234wx.previewImage(&amp;#123;  curre,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">小程序组件基本常用API</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">小程序组件基本常用API</h1>
+        <div class="stuff">
+            <span>九月 20, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/小程序API/">小程序API</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h3 id="1-wx-previewImage图片预览"><a href="#1-wx-previewImage图片预览" class="headerlink" title="1.wx.previewImage图片预览"></a>1.wx.previewImage图片预览</h3><p>在新页面中全屏预览图片，预览的过程中用户可以进行保存图片，发送给朋友等操作</p>
+<p><img src="/2019/09/20/小程序组件基本常用API/1568857836239.png" alt="1568857836239"></p>
+<h5 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wx.previewImage(&#123;</span><br><span class="line">  current: <span class="string">''</span>, <span class="comment">// 当前显示图片的http链接</span></span><br><span class="line">  urls: [] <span class="comment">// 需要预览的图片http链接列表</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里的图片必须使用http或https协议传输的图片，使用本地图片的话不会显示。这里原因估计是小程序本身只有2M大小的限制，把图片方法哦本地太占地方了，所以预览本地图片干脆就不要了</p>
+<p>示例程序:</p>
+<p>index.wxml</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;imgalist&#125;&#125;"</span> <span class="attr">wx:for-item</span>=<span class="string">"image"</span> <span class="attr">class</span>=<span class="string">"previewimg"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;image&#125;&#125;"</span> <span class="attr">data-src</span>=<span class="string">"&#123;&#123;image&#125;&#125;"</span> <span class="attr">bindtap</span>=<span class="string">"previewImage"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>index.wxss</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.i</span><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>:border-box;</span><br><span class="line">	<span class="attribute">padding</span>:<span class="number">20px</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.previewimg</span>&#123;</span><br><span class="line">	<span class="attribute">float</span>:left;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">45%</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">2%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.previewimg</span> <span class="selector-tag">image</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = getApp()</span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    imgalist: [<span class="string">'https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1496287851&amp;di=0a26048f586b852193cb5026d60c4fad &amp; imgtype=jpg &amp; er=1 &amp; src=http % 3A % 2F % 2Fpic.58pic.com % 2F58pic % 2F12 % 2F74 % 2F05 % 2F99C58PICYck.jpg'</span>,</span><br><span class="line">      <span class="string">'https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1495693185413&amp;di=0d0acdebf0f532edd0fcdb76265623c5 &amp; imgtype=0 &amp; src=http % 3A % 2F % 2Fimg1.3lian.com % 2Fimg013 % 2Fv3 % 2F2 % 2Fd % 2F61.jpg'</span>,</span><br><span class="line">      <span class="string">'https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1495693185413&amp;di=55835ae37fdc95a317b03f28162c0de1 &amp; imgtype=0 &amp; src=http % 3A % 2F % 2Fimg4.duitang.com % 2Fuploads % 2Fitem % 2F201307 % 2F12 % 2F20130712224237_nSjht.jpeg'</span>,</span><br><span class="line">      <span class="string">'https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1495693185410&amp;di=e28cc03d2ae84130eabc2 6bf0fc7495f &amp; imgtype=0 &amp; src=http % 3A % 2F % 2Fpic36.photophoto.cn % 2F20150814 % 2F0005018308986502_b.jpg'</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">	<span class="comment">/** i</span></span><br><span class="line"><span class="comment">	 * 预览图片</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">  previewImage: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> current = <span class="built_in">encodeURI</span>(e.target.dataset.src);</span><br><span class="line">    wx.previewImage(&#123;</span><br><span class="line">      current: current, <span class="comment">// 当前显示图片的http链接</span></span><br><span class="line">      urls: <span class="keyword">this</span>.data.imgalist <span class="comment">// 需要预览的图片http链接列表</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-wx-chooseImage"><a href="#2-wx-chooseImage" class="headerlink" title="2.wx.chooseImage"></a>2.wx.chooseImage</h3><p>从本地相册选择图片或使用相机拍照</p>
+<p><img src="/2019/09/20/小程序组件基本常用API/1568859999597.png" alt="1568859999597"></p>
+<p><img src="/2019/09/20/小程序组件基本常用API/1568860016803.png" alt="1568860016803"></p>
+<p><img src="/2019/09/20/小程序组件基本常用API/1568860023168.png" alt="1568860023168"></p>
+<p>实例：</p>
+<p>index.wxml</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"default"</span> <span class="attr">bindtap</span>=<span class="string">"gotoShow"</span> &gt;</span>点击上传照片<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>= <span class="string">"show-image"</span> <span class="attr">mode</span>=<span class="string">"aspectFitf"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;src&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    src: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  gotoShow: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span></span><br><span class="line">    wx.chooseImage(&#123;</span><br><span class="line">      count: <span class="number">9</span>, <span class="comment">// 最多可以选择的图片张数，默认9</span></span><br><span class="line">      sizeType: [<span class="string">'original'</span>, <span class="string">'compressed'</span>], <span class="comment">// original 原图，compressed 压缩图，默认二者都有</span></span><br><span class="line">      sourceType: [<span class="string">'album'</span>, <span class="string">'camera'</span>], <span class="comment">// album 从相册选图，camera 使用相机，默认二者都有</span></span><br><span class="line">      success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// success</span></span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        _this.setData(&#123;</span><br><span class="line">          src: res.tempFilePaths</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;,</span><br><span class="line">      fail: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// fail</span></span><br><span class="line">      &#125;,</span><br><span class="line">      complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// complete</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-模版template"><a href="#3-模版template" class="headerlink" title="3.模版template"></a>3.模版template</h3><p>微信小程序支持template模版引入。可以解决代码复用问题。我们来看一个实例</p>
+<p>目录结构</p>
+<p><img src="/2019/09/20/小程序组件基本常用API/1568879124741.png" alt="1568879124741"></p>
+<p>index.wxml</p>
+<p>使用import引入该模版文件，template指明引入位置，is属性指明引入模版</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">"../commen/header.wxml"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>header.wxml</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template name=<span class="string">"header"</span>&gt;</span><br><span class="line"> &lt;view&gt;我是渲染头部&lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-login"><a href="#4-login" class="headerlink" title="4.login"></a>4.login</h3><p><img src="/2019/09/20/小程序组件基本常用API/1568880122643.png" alt="1568880122643"></p>
+<p>微信小程序提供了api让我么来处理登录请求，步骤为</p>
+<p>1.调用wx.login()获取登录凭证code</p>
+<p>2.调用wx.request()将code传到服务器</p>
+<p>3.服务器调用微信登录校验接口(appid+appsecret+code)，获得session_key+openid</p>
+<p>4.服务端生成3rd_session(相当于userid)，使用3rd_session为key，session_key+openid为value的形式存在服务器，并将3rd_session传送给客户端。</p>
+<p>5.客户端本地存储3rd_session，登录成功！</p>
+<p>6.下次登录时可以用3rd_session传输到服务器验证登录态是否过期，未过期则登录成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session_key:用户信息解密的秘钥，获取用户信息时会用到；openid是用户唯一标识，通常这两个字段都不会传输给客户端，仅留存于服务端</span><br></pre></td></tr></table></figure>
+
+<p>这个需要跟服务端配合使用具体不多叙述。</p>
+<h3 id="5-动画"><a href="#5-动画" class="headerlink" title="5.动画"></a>5.动画</h3><p>实现方式</p>
+<ul>
+<li>创建一个动画实例animation。</li>
+<li>调用实例的方法来描述动画</li>
+<li>最后通过动画实例的wxport方法导出动画数据传递给组件的animation属性</li>
+</ul>
+<p><img src="/2019/09/20/小程序组件基本常用API/1568883754298.png" alt="1568883754298"></p>
+<p>前两步是定义一个动画并设置要干什么，然后把这个设置好的规则导出扔给界面上的某个组件，让它按照这个规则来执行。</p>
+<p>当然也可以给多个组件同时绑定相同的动画</p>
+<p>例子</p>
+<p>index.wxml</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"contatiner"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"usermotto"</span> <span class="attr">animation</span>=<span class="string">"&#123;&#123;ani&#125;&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"user-motto"</span>&gt;</span>&#123;&#123;motto&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"start"</span>&gt;</span>开始动画<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">animation</span>=<span class="string">"&#123;&#123;ani&#125;&#125;"</span>&gt;</span>安康<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>index.wxss</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.usermotto</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>index,js，step()方法表明一组动画完成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    motto: <span class="string">'hello world'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  start: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 创建动画实例</span></span><br><span class="line">    <span class="keyword">var</span> animation = wx.createAnimation(&#123;</span><br><span class="line">      duration: <span class="number">4000</span>,</span><br><span class="line">      timingFunction: <span class="string">"ease"</span>,</span><br><span class="line">      delay: <span class="number">1000</span></span><br><span class="line">    &#125;)</span><br><span class="line">    animation.translate(<span class="number">100</span>,<span class="number">-100</span>).step()</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      ani: animation.export()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-页面滚动wx-pageScrollTo"><a href="#6-页面滚动wx-pageScrollTo" class="headerlink" title="6.页面滚动wx.pageScrollTo"></a>6.页面滚动wx.pageScrollTo</h3><p>调用该方法可指定页面滚动到需要的位置，可以用其来设置点击返回顶部功能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wx.pageScrollTo(&#123;</span><br><span class="line">      scrollTop: <span class="number">0</span>,<span class="comment">//设置滚动目标位置</span></span><br><span class="line">      duration: <span class="number">300</span>,<span class="comment">//设置滚动动画时间</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>#### </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
