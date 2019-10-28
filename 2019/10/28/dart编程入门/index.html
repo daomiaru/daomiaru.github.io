@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>dart编程入门 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="Dart编程入门1.Dart介绍Dart是由谷歌开发的计算机编程语言，它可以被用于web、服务器、移动应用，和物联网的领域开发。Dart诞生于2011年，号称要取代JavaScript,但是过去的几,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">dart编程入门</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">dart编程入门</h1>
+        <div class="stuff">
+            <span>十月 28, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/flutter/">flutter</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="Dart编程入门"><a href="#Dart编程入门" class="headerlink" title="Dart编程入门"></a>Dart编程入门</h2><h3 id="1-Dart介绍"><a href="#1-Dart介绍" class="headerlink" title="1.Dart介绍"></a>1.Dart介绍</h3><p>Dart是由谷歌开发的计算机编程语言，它可以被用于web、服务器、移动应用，和物联网的领域开发。Dart诞生于2011年，号称要取代JavaScript,但是过去的几年中一直不温不火，直到Flutter的出现才被人们重新重视起来</p>
+<h3 id="2-前期准备"><a href="#2-前期准备" class="headerlink" title="2.前期准备"></a>2.前期准备</h3><ul>
+<li><p>先到官网下载Dart的SDK<a href="http://www.cndartlang.com/920.html" target="_blank" rel="noopener">http://www.cndartlang.com/920.html</a></p>
+</li>
+<li><p>下载完成之后解压，保存为dart放置在D盘下就好</p>
+<p><img src="/2019/10/28/dart编程入门/1571973021836.png" alt="1571973021836"></p>
+</li>
+<li><p>然后修改环境变量</p>
+<p><img src="/2019/10/28/dart编程入门/1571973116395.png" alt="1571973116395"></p>
+</li>
+</ul>
+<p>  <img src="/2019/10/28/dart编程入门/1571973129542.png" alt="1571973129542"></p>
+<ul>
+<li><p>配置完成后在终端输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dart --version</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/28/dart编程入门/1571973197282.png" alt="1571973197282"></p>
+</li>
+</ul>
+<p>出现版本号表明安装成功，这样就可以开发dart了，这里我们推荐使用vsCode开发</p>
+<p>vsCode开发这里需要做一些插件的安装和配置，网上都有，这里不再赘述！</p>
+<h3 id="3-Dart语法介绍"><a href="#3-Dart语法介绍" class="headerlink" title="3.Dart语法介绍"></a>3.Dart语法介绍</h3><ul>
+<li><p>入口方法：mian(){}</p>
+<p>​                    void main(){}表明该方法没有返回值</p>
+</li>
+</ul>
+<ul>
+<li>打印使用：print()打印</li>
+</ul>
+<ul>
+<li>变量定义：var定义，类似于js,会自动判断变量类型</li>
+</ul>
+<p>​                          也可以直接通过类型关键词来定义：String str = “你好”，int a = 123</p>
+<ul>
+<li><p>Dart常量：final 和 const修饰符</p>
+<p>​                    const值不变，一开始就得赋值</p>
+<p>​                    final可以开始不赋值，只能赋一次；</p>
+</li>
+</ul>
+<h3 id="4-Dart数据类型"><a href="#4-Dart数据类型" class="headerlink" title="4.Dart数据类型"></a>4.Dart数据类型</h3><p>主要分为字符串类型、数值类型、布尔类型、List集合类型、Maps类型、</p>
+<h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>字符串拼接</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> str1 = <span class="string">'你好'</span></span><br><span class="line"><span class="built_in">String</span> str2 = <span class="string">'Dart'</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">$str1</span> <span class="subst">$str2</span>"</span>)<span class="comment">//你好 Dart</span></span><br><span class="line"><span class="built_in">print</span>(str1 + str2)<span class="comment">//你好Dart</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h4><p>分为int类型和double类型</p>
+<p>int:整型</p>
+<p>double:浮点型 </p>
+<h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>对于 == ，在dart中不会像js一样有类型转换</p>
+<h4 id="集合类型（数组）"><a href="#集合类型（数组）" class="headerlink" title="集合类型（数组）"></a>集合类型（数组）</h4><p>定义方式类似与js</p>
+<p>也可以这么写</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = <span class="keyword">new</span> <span class="built_in">List</span>()</span><br><span class="line">li.add(<span class="number">1</span>)</span><br><span class="line">li.add(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>定义list指定类型</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这样定义之后就只能add字符串类型的数据</span></span><br><span class="line"><span class="keyword">var</span> li = <span class="keyword">new</span> <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;()</span><br></pre></td></tr></table></figure>
+
+<h4 id="Maps类型（JSON数据）"><a href="#Maps类型（JSON数据）" class="headerlink" title="Maps类型（JSON数据）"></a>Maps类型（JSON数据）</h4><p>访问不能像js中对象那样.访问</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line"> <span class="string">"name"</span>: <span class="string">"kobe"</span>,</span><br><span class="line"> <span class="string">"age"</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(person[<span class="string">"name"</span>])<span class="comment">//kobe</span></span><br></pre></td></tr></table></figure>
+
+<p>第二种定义方式</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">p[<span class="string">"name"</span>] = <span class="string">"kobe"</span></span><br><span class="line">p[<span class="string">"age"</span>] = <span class="number">18</span></span><br></pre></td></tr></table></figure>
+
+<p>可以用is关键字来判断变量是什么类型，返回false或者true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(str is String)</span><br></pre></td></tr></table></figure>
+
+<h4 id="赋值运算法"><a href="#赋值运算法" class="headerlink" title="赋值运算法"></a>赋值运算法</h4><p>和js都一样，新增了??=</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b</span><br><span class="line">b??=<span class="number">20</span><span class="comment">//表示如果b为空的话把20赋给b</span></span><br></pre></td></tr></table></figure>
+
+<p>??运算符</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="keyword">var</span> b = a　？？１０<span class="comment">//表示如果a为空的话把10赋给b,a不为空的话把a赋给b</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-List数组属性与方法"><a href="#5-List数组属性与方法" class="headerlink" title="5.List数组属性与方法"></a>5.List数组属性与方法</h3><h4 id="List数组属性"><a href="#List数组属性" class="headerlink" title="List数组属性"></a>List数组属性</h4><p>reversed把数组翻转</p>
+<h4 id="List数组方法"><a href="#List数组方法" class="headerlink" title="List数组方法"></a>List数组方法</h4><p>where循环遍历，返回满足条件</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line"><span class="keyword">var</span> newli = li.where((value)&#123;</span><br><span class="line">    <span class="keyword">return</span> value&gt;<span class="number">5</span></span><br><span class="line">&#125;)</span><br><span class="line">    <span class="built_in">print</span>(newli.toList())<span class="comment">//[7,9]</span></span><br></pre></td></tr></table></figure>
+
+<p>any循环遍历，只要有一个满足，返回true</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line"><span class="keyword">var</span> newli = li.any((value)&#123;</span><br><span class="line">    <span class="keyword">return</span> value&gt;<span class="number">5</span></span><br><span class="line">&#125;)</span><br><span class="line">    <span class="built_in">print</span>(newli)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>every循环遍历，必须每一个都满足，才返回true</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line"><span class="keyword">var</span> newli = li.every((value)&#123;</span><br><span class="line">    <span class="keyword">return</span> value&gt;<span class="number">5</span></span><br><span class="line">&#125;)</span><br><span class="line">    <span class="built_in">print</span>(newli)<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-闭包"><a href="#6-闭包" class="headerlink" title="6.闭包"></a>6.闭包</h3><p>全局变量特点：全局变量常驻内存，全局变量污染全局</p>
+<p>局部变量特点：不常驻内存，会被垃圾机制回收，不会污染全局</p>
+<p>闭包：即常驻内存，又不污染全局。方法里面嵌套一个方法，返回该方法</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fn()&#123;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line"> <span class="keyword">return</span>()&#123;</span><br><span class="line"> 	a++;</span><br><span class="line">    <span class="built_in">print</span>(a);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn1 = fn()</span><br><span class="line">fn1()<span class="comment">//124</span></span><br><span class="line">fn1()<span class="comment">//125</span></span><br><span class="line">fn1()<span class="comment">//126</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-类"><a href="#7-类" class="headerlink" title="7.类"></a>7.类</h3><p>以class关键字定义，首字母大写</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person()<span class="comment">//实例化</span></span><br></pre></td></tr></table></figure>
+
+<p>类的构造函数，与类名相同的函数被称为<strong>默认构造函数</strong>，实例化类自动调用，可通过默认构造函数在实例化时传参初始化</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>()</span>&#123;</span><br><span class="line">   <span class="comment">//默认构造函数</span></span><br><span class="line"> Person()&#123;</span><br><span class="line"> 	...</span><br><span class="line"> &#125;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="命名构造函数"><a href="#命名构造函数" class="headerlink" title="命名构造函数"></a><strong>命名构造函数</strong></h5><p>类名.函数名，在实例化时调用 ，可定义多个</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>()</span>&#123;</span><br><span class="line">   <span class="comment">//默认构造函数</span></span><br><span class="line"> Person()&#123;</span><br><span class="line"> 	...</span><br><span class="line"> &#125;</span><br><span class="line"> Person.now()&#123;</span><br><span class="line"> ...</span><br><span class="line"> &#125;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person.now()</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：Dart和其他面向对象语言不一样，Dart中没有public  private  protected这些访问修饰符。但是我们可以使用 _ 把一个属性或者方法定义成私有。若此时和该类在同一文件下就算加了 _  也没有用。必须在不同的文件下才有用。可以通过 import  “文件路径”来引入类</strong></p>
+<h4 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h4><p>使用static 关键字来实现来类级别的变量和函数</p>
+<p>静态方法不能访问非静态成员，非静态方法可以访问静态成员</p>
+<p><strong>静态成员和静态方法可以直接通过类名访问</strong></p>
+<h4 id="对象操作符as"><a href="#对象操作符as" class="headerlink" title="对象操作符as"></a>对象操作符as</h4><p>类型转换</p>
+<h4 id="对象操作符-类似于链式编程"><a href="#对象操作符-类似于链式编程" class="headerlink" title="对象操作符..(类似于链式编程)"></a>对象操作符..(类似于链式编程)</h4><h3 id="8-继承"><a href="#8-继承" class="headerlink" title="8.继承"></a>8.继承</h3><p>extends关键词</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name = <span class="string">'kobe'</span>;</span><br><span class="line">   <span class="built_in">int</span> age = <span class="number">18</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">Web p = <span class="keyword">new</span> Web();</span><br><span class="line"><span class="built_in">print</span>(p.name);<span class="comment">//kobe</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当父类有构造函数时，实例子类给父类构造函数传参要使用super</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name = <span class="string">'kobe'</span>;</span><br><span class="line">   <span class="built_in">int</span> age = <span class="number">18</span>;</span><br><span class="line">   Person(<span class="keyword">this</span>.name,<span class="keyword">this</span>,age)</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	Web(<span class="built_in">String</span> name, <span class="built_in">int</span> age) : <span class="keyword">super</span>(name,age)&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">Web p = <span class="keyword">new</span> Web();</span><br><span class="line"><span class="built_in">print</span>(p.name);<span class="comment">//kobe</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以对父类方法进行重写，重写时最好加上@override说明</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name = <span class="string">'kobe'</span>;</span><br><span class="line">   <span class="built_in">int</span> age = <span class="number">18</span>;</span><br><span class="line">   Person(<span class="keyword">this</span>.name,<span class="keyword">this</span>,age)</span><br><span class="line">   <span class="keyword">void</span> PersonInfo()&#123;</span><br><span class="line">   	<span class="built_in">print</span>(<span class="string">'信息'</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	Web(<span class="built_in">String</span> name, <span class="built_in">int</span> age) : <span class="keyword">super</span>(name,age)&#123;&#125;</span><br><span class="line">    <span class="comment">//加上@override表明是对父类方法的重写</span></span><br><span class="line">	<span class="meta">@override</span></span><br><span class="line">	<span class="keyword">void</span> PersonInfo()&#123;</span><br><span class="line">   	<span class="built_in">print</span>(<span class="string">'dart信息'</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在子类里面调用父类方法</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name = <span class="string">'kobe'</span>;</span><br><span class="line">   <span class="built_in">int</span> age = <span class="number">18</span>;</span><br><span class="line">   Person(<span class="keyword">this</span>.name,<span class="keyword">this</span>,age)</span><br><span class="line">   <span class="keyword">void</span> PersonInfo()&#123;</span><br><span class="line">   	<span class="built_in">print</span>(<span class="string">'信息'</span>)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">void</span> PersonInfo1()&#123;</span><br><span class="line">   	<span class="built_in">print</span>(<span class="string">'父类信息'</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	Web(<span class="built_in">String</span> name, <span class="built_in">int</span> age) : <span class="keyword">super</span>(name,age)&#123;&#125;</span><br><span class="line">    <span class="comment">//加上@override表明是对父类方法的重写</span></span><br><span class="line">	<span class="meta">@override</span></span><br><span class="line">	<span class="keyword">void</span> PersonInfo()&#123;</span><br><span class="line">   	<span class="built_in">print</span>(<span class="string">'dart信息'</span>)</span><br><span class="line">   	<span class="keyword">super</span>.PersonInfo1()</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-抽象类"><a href="#9-抽象类" class="headerlink" title="9.抽象类"></a>9.抽象类</h3><p>  Dart抽象类：Dart抽象类主要用于定义标准，子类可以继承抽象类，也可以实现抽象类接口</p>
+<ul>
+<li>抽象类通过abstract关键字来定义</li>
+<li>Dart中的抽象方法不能用abstract声明，Dart中没有方法体的方法我们称为抽象方法</li>
+<li>如果子类继承抽象类必须得实现里面的抽象方法</li>
+<li>如果把抽象类当作接口实现的话必须得实现抽象类里面定义得所有属性和方法</li>
+<li>抽象类不能被实例化，只有继承它的子类可以</li>
+</ul>
+<p>extendes抽象类和implements的区别：</p>
+<ul>
+<li>如果复用抽象类里面的方法，并且要用抽象方法约束子类的话我们就用extends继承抽象类</li>
+<li>如果只是把抽象类当作标准的话我们就用implement实现抽象类</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name = <span class="string">'kobe'</span>;</span><br><span class="line">   <span class="built_in">int</span> age = <span class="number">18</span>;</span><br><span class="line">   eat();</span><br><span class="line">   run();</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  eat()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'实现父类抽象方法'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  run()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'实现父类抽象方法'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">Web p = <span class="keyword">new</span> Web();</span><br><span class="line"><span class="built_in">print</span>(p.name);</span><br><span class="line">p.eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-多态"><a href="#10-多态" class="headerlink" title="10.多态"></a>10.多态</h3><p>允许子类类型的指针赋值给父类类型的指针，同一个函数调用会有不同的执行效果</p>
+<p>子类的实例赋值给父类的引用</p>
+<p>多态就是父类定义一个方法不去实现，让继承它的子类去实现，每个子类有不同的表现（卧槽这跟抽象方法有什么区别）</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name = <span class="string">'kobe'</span>;</span><br><span class="line">   <span class="built_in">int</span> age = <span class="number">18</span>;</span><br><span class="line">   eat();</span><br><span class="line">   run();</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  eat()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'实现父类抽象方法'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  run()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'实现父类抽象方法'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">Web p = <span class="keyword">new</span> Web();</span><br><span class="line"><span class="built_in">print</span>(p.name);</span><br><span class="line">p.eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="11-接口"><a href="#11-接口" class="headerlink" title="11.接口"></a>11.接口</h3><p><strong>接口就是定义的一个类标准，子类在实现时必须根据标准来</strong></p>
+<p>和Java一样，dart也有接口，但是和Java还是有区别的</p>
+<p>首先，dart的接口没有interface关键字定义接口，而是普通类或抽象类都可以作为接口被实现</p>
+<p>同样使用implements关键字进行实现</p>
+<p>但是dart的接口有点奇怪，如果实现的类是普通类，会将普通类和抽象中的属性的方法全部需要覆写一遍</p>
+<p>而因为抽象类可以定义抽象方法，普通类不可以，所以一般如果要实现像Java接口那样的方式，一般会使用抽象类，建议使用抽象类定义接口</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  add();</span><br><span class="line">  update();</span><br><span class="line">  change();</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Web</span> <span class="keyword">implements</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="built_in">String</span> mysql;</span><br><span class="line">  Web(<span class="built_in">String</span> <span class="keyword">this</span>.mysql);</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  add()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'数据库'</span>+ <span class="keyword">this</span>.mysql);</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="meta">@override</span></span><br><span class="line">    update()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'数据库'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="meta">@override</span></span><br><span class="line">   change()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'数据库'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">Web p = <span class="keyword">new</span> Web(<span class="string">'xxxxx'</span>);</span><br><span class="line">p.add();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="dart中一个类实现多个接口"><a href="#dart中一个类实现多个接口" class="headerlink" title="dart中一个类实现多个接口"></a>dart中一个类实现多个接口</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">  printB();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  printA();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">A</span>,<span class="title">B</span></span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  printA() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  printB() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-dart中的多继承mixins（混入）"><a href="#12-dart中的多继承mixins（混入）" class="headerlink" title="12.dart中的多继承mixins（混入）"></a>12.dart中的多继承mixins（混入）</h3><p>可以在dart中使用mixins实现类似多继承的功能</p>
+<p>使用mixins的条件</p>
+<ul>
+<li>作为mixins的类只能继承自Object，不能继承其他类</li>
+<li>作为mixins的类不能有构造函数</li>
+<li>一个类可以mixins多个mixins类</li>
+<li>mixins绝不是继承，也不是接口，而是一种全新的特性</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">  printA()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'A'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">  printB()&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'B'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="title">with</span> <span class="title">A</span>,<span class="title">B</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="keyword">new</span> C();</span><br><span class="line">   c.printA();<span class="comment">//A</span></span><br><span class="line">   c.printB();<span class="comment">//B</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="13-泛型"><a href="#13-泛型" class="headerlink" title="13.泛型"></a>13.泛型</h3><p>泛型就是解决 类 接口 方法的复用性、以及对不特定数据类型的支持（类型校验）</p>
+<p> 需求，传入一个int类型的数据，返回int类型，传入String类型返回String类型</p>
+<h4 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以看出这种写法会造成代码冗余。</span></span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">  <span class="built_in">int</span> printA(<span class="built_in">int</span> A)&#123;</span><br><span class="line">      <span class="keyword">return</span> A;</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="built_in">String</span> printB(<span class="built_in">String</span> B)&#123;</span><br><span class="line">      <span class="keyword">return</span> B;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用泛型，T表示任意类型，&lt;T&gt;可以对传入的参数和返回值进行类型校验，在方法调用时加上要校验的类型即可&gt;</span></span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line"> T getData&lt;T&gt;(T value)&#123;</span><br><span class="line">   <span class="keyword">return</span> value;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">print</span>(getData&lt;<span class="built_in">int</span>&gt;(<span class="number">123</span>));<span class="comment">//123</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//只会对传入参数进行校验，不会对返回值进行校验</span></span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">  getData&lt;T&gt;(T value)&#123;</span><br><span class="line">   <span class="keyword">return</span> value;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">print</span>(getData&lt;<span class="built_in">int</span>&gt;(<span class="number">123</span>));<span class="comment">//123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定泛型类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  getinfo(T a)&#123;</span><br><span class="line">      <span class="keyword">return</span> a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">   <span class="comment">//在实例化时传入T = int,这样传入的参数必须为int</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="keyword">new</span> A&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(a.getinfo(<span class="number">123</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h4><p>需求：实现数据缓存的功能：有文件缓存，和内存缓存。内存缓存和文件缓存按照接口约束实现</p>
+<p>1.定义一个泛型接口，约束实现它的子类必须有getByKey(key)和setByKey(key,value)</p>
+<p>2.要求setByKey的时候的value的类型和实例化子类的时候指定的类型一致</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Cache</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  getByKey(<span class="built_in">String</span> key);</span><br><span class="line">  <span class="keyword">void</span> setByKey(<span class="built_in">String</span> key, T value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fileCache</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Cache</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="meta">@override</span></span><br><span class="line">  getByKey(<span class="built_in">String</span> key) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="keyword">void</span> setByKey(<span class="built_in">String</span> key,T value) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"我是文件缓存，我把key=<span class="subst">$&#123;key&#125;</span> value=<span class="subst">$&#123;value&#125;</span>的数据写进了文件中"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemoryCache</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Cache</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">   <span class="meta">@override</span></span><br><span class="line">  getByKey(<span class="built_in">String</span> key) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="keyword">void</span> setByKey(<span class="built_in">String</span> key,T value) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"我是内存缓存，我把key=<span class="subst">$&#123;key&#125;</span> value=<span class="subst">$&#123;value&#125;</span>的数据写进了内存中"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="keyword">new</span> MemoryCache&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line"></span><br><span class="line">  a.setByKey(<span class="string">'123'</span>, <span class="number">456</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="14-库"><a href="#14-库" class="headerlink" title="14.库"></a>14.库</h3><p>在dart中，库的使用时通过import关键字引入</p>
+<p>library指令可以创建一个库，每个dart文件都是一个库，即使没有使用libarary指令来指定</p>
+<h5 id="dart中的库主要有三种："><a href="#dart中的库主要有三种：" class="headerlink" title="dart中的库主要有三种："></a>dart中的库主要有三种：</h5><p><strong>1.我们自定义的库</strong></p>
+<p>import ‘lib/xxx.dart’</p>
+<p><strong>2.系统内置库，安装dart SDK后可使用</strong></p>
+<p>import ‘dart:math’</p>
+<p>import ‘dart:io’</p>
+<p>import ‘dart:convert’</p>
+<p><strong>3.Pub包管理系统中的库</strong></p>
+<p><a href="https://pub.dev/packages" target="_blank" rel="noopener">https://pub.dev/packages</a></p>
+<p><a href="https://pub.flutter-io.cn/packages" target="_blank" rel="noopener">https://pub.flutter-io.cn/packages</a></p>
+<p><a href="https://pub.dartlang.org/flutter/" target="_blank" rel="noopener">https://pub.dartlang.org/flutter/</a></p>
+<ul>
+<li><p>需要在自己项目根目录新建一个pubspec.yaml</p>
+</li>
+<li><p>在pubspec.yaml文件中配置名称。描述，依赖等信息</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//pubspec.yaml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">xxx</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">A</span> <span class="string">new</span> <span class="string">flutter</span> <span class="string">module</span> <span class="string">project</span></span><br><span class="line"><span class="attr">dependencies:</span> </span><br><span class="line"><span class="attr">    date_format:</span> <span class="string">^1.0.6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后进入项目根目录运行 pub get 获取包下载到本地</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pub get</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>项目中引入库 import ‘package://http/http.dart’ as http; 看文档使用</p>
+</li>
+</ul>
+<p>接口请求用例：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'dart:io'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:convert'</span>;</span><br><span class="line"><span class="keyword">void</span> main() <span class="keyword">async</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> result = <span class="keyword">await</span> getDatafromZhihuAPI();</span><br><span class="line">  <span class="built_in">print</span>(result);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//api接口：http://news-at.zhihu.com/api/3/stories/latest</span></span><br><span class="line"> getDatafromZhihuAPI() <span class="keyword">async</span>&#123;</span><br><span class="line">   <span class="comment">//1.创建HttpClient对象</span></span><br><span class="line">   <span class="keyword">var</span> httpClient = <span class="keyword">new</span> HttpClient();</span><br><span class="line">   <span class="comment">//2.创建Uri对象</span></span><br><span class="line">   <span class="keyword">var</span> uri = <span class="keyword">new</span> <span class="built_in">Uri</span>.http(<span class="string">'news-at.zhihu.com'</span>, <span class="string">'/api/3/stories/latest'</span>);</span><br><span class="line">   <span class="comment">//3.发起请求，等待请求</span></span><br><span class="line">   <span class="keyword">var</span> request = <span class="keyword">await</span> httpClient.getUrl(uri);</span><br><span class="line">  <span class="comment">//4.关闭请求，等待响应</span></span><br><span class="line">   <span class="keyword">var</span> response = <span class="keyword">await</span> request.close();</span><br><span class="line">   <span class="comment">//5.解码响应的内容</span></span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">await</span> response.transform(utf8.decoder).join();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="部分引入"><a href="#部分引入" class="headerlink" title="部分引入"></a>部分引入</h4><p>使用show关键字可以做到部分按需引入</p>
+<p>也可使用hide关键字隐藏部分引入</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//lib/A.dart</span></span><br><span class="line">getName()&#123;</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">'获取名字'</span>)</span><br><span class="line">&#125;</span><br><span class="line">setName()&#123;</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">'设置名字'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//B.dart</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'lib/A.dart'</span> show getName</span><br><span class="line"><span class="keyword">import</span> <span class="string">'lib/A.dart'</span> hide setName</span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line"> getName();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="库的重命名"><a href="#库的重命名" class="headerlink" title="库的重命名"></a>库的重命名</h4><p>使用as关键字重命名</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'lib/A.dart'</span> <span class="keyword">as</span> a</span><br></pre></td></tr></table></figure>
+
+<p>使用库里面的方法时重命名过后可以.使用</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.getName()</span><br></pre></td></tr></table></figure>
+
+<p>​                                                                                                              </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

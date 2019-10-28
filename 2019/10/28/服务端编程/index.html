@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>服务端编程 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="1.JSONP的缺点JSONP只支持get，因为script标签只能使用get请求
+JSOP需要配合后端返回指定格式的数据
+2.跨域JSONP: AJAX请求受同源策略影响，不允许进行跨域请求，而s,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">服务端编程</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">服务端编程</h1>
+        <div class="stuff">
+            <span>十月 28, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1-JSONP的缺点"><a href="#1-JSONP的缺点" class="headerlink" title="1.JSONP的缺点"></a>1.JSONP的缺点</h3><p>JSONP只支持get，因为script标签只能使用get请求</p>
+<p>JSOP需要配合后端返回指定格式的数据</p>
+<h3 id="2-跨域"><a href="#2-跨域" class="headerlink" title="2.跨域"></a>2.跨域</h3><p>JSONP: AJAX请求受同源策略影响，不允许进行跨域请求，而script标签src属性中的链接却可以访问跨域的js脚本，利用这个特性，服务端不再返回JSON格式的数据，而是返回一段调用某个函数的js代码，在src中进行了调用，这样就解决了跨域</p>
+<h3 id="3-关于dom的api有什么"><a href="#3-关于dom的api有什么" class="headerlink" title="3.关于dom的api有什么"></a>3.关于dom的api有什么</h3><p>节点创建型api，页面修改型api，节点查询型api，节点关系型api</p>
+<h3 id="4-ajax返回的状态"><a href="#4-ajax返回的状态" class="headerlink" title="4.ajax返回的状态"></a>4.ajax返回的状态</h3><p>0：未初始化，还没有调用send()方法</p>
+<p>1：载入，已调用send方法，正在发送请求</p>
+<p>2：载入完成，send()方法执行完成，已经接收到全部响应内容</p>
+<p>3：交互，正在解析响应内容</p>
+<p>4：完成，响应内容解析完成，可以在客户端调用了</p>
+<h3 id="5-实现一个Ajax"><a href="#5-实现一个Ajax" class="headerlink" title="5.实现一个Ajax"></a>5.实现一个Ajax</h3><p>1.Ajax创建异步对象XMLHttpRequest</p>
+<p>2.操作XMLHttpRequest对象</p>
+<ul>
+<li>设置请求参数（请求方式，请求页面的相对路径，是否异步）</li>
+<li>设置回调函数，一个处理服务器响应的函数，使用onreadystatechange，类似函数指针</li>
+<li>获取异步对象的readyState属性：该属性存在有服务器响应的状态信息，每当readyState改变时，onreadystatechange函数就会被触发执行</li>
+<li>判断响应报文状态，为200说明服务器正常运行并返回响应数据</li>
+<li>读取响应数据，可以通过responseText属性来取回由服务器返回的数据</li>
+</ul>
+<h3 id="6-如何实现ajax请求，假如我有多个请求，我需要让这些ajax请求按照某种顺序一次执行，有什么办法呢？"><a href="#6-如何实现ajax请求，假如我有多个请求，我需要让这些ajax请求按照某种顺序一次执行，有什么办法呢？" class="headerlink" title="6.如何实现ajax请求，假如我有多个请求，我需要让这些ajax请求按照某种顺序一次执行，有什么办法呢？"></a>6.如何实现ajax请求，假如我有多个请求，我需要让这些ajax请求按照某种顺序一次执行，有什么办法呢？</h3><p>1.通过实例化一个XMLHttpRequest对象得到一个实例</p>
+<p>2.调用实例的open方法为这次ajax请求设定相应的http方法，相应的地址和是否异步，以异步为例。调用send方法，这个方法可以设定需要发送的报文主体</p>
+<p>3.然后通过监听readystatechange事件</p>
+<p>4.通过这个实例的readyState属性来判断这个ajax请求状态，其中分为0，1，2，3，4这四种状态（0未初始化，1载入/正初始化，2.载入完成/数据接收，3.交互/解析数据，4.接收数据完成）,当状态为4的时候也就是接收数据完成的时候</p>
+<p>5.这时候可以通过实例的status属性判断这个请求是否成功</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'aabb.php'</span>,<span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(xhr.status == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-知道PWA吗"><a href="#7-知道PWA吗" class="headerlink" title="7.知道PWA吗"></a>7.知道PWA吗</h3><p>PWA全称Progressive Web App,即渐进式WEB应用，一个PWA应用首先是一个网页，可以通过Web技术编写出一个网页应用，随后添加上App Manifest和Service Worker来实现PWA的安装和离线功能</p>
+<h3 id="8-webpack和gulp的区别"><a href="#8-webpack和gulp的区别" class="headerlink" title="8.webpack和gulp的区别"></a>8.webpack和gulp的区别</h3><ul>
+<li>gulp强调的是前端开发的工作流程，我们可以通过配置一系列的task，定义task来处理的事务（例如文件合并压缩、雪碧图、启动server、版本控制等），然后定义执行顺序，来让gulp执行这些task，从而构建项目的整个前端开发流程</li>
+<li>webpack是一个前端模块化方案，更侧重模块打包，我们可以把开发中的所有资源（图片、Js文件、css文件等）都看成模块，通过loader（加载器）和plugins（插件）对资源进行处理，打包成符合生产环境部署的前端资源</li>
+</ul>
+<h3 id="9-前端的项目如何进行优化，移动端呢"><a href="#9-前端的项目如何进行优化，移动端呢" class="headerlink" title="9.前端的项目如何进行优化，移动端呢"></a>9.前端的项目如何进行优化，移动端呢</h3><p>前端性能优化有七大手段，减少请求数量，减少资源大小，优化网络连接，优化资源加载，减少重绘回流，使用性能更好的API和构建优化</p>
+<ul>
+<li>减少请求数量：通过减少重定向，使用缓存，不适用CSS@import，避免使用空的src和href等手段</li>
+<li>减少资源大小：通过压缩HTML，CSS，JS，图片，此外在安坐下可以使用webp格式的图片，它具有更优的图像数据压缩算法，能带来更小的图片体积，还可以开启gzip，gzip编码是以后总用来改进web应用程序性能的技术</li>
+<li>优化网络连接：使用CDN，使用DNS预解析，并行连接</li>
+<li>优化资源加载，通过优化资源加载位置和实际，使用资源预加载preload和资源预读取prefetch</li>
+<li>减少重绘回流，1.避免使用层级较深的CSS选择器，以提高CSS渲染效率 2.避免使用CSS表达式 3.给元素适当的定义高度或最小高度，否则元素的动态内容载入时，会出现画面晃动，造成回流 4.不要使用tab布局 5.能用CSS实现的效果，尽量使用CSS而不用JS实现</li>
+<li>使用性能更好的api</li>
+</ul>
+<h3 id="10-说说iframe的优缺点"><a href="#10-说说iframe的优缺点" class="headerlink" title="10.说说iframe的优缺点"></a>10.说说iframe的优缺点</h3><p>优点：</p>
+<ul>
+<li>iframe能够原封不动地把嵌入的网页展现出来</li>
+<li>如果有多个页面调用iframe，只需要修改iframe的内容，就可以实现对调用iframe的每一个页面内容的更改，方便快捷</li>
+<li>网页如果为了统一风格，头部和版本都是一样的，就可以写成一个页面，用iframe来嵌套，可以增加代码的可重用性</li>
+<li>如果遇到加载缓慢的第三方内容，如图标和广告等，可以用iframe来解决</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>会产生很多页面，不容易管理</li>
+<li>在几个框架中都出现上下、左右滚动条时，这些滚动条除了会挤占已经非常有限的页面空间外，还会分散访问者的注意力</li>
+<li>使用框架结构时，必须保证正确设置所有的导航链接，否则会给访问者带来很大的麻烦，比如被链接的页面出现在导航框架内，这种情况下会导致链接死循环</li>
+<li>很多的移动设备无法完全显示框架，设备兼容性差</li>
+<li>iframe框架页面会增加服务器的http请求，对于大型网站是不可取的</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

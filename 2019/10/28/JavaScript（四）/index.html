@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaScript（四） - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="JavaScript(四)1.requestAnimationFrame是怎么使用的requestAnimationFrame()方法告诉浏览器您希望执行动画并请求浏览器在下一次重绘之前调用指定的函,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">JavaScript（四）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaScript（四）</h1>
+        <div class="stuff">
+            <span>十月 28, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/前端面试/">前端面试</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="JavaScript-四"><a href="#JavaScript-四" class="headerlink" title="JavaScript(四)"></a>JavaScript(四)</h2><h3 id="1-requestAnimationFrame是怎么使用的"><a href="#1-requestAnimationFrame是怎么使用的" class="headerlink" title="1.requestAnimationFrame是怎么使用的"></a>1.requestAnimationFrame是怎么使用的</h3><p>requestAnimationFrame()方法告诉浏览器您希望执行动画并请求浏览器在下一次重绘之前调用指定的函数来更新动画。该方法使用一个回调函数作为参数，这个回调函数会在浏览器重绘之前调用</p>
+<p>### </p>
+<h3 id="2-有一个游戏叫做做-Flappy-Bird，就是一只小鸟在飞，前面是无尽的沙漠，上下不断有钢管-生成，你要躲避钢管。然后小明在玩这个游戏时候老是卡顿甚至崩溃，说出原因以及解决方法"><a href="#2-有一个游戏叫做做-Flappy-Bird，就是一只小鸟在飞，前面是无尽的沙漠，上下不断有钢管-生成，你要躲避钢管。然后小明在玩这个游戏时候老是卡顿甚至崩溃，说出原因以及解决方法" class="headerlink" title="2.有一个游戏叫做做 Flappy Bird，就是一只小鸟在飞，前面是无尽的沙漠，上下不断有钢管 生成，你要躲避钢管。然后小明在玩这个游戏时候老是卡顿甚至崩溃，说出原因以及解决方法"></a>2.有一个游戏叫做做 Flappy Bird，就是一只小鸟在飞，前面是无尽的沙漠，上下不断有钢管 生成，你要躲避钢管。然后小明在玩这个游戏时候老是卡顿甚至崩溃，说出原因以及解决方法</h3><p>原因可能是：</p>
+<ul>
+<li>内存溢出问题</li>
+<li>资源过大问题</li>
+<li>资源加载问题</li>
+<li>canvas绘制频率问题</li>
+</ul>
+<p>解决办法：</p>
+<ol>
+<li>针对内存溢出问题，我们应该在钢管离开可视区域后，销毁钢管，让垃圾收集器回收钢管，因为不断生成的钢管不及时清理容易导致内存溢出游戏崩溃</li>
+<li>针对资源过大问题，我们应该选择图片文件大小更小的图片格式，比如使用webp、png格式的图片，因为绘制图片需要较大的计算量</li>
+<li>针对资源加载问题，我们应该在可视区域之前就预加载好资源，如果在可视区域生成钢管的话，用户的体验就认为钢管是卡顿后才生成的，不流畅</li>
+<li>针对canvas绘制频率问题，我们应该需要知道大部分显示器刷新频率为60次/s，因此游戏的每一帧间隔时间需要小于1000、60=16.7ms，才能让用户觉得不卡顿。</li>
+</ol>
+<h3 id="3-编写代码，满足以下条件："><a href="#3-编写代码，满足以下条件：" class="headerlink" title="3.编写代码，满足以下条件："></a>3.编写代码，满足以下条件：</h3><p>（1）Hero(“37er”);执行结果为 </p>
+<p>​            Hi! This is 37er </p>
+<p>（2）Hero(“37er”).kill(1).recover(30);执行结果为 </p>
+<p>​            Hi! This is 37er </p>
+<p>​            Kill 1 bug </p>
+<p>​            Recover 30 bloods </p>
+<p>（3）Hero(“37er”).sleep(10).kill(2)执行结果为 </p>
+<p>​            Hi! This is 37er </p>
+<p>​            //等待 10s 后 </p>
+<p>​            Kill 2 bugs //注意为 bugs </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hero</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.time = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"Hi! This is "</span> + o.name);</span><br><span class="line">	o.kill = <span class="function"><span class="keyword">function</span>(<span class="params">bugs</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(bugs == <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"Kill "</span> + (bugs) + <span class="string">" bug"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">"Kill "</span> + (bugs) + <span class="string">" bugs"</span>);</span><br><span class="line">			&#125;, <span class="number">1000</span> * <span class="keyword">this</span>.time);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> o;</span><br><span class="line">	&#125;;</span><br><span class="line">	o.recover = <span class="function"><span class="keyword">function</span>(<span class="params">bloods</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"Recover "</span> + (bloods) + <span class="string">" bloods"</span>);</span><br><span class="line">		<span class="keyword">return</span> o;</span><br><span class="line">	&#125;</span><br><span class="line">	o.sleep = <span class="function"><span class="keyword">function</span>(<span class="params">sleepTime</span>) </span>&#123;</span><br><span class="line">		o.time = sleepTime;</span><br><span class="line">		<span class="keyword">return</span> o;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Hero(<span class="string">"37er"</span>))</span><br><span class="line"><span class="built_in">console</span>.log(Hero(<span class="string">"37er"</span>).kill(<span class="number">1</span>).recover(<span class="number">30</span>))</span><br><span class="line"><span class="built_in">console</span>.log(Hero(<span class="string">"37er"</span>).sleep(<span class="number">10</span>).kill(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-ES6新特性用过哪些？"><a href="#4-ES6新特性用过哪些？" class="headerlink" title="4.ES6新特性用过哪些？"></a>4.ES6新特性用过哪些？</h3><p>promise , assign , 结构赋值, async</p>
+<h3 id="5-什么是按需加载？"><a href="#5-什么是按需加载？" class="headerlink" title="5.什么是按需加载？"></a>5.什么是按需加载？</h3><p>当用户触发了动作时才加载相应的功能，触发的动作，是要看具体的业务场景而言，包括但不限于以下几个情况：鼠标点击、输入文字、拉动滚动条，鼠标移动，窗口大小更改等。加载的文件可以是JS、图片、CSS、HTML等</p>
+<h3 id="6-说一下什么是virtual-dom-虚拟DOM"><a href="#6-说一下什么是virtual-dom-虚拟DOM" class="headerlink" title="6.说一下什么是virtual dom(虚拟DOM)"></a>6.说一下什么是virtual dom(虚拟DOM)</h3><p>用JS对象结构表示DOM树的结构，然后用这个树构建一个真正的DOM树，插到文档当中，当状态变更的时候重新构造一颗树的对象树。然后用新的树和旧的树进行比较，记录两棵树差异。把所记录的差异应用到所构建的真正的DOM树上，视图就更新了。Virtuakl DOM本质上就是在JS和DOM之间做了一个缓存</p>
+<h3 id="7-webpack用来干什么的"><a href="#7-webpack用来干什么的" class="headerlink" title="7.webpack用来干什么的"></a>7.webpack用来干什么的</h3><p>webpack是一个现代JS应用程序的静态模块打包器(module bundler)。当webpack处理应用程序时，它会递归地构建一个依赖关系图（dependency graph），其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个bundle</p>
+<h3 id="8-ant-design优点缺点"><a href="#8-ant-design优点缺点" class="headerlink" title="8.ant-design优点缺点"></a>8.ant-design优点缺点</h3><p>优点：组件非常全面，样式效果也比较不错</p>
+<p>缺点：框架自定义程度低，默认UI风格修改困难</p>
+<h3 id="9-JS中继承实现的几种方式"><a href="#9-JS中继承实现的几种方式" class="headerlink" title="9.JS中继承实现的几种方式"></a>9.JS中继承实现的几种方式</h3><p>1.原型链继承：</p>
+<p>将父类的实例作为子类的原型，它的特点是实例是子类的实例也是父类的实例，父类新增的原型方法/属性，子类都能访问，并且原型链继承简单易于实现，缺点是来自原型对象的所有属性被所有实例共享，无法实现多继承，无法向父类构造函数传参。</p>
+<p>2.构造继承：</p>
+<p>使用父类的构造函数来增强子类实例，即复制父类的实例属性给子类，构造继承可以向父类传递参数，可以实现多继承，通过call多个父类对象。但是构造继承只能继承父类的实例属性和方法，不能继承原型属性和方法，无法实现函数复用，每个子类都有父类实例函数的副本，影响性能。</p>
+<p>3.组合继承：</p>
+<p>通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类作为子类原型，实现函数复用</p>
+<p>4.寄生组合继承：</p>
+<p>通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候,就不会初始化两次实例方法/属性，避免的组合继承的缺点</p>
+<h3 id="10-如何理解JS中的堆栈"><a href="#10-如何理解JS中的堆栈" class="headerlink" title="10.如何理解JS中的堆栈"></a>10.如何理解JS中的堆栈</h3><p>这里先说两个概念：1.堆（heap）2.栈（stack）</p>
+<p>堆 是<strong>堆内存</strong>的简称，存放引用类型，先进后出</p>
+<p>栈 是<strong>栈内存</strong>的简称，存放基本类型，先进先出</p>
+<p>说到堆栈，我们讲的就是内存的使用和分配了，没有寄存器的事，也没有硬盘的事</p>
+<p>各种语言再处理堆栈的原理上都大同小异，<strong>堆是动态分配内存，内存大小不一，也不会自动释放。栈是自动分配相对固定大小的内存空间，并由系统自动释放</strong></p>
+<p><strong>JavaScript的基本类型就5种：Undefined、Null、Boolean、Number和String</strong>，它们都是直接按值存储在栈中的，每种类型的数据占用的内存空间的大小是确定的，并由系统自动分配和释放。这样带来的好处就是，内存可以及时得到回收，相对于堆来说，更加容易管理内存空间。</p>
+<p><strong>JavaScript中其他类型的数据被称为引用类型的数据：如对象（Object）、数组（Array）、函数（Function）…,</strong>它们是通过拷贝和new出来的，这样的数据存储于堆中，其实，说存储于堆中，也不太准确，因为，引用类型的数据的地址指针是存储于栈中的，当我们想要访问引用类型的值的时候。需要先从栈中获得对象的地址指针，然后，再通过地址指针找到堆中对应的数据。</p>
+<p>说来也是形象，栈，线性结构，后进先出，便于管理。堆，一个混沌，杂乱无章，方便存储和开辟内存空间</p>
+<p><strong>传值与传值</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>]; </span><br><span class="line"><span class="keyword">var</span> arr2 = arr1 ; </span><br><span class="line"><span class="keyword">var</span> str1 = arr1[<span class="number">2</span>]; </span><br><span class="line"><span class="built_in">console</span>.log(arr2);<span class="comment">//1,2,5,8</span></span><br><span class="line"><span class="built_in">console</span>.log(str1);<span class="comment">//5</span></span><br><span class="line">arr2[<span class="number">4</span>] = <span class="number">99</span>; </span><br><span class="line">str1 = <span class="number">6</span>; </span><br><span class="line"><span class="built_in">console</span>.log(arr1);<span class="comment">//1,2,5,8,99</span></span><br><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">2</span>]);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>上方例子得知，当我们改变arr2中的数据时，arr1中数据也发生了变化，当改变str1中的数据值时，arr1却没有发生改变。为什么？这就是传值与传址的区别</p>
+<h4 id="重点来了注意听！！！"><a href="#重点来了注意听！！！" class="headerlink" title="重点来了注意听！！！"></a>重点来了注意听！！！</h4><p><strong>因为arr1是数组，属于引用类型，所以它赋给arr2的时候传的是栈中的地址</strong>（相当于新建了一个不同命的“指针”），而不是堆内存中的对象的值。<strong>arr1[2]赋值给str1，str1得到的是一个基本类型的赋值</strong>，因此，str1仅仅是从arr1堆内存中获取了一个数值，并直接保存在栈中。</p>
+<p><strong>arr1,arr2都指向同一块堆内存，当arr2修改堆内存的时候，也会影响到arr1，因为它们地址的指向都是一致的。str1是直接在栈中修改，并不能影响到arr1堆内存中的数据。</strong></p>
+<h4 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h4><p>上边所说的赋值方式就是浅拷贝，那么什么叫做深拷贝呢？对于arr1该数组来说，数组中每一个数据都是基本类型的。深拷贝就是将它所有的基本类型的数据都遍历一遍，依次的赋值给arr2的对应字段。避免产生因为地址引用而带来的问题</p>
+<h4 id="深拷贝数组"><a href="#深拷贝数组" class="headerlink" title="深拷贝数组"></a>深拷贝数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>]; </span><br><span class="line"><span class="keyword">var</span> arr2 = []; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr1.length;i++)&#123;</span><br><span class="line">   arr2[i]=arr1[i];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(arr2)<span class="comment">//1,2,5,8</span></span><br><span class="line">arr2[<span class="number">4</span>]=<span class="number">99</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr2)<span class="comment">//1,2,5,8,99</span></span><br><span class="line"><span class="built_in">console</span>.log(arr1)<span class="comment">//1,2,5,8</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="深拷贝对象"><a href="#深拷贝对象" class="headerlink" title="深拷贝对象"></a>深拷贝对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = <span class="string">"zhangsan"</span>,</span><br><span class="line">            <span class="keyword">this</span>.age = <span class="number">12</span>,</span><br><span class="line">            <span class="keyword">this</span>.grade = &#123;</span><br><span class="line">                English : <span class="string">"good"</span>,</span><br><span class="line">                math : <span class="string">"so"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="keyword">new</span> Student;<span class="comment">//实例化一个对象</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Copy</span>(<span class="params">p,c</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> c = c || &#123;&#125;;<span class="comment">//创建一个空对象</span></span><br><span class="line">            <span class="keyword">for</span>(i <span class="keyword">in</span> p)&#123;<span class="comment">//变量p中的属性</span></span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">typeof</span> p[i] === <span class="string">'object'</span>)&#123;<span class="comment">//如果p中的这个属性的类型是对象</span></span><br><span class="line">                    c[i] = (p[i].constructor === <span class="built_in">Array</span>)?[]:&#123;&#125;;<span class="comment">//判断该属性的类型是不是数组类型，判断完毕返回一个类型</span></span><br><span class="line">                    Copy(p[i],c[i]);<span class="comment">//判断结束完毕之后，遍历p此属性中的属性值并将它赋给新创建的对象的这个属性</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    c[i] = p[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> b = &#123;&#125;;</span><br><span class="line">        b = Copy(a,b);</span><br><span class="line">        b.aihao = &#123;</span><br><span class="line">                    English:<span class="string">"great"</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(b)</span><br><span class="line">        <span class="built_in">console</span>.log(a);<span class="comment">//不改变其原有属性的值(可以通过打断点来自己看一下整个流程)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>javascript面向对象的语言本身在处理对象和非对象上就进行了划分，从数据结构的角度来讲，对象就是栈的指针和堆中的数值。</strong></p>
+<h3 id="11-实现一个深拷贝"><a href="#11-实现一个深拷贝" class="headerlink" title="11.实现一个深拷贝"></a>11.实现一个深拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> copy;</span><br><span class="line">	<span class="keyword">switch</span>(<span class="keyword">typeof</span> obj) &#123;</span><br><span class="line">		<span class="comment">//基本数据类型直接拷贝，都是直接保存在栈中</span></span><br><span class="line">		<span class="keyword">case</span> <span class="string">"undefined"</span>:</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"number"</span>:</span><br><span class="line">			copy = obj - <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"string"</span>:</span><br><span class="line">			copy = obj + <span class="string">""</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"boolean"</span>:</span><br><span class="line">			copy = obj;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"object"</span>: <span class="comment">//object 分为两种情况 对象（Object）和数组（Array） </span></span><br><span class="line">			<span class="keyword">if</span>(obj === <span class="literal">null</span>) &#123;</span><br><span class="line">				copy = <span class="literal">null</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">"Array"</span>) &#123;</span><br><span class="line">					copy = [];</span><br><span class="line">					<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; obj.length; i++) &#123;</span><br><span class="line">						copy.push(clone(obj[i]));</span><br><span class="line">					&#125;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					copy = &#123;&#125;;</span><br><span class="line">					<span class="keyword">for</span>(<span class="keyword">var</span> j <span class="keyword">in</span> obj) &#123;</span><br><span class="line">						copy[j] = clone(obj[j]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			copy = obj;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = <span class="string">"zhangsan"</span>,</span><br><span class="line">            <span class="keyword">this</span>.age = <span class="number">12</span>,</span><br><span class="line">            <span class="keyword">this</span>.grade = &#123;</span><br><span class="line">                English : <span class="string">"good"</span>,</span><br><span class="line">                math : <span class="string">"so"</span>,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> Student()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = clone(b)</span><br><span class="line">a.name = <span class="string">'kobe'</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="built_in">console</span>.log(b)</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-写一个函数，第一秒打印1，第二秒打印2"><a href="#12-写一个函数，第一秒打印1，第二秒打印2" class="headerlink" title="12.写一个函数，第一秒打印1，第二秒打印2"></a>12.写一个函数，第一秒打印1，第二秒打印2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">out</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(i)</span><br><span class="line">	&#125;, <span class="number">1000</span> * i)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">out()</span><br></pre></td></tr></table></figure>
+
+<h3 id="13-说一下Vue的生命周期"><a href="#13-说一下Vue的生命周期" class="headerlink" title="13.说一下Vue的生命周期"></a>13.说一下Vue的生命周期</h3><p>Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载Dom、渲染-&gt;更新-&gt;渲染、销毁等一系列过程，我们称这是Vue的生命周期。通俗说就是Vue实例从创建到销毁的过程，就是生命周期</p>
+<p>每一个组件或者实例都会经历一个完整的生命周期。</p>
+<p><strong>1. 实例，组件通过new Vue()创建出来之后会初始化时间和生命周期，然后就会执行beforeCreate钩子函数，这个时候，数据还没有挂载呢，只是一个空壳，无法访问到数据和真实的dom，一般不做操作</strong></p>
+<p><strong>2. 接下来执行created函数，此时已经可以使用到数据，也可以更改数据，在这里更改数据不会触发updated函数，一般在这里做初始数据的获取。在这里可以在渲染前倒数第二次更改初始数据</strong></p>
+<p><strong>3. 接下来开始找实例或者组件对应的模板，编译模板为虚拟Dom放入到render函数中准备渲染，然后执行beforeMount钩子函数，在这个函数中虚拟Dom已经创建完成，马上就要渲染，在这里也可以更改数据，不会触发updated，在这里可以在渲染前最后一次更改数据的机会，不会触发其他的钩子函数，一般可以在这里做初始数据的获取</strong></p>
+<p><strong>4. 接下来开始render,渲染出真实dom，然后执行mounted钩子函数，此时，组件已经出现在页面中，数据、真实dom都已经处理好了，事件都已经挂载好了，可以在这里操作真实dom等</strong></p>
+<p><strong>5. 当组件或实例的数据更改之后，会立即执行beforeUpdate，然后vue的虚拟dom机制会重新构建虚拟dom与上一次的虚拟dom树利用diff算法进行对比之后重新渲染，一般不做什么事儿</strong></p>
+<p><strong>6. 当更新完成后，执行updated，数据已经更改完成，dom也重新render完成，可以操作更新后的虚拟dom</strong></p>
+<p><strong>7 .当经过某种途径调用$destroy方法后，立即执行beforeDestroy，一般在这里做一些善后工作，例如清除计时器，清除非指令绑定的事件等等</strong></p>
+<p><strong>8 .组件的数据绑定、监听..去掉后只剩下dom空壳，这个时候，执行destroyed，在这里做善后工作也可以。</strong></p>
+<h3 id="14-简单介绍一下symbol"><a href="#14-简单介绍一下symbol" class="headerlink" title="14.简单介绍一下symbol"></a>14.简单介绍一下symbol</h3><p>Symbol是ES6中引入的新的基础数据类型。</p>
+<p><code>Symbol</code>是由ES6规范引入的一项新特性，它的功能类似于一种标识唯一性的ID。通常情况下，我们可以通过调用<code>Symbol()</code>函数来创建一个Symbol实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> s1  <span class="comment">// 'symbol'</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，我们需要重点记住的一点是：每个Symbol实例都是唯一的。因此，当你比较两个Symbol实例的时候，将总会返回<code>false</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>()</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>(<span class="string">'another symbol'</span>)</span><br><span class="line"><span class="keyword">let</span> s3 = <span class="built_in">Symbol</span>(<span class="string">'another symbol'</span>)</span><br><span class="line"></span><br><span class="line">s1 === s2 <span class="comment">// false</span></span><br><span class="line">s2 === s3 <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>当我们使用Symbol来作为对象属性名时，枚举方法不可访问Symbol属性</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">   [<span class="built_in">Symbol</span>(<span class="string">'name'</span>)]: <span class="string">'一斤代码'</span>,</span><br><span class="line">   age: <span class="number">18</span>,</span><br><span class="line">   title: <span class="string">'Engineer'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(obj)   <span class="comment">// ['age', 'title']</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> p <span class="keyword">in</span> obj) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(p)   <span class="comment">// 分别会输出：'age' 和 'title'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj)   <span class="comment">// ['age', 'title']</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>我们可以利用这一特性来设计我们的数据对象，让“对内操作“和”对外选择输出“变得更加优雅。</strong></p>
+<p>然而，这样的话，我们就没办法获取以Symbol方式定义的对象属性了么？非也。还是会有一些专门针对Symbol的API，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用Object的API</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertySymbols(obj) <span class="comment">// [Symbol(name)]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用新增的反射API</span></span><br><span class="line"><span class="built_in">Reflect</span>.ownKeys(obj) <span class="comment">// [Symbol(name), 'age', 'title']</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="15-什么是事件监听"><a href="#15-什么是事件监听" class="headerlink" title="15.什么是事件监听"></a>15.什么是事件监听</h3><p>addEventListener()方法，用于向指定元素添加事件句柄，它可以更简单的控制事件，语法为</p>
+<p><strong>element.addEventListener(event, function, useCapture);</strong></p>
+<p>第一个参数是事件的类型（如”click“或”mousedown“）</p>
+<p>第二个参数是事件触发后调用的函数。</p>
+<p>第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。</p>
+<p><strong>事件传递有两种方式：冒泡和捕获</strong></p>
+<p>事件传递定义了元素事件触发的顺序，如果你将p元素插入到div元素中，用户点击p元素</p>
+<p><strong>在冒泡中，内部元素先触发，然后再触发外部元素</strong>，子-&gt;父</p>
+<p><strong>在捕获中，外部元素先触发，再触发内部元素</strong>，父-&gt;子</p>
+<h3 id="16-介绍一下promise"><a href="#16-介绍一下promise" class="headerlink" title="16.介绍一下promise"></a>16.介绍一下promise</h3><p>Promise是一个对象，保存着未来将要结束的事件。它有两个特征：</p>
+<p>1.对象的状态不受外部影响，Promise对象代表一个异步操作，有三种状态，pending进行态，resolve成功态，rejected失败态。只有异步操作的结果，才可以决定当前是哪一种状态。任何操作都无法改变这个状态，这就是promise名字的由来。</p>
+<p>2.一旦状态改变就不会再变，有两种结果从pending到resolve,从pending到rejected</p>
+<h3 id="17-说说C-，Java，JavaScript这三种语言的区别"><a href="#17-说说C-，Java，JavaScript这三种语言的区别" class="headerlink" title="17.说说C++，Java，JavaScript这三种语言的区别"></a>17.说说C++，Java，JavaScript这三种语言的区别</h3><ul>
+<li>从静态类型还是动态类型来看</li>
+</ul>
+<p>静态类型：编译的时候就能够知道每个变量的类型，编程的时候也需要给定类型，如java中的整形int，浮点型float等。C、C++、Java都属于静态类型语言</p>
+<p>动态类型：运行的时候才知道每个变量的类型，编程的时候无需显示类型，如JavaScript中的var、PHP中的$。JavaScript、Ruby、Python都属于动态类型语言</p>
+<p>静态类型还是动态类型堆与语言的性能有很大影响</p>
+<p>对于静态类型，在编译后会大量利用已知类型的优势，如int类型，占用4个字节，编译后的代码就可以用内存地址加偏移量的方法存取变量，而地址加偏移量的算法汇编很容易实现</p>
+<ul>
+<li>从编译型还是解释型看</li>
+</ul>
+<p>编译型语言：像C、C++，需要编译器译成本地可执行程序后才能运行，由开发人员在编写完成后手动实施。用户只使用这些编译好的本地代码，这些本地代码由系统加载器执行，由操作系统的CPU直接执行，无需其他额外的虚拟机等</p>
+<p>源代码=》抽象语法树=》中间表示=》本地代码</p>
+<p>解释型语言：像JS，Python开发语言些好话直接将代码交给用户，用户使用脚本解释器将脚本文件解释执行。对于脚本语言，没有开发人员的编译过程，当然，也不绝对。</p>
+<p>源代码=》抽象语法树=》解释器解释执行</p>
+<h3 id="18-JS原型链，原型链的顶端是什么？Object的原型是什么？Object的原型的原型是什么？"><a href="#18-JS原型链，原型链的顶端是什么？Object的原型是什么？Object的原型的原型是什么？" class="headerlink" title="18.JS原型链，原型链的顶端是什么？Object的原型是什么？Object的原型的原型是什么？"></a>18.JS原型链，原型链的顶端是什么？Object的原型是什么？Object的原型的原型是什么？</h3><p>首先，在ES6之前，JS没有类和继承的概念，JS是通过原型来实现继承的。在JS中一个构造函数默认带有一个prototype属性，这个属性值是一个对象，同时这个prototype对象自带一个_proto__属性指向这个prototype对象，我们可以把这个叫做隐式原型，我们在使用一个实例的方法的时候，会先检查这个实例中是否有这个方法，没有的话就会检查这个prototype对象是否有这个方法</p>
+<p>基于这个规则，当我们让原型对象指向另一个实例时，这个时候如果我们想要使用该实例的属性，没有的话就会到它原型对象所指向的实例中去找，还没有的话就到它原型对象所指向的实例的原型对象中去找，这就是原型链。</p>
+<p><strong>原型链的顶端是Object.prototype</strong></p>
+<p>如何表示实例与实例原型的关系？</p>
+<p><img src="/2019/10/28/JavaScript（四）/1571723909266.png" alt="1571723909266"></p>
+<p><strong>Object的原型的原型是null</strong></p>
+<h3 id="19-什么是JS的闭包？"><a href="#19-什么是JS的闭包？" class="headerlink" title="19.什么是JS的闭包？"></a>19.什么是JS的闭包？</h3><p>MDN 对闭包的定义是：闭包是指那些能够访问自由变量的函数，自由变量是指在函数中使用 </p>
+<p>的，但既不是函数参数又不是函数的局部变量的变量，由此可以看出，闭包=函数+函数能够访问 </p>
+<p>的自由变量，所以从技术的角度讲，所有 JS 函数都是闭包，但是这是理论上的闭包，还有一个 </p>
+<p>实践角度上的闭包，从实践角度上来说，只有满足 1、即使创建它的上下文已经销毁，它仍然存 </p>
+<p>在，2、在代码中引入了自由变量，才称为闭包</p>
+<h3 id="20-事件委托以及冒泡原理"><a href="#20-事件委托以及冒泡原理" class="headerlink" title="20.事件委托以及冒泡原理"></a>20.事件委托以及冒泡原理</h3><p>事件委托是利用冒泡阶段的运行机制来实现的，就是把一个元素响应事件的函数委托到另一个元素，一般是把一组元素的事件委托到它的父元素上，委托的优点是：减少内存消耗，节约效率、</p>
+<p>事件冒泡，就是元素自身的事件触发后，如果父元素有相同的事件，如onclick事件，那么元素本身的触发状态就会传递，也就是传递到父元素，父元素的相同事件也会根据浅谈一级一级向外触发。直到document/window冒泡过程结束</p>
+<h3 id="21-写个函数，可以将下划线命名转驼峰命名"><a href="#21-写个函数，可以将下划线命名转驼峰命名" class="headerlink" title="21.写个函数，可以将下划线命名转驼峰命名"></a>21.写个函数，可以将下划线命名转驼峰命名</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c = arr.split(<span class="string">'_'</span>)</span><br><span class="line">	<span class="keyword">var</span> d = []</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; c.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(i == <span class="number">0</span>) &#123;</span><br><span class="line">			d.push(c[i])</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			c[i] = c[i][<span class="number">0</span>].toUpperCase() + c[i].slice(<span class="number">1</span>, c[i].length + <span class="number">1</span>)</span><br><span class="line">			d.push(c[i])</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> c = d.join(<span class="string">''</span>)</span><br><span class="line">	<span class="keyword">return</span> c</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">'back_ground_red_dd'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = change(a)</span><br><span class="line"><span class="built_in">console</span>.log(b)</span><br></pre></td></tr></table></figure>
+
+<h3 id="22-浅拷贝与深拷贝"><a href="#22-浅拷贝与深拷贝" class="headerlink" title="22.浅拷贝与深拷贝"></a>22.浅拷贝与深拷贝</h3><p>浅拷贝</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Clone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> obj !== <span class="string">'Object'</span>)<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">var</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>? []:&#123;&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">		<span class="keyword">if</span>(obj.hasOwnProperty(key))&#123;</span><br><span class="line">			newObj[key] = obj[key]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> newobj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>深拷贝</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>)<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">var</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>? []:&#123;&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">		<span class="keyword">if</span>(obj.hasOwnProperty(key))&#123;</span><br><span class="line">			newObj[key] = <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span>? deepClone(obj[key]):obj[key]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> newobj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="23-let-const-var-的区别"><a href="#23-let-const-var-的区别" class="headerlink" title="23.let const var 的区别"></a>23.let const var 的区别</h3><p>var声明的变量存在变量提升，let,const不存在，let声明的变量允许重新赋值，const不允许</p>
+<h3 id="24-setTimeout和Promise的执行顺序"><a href="#24-setTimeout和Promise的执行顺序" class="headerlink" title="24.setTimeout和Promise的执行顺序"></a>24.setTimeout和Promise的执行顺序</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(i === <span class="number">10</span>) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="number">10</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		i == <span class="number">9999</span> &amp;&amp; resolve();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line"><span class="comment">//2 10 3 5 4 1</span></span><br></pre></td></tr></table></figure>
+
+<p>由代码可知Promise被创建立即执行，同步代码执行完之后，执行promise.then，然后再执行setTimeout</p>
+<p>得出结论为：<strong>同步执行的代码-》promise.then-&gt;settimeout</strong> </p>
+<h3 id="25-事件执行顺序"><a href="#25-事件执行顺序" class="headerlink" title="25.事件执行顺序"></a>25.事件执行顺序</h3><p>JSDOM 事件流存在如下三个阶段： </p>
+<p>事件捕获阶段 </p>
+<p>处于目标阶段 </p>
+<p>事件冒泡阶段</p>
+<p><strong>JSDOM 标准事件流的触发的先后顺序为：先捕获再冒泡，点击 DOM 节点时，事件传播顺序：</strong> </p>
+<p><strong>事件捕获阶段，从上往下传播，然后到达事件目标节点，最后是冒泡阶段，从下往上传播</strong></p>
+<p>对于执行顺序的问题，如果DOM节点同时帮顶了两个事件监听函数，一个用于捕获，一个用于冒泡。那么两个事件的执行顺序真的是先捕获再冒泡吗？答案是否定的，绑定在被点击元素的事件是按照代码添加顺序执行的，其他函数是先捕获再冒泡</p>
+<h3 id="26-平时是怎么调试JS的"><a href="#26-平时是怎么调试JS的" class="headerlink" title="26.平时是怎么调试JS的"></a>26.平时是怎么调试JS的</h3><p>一般用Chrome自带的控制台</p>
+<h3 id="27-类型判断函数"><a href="#27-类型判断函数" class="headerlink" title="27.类型判断函数"></a>27.类型判断函数</h3><p>使用typeof即可，首先判断是否为null，如果是object的话，在同array.isarray判断是否为数组，如果是数字的话用isNaN判断是否是NaN即可</p>
+<h3 id="28-和-的区别"><a href="#28-和-的区别" class="headerlink" title="28.==和===的区别"></a>28.==和===的区别</h3><p>在做==比较时，不同类型的数据会先转换成一致后再做比较，===中如果类型不一致就直接返回false，一致的才会比较</p>
+<h3 id="29-setTimeout-fn-100-100毫秒是如何权衡的"><a href="#29-setTimeout-fn-100-100毫秒是如何权衡的" class="headerlink" title="29.setTimeout(fn,100),100毫秒是如何权衡的"></a>29.setTimeout(fn,100),100毫秒是如何权衡的</h3><p>setTimeout()函数只是将事件插入了任务列表，必须等到当前代码执行完，主线程才会去执行它指定的回调函数，有可能要等很久，所以没有办法保证回调函数一定会在setTimeout指定的时间内执行，100ms是是插入队列的时间+等待的时间</p>
+<h3 id="30-JS中call-、apply-、bind-的理解"><a href="#30-JS中call-、apply-、bind-的理解" class="headerlink" title="30.JS中call()、apply()、bind()的理解"></a>30.JS中call()、apply()、bind()的理解</h3><p>例1</p>
+<p><img src="/2019/10/28/JavaScript（四）/1571732400335.png" alt="1571732400335"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj.objAge;  <span class="comment">//17</span></span><br><span class="line"></span><br><span class="line">obj.myFun()  <span class="comment">//小张年龄undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>例2</p>
+<p><img src="/2019/10/28/JavaScript（四）/1571732479860.png" alt="1571732479860"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shows()  <span class="comment">//盲僧</span></span><br></pre></td></tr></table></figure>
+
+<p>打印这两个例子的this，第一个 打印里面的this指向obj，第二个全局声明的show()函数this指向window</p>
+<p><strong>call()、apply()、bind()</strong>都是用来重定义这个this指向的</p>
+<p>如：</p>
+<p><img src="/2019/10/28/JavaScript（四）/1571732654448.png" alt="1571732654448"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj.myFun.call(db)；　　　　//德玛年龄99</span><br><span class="line">obj.myFun.apply(db);　　　 //德玛年龄99</span><br><span class="line">obj.myFun.bind(db)();　　　//德玛年龄99</span><br></pre></td></tr></table></figure>
+
+<p>由此得出结论，bind返回的是一个新的函数，你必须调用它才会执行</p>
+<p><strong>对比call、bind、apply</strong>传参情况下</p>
+<p><img src="/2019/10/28/JavaScript（四）/1571732803626.png" alt="1571732803626"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　obj.myFun.call(db,<span class="string">'成都'</span>,<span class="string">'上海'</span>)；　　　　 <span class="comment">//德玛 年龄 99  来自 成都去往上海</span></span><br><span class="line"></span><br><span class="line">　　obj.myFun.apply(db,[<span class="string">'成都'</span>,<span class="string">'上海'</span>]);        <span class="comment">//德玛 年龄 99  来自 成都去往上海  </span></span><br><span class="line"></span><br><span class="line">　　obj.myFun.bind(db,<span class="string">'成都'</span>,<span class="string">'上海'</span>)();         <span class="comment">//德玛 年龄 99  来自 成都去往上海</span></span><br><span class="line"></span><br><span class="line"> 　  obj.myFun.bind(db,[<span class="string">'成都'</span>,<span class="string">'上海'</span>])();　　 <span class="comment">//德玛 年龄 99  来自 成都,上海去往undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>从以上结果不难看出</p>
+<ul>
+<li><code>call 、bind 、 apply</code> 这三个函数的第一个参数都是 <code>this</code> 的指向对象，第二个参数差别就来了：</li>
+<li><code>call</code>的参数是直接放进去的，第二第三第<code>n</code>个参数全都用逗号分隔，直接放到后面 <code>obj.myFun.call(db,&#39;成都&#39;, ... ,&#39;string&#39; )；</code></li>
+<li><code>apply</code>的所有参数都必须放在一个数组里面传进去 <code>obj.myFun.apply(db,[&#39;成都&#39;, ..., &#39;string&#39; ]);</code></li>
+<li><code>bind</code>除了返回是函数以外，它 的参数和<code>call</code> 一样。</li>
+</ul>
+<h3 id="31-怎么获得对象上的属性，比如说通过Object-key"><a href="#31-怎么获得对象上的属性，比如说通过Object-key" class="headerlink" title="31.怎么获得对象上的属性，比如说通过Object.key()"></a>31.怎么获得对象上的属性，比如说通过Object.key()</h3><p>从ES5开始，有三种方法可以列出对象的属性</p>
+<p>for(let key in obj)该方法一次访问一个对象及其原型链中所有可枚举的类型</p>
+<p>object.keys()返回一个数组，包括所有可枚举的属性名称</p>
+<p>object,getOwnPropertyNames():返回一个数组包含不可枚举的属性</p>
+<h3 id="32-简单讲一下ES6中的新特性"><a href="#32-简单讲一下ES6中的新特性" class="headerlink" title="32.简单讲一下ES6中的新特性"></a>32.简单讲一下ES6中的新特性</h3><ul>
+<li>ES6在变量的声明方面增加了let、const声明变量，有局部变量的概念，赋值中有比较吸引人的结构赋值。</li>
+<li>同时ES6对字符串、数组、正则、对象、函数等扩展了一些方法，如字符串方面的模版字符串、函数方面的默认参数、对象方面属性的简洁表达式。</li>
+<li>ES6也引入了新的数据类型symbol，新的数据结构set和map。symbol可以通过typeof检测出来</li>
+<li>为解决异步回调问题，引入了promise和generator</li>
+<li>还引入了最为吸引人的Class和模块，通过Class可以更好的面向对象编程，使用模块加载方便模块化编程，当然考虑到浏览器的兼容性，我们在实际开发中需要使用babel进行编译</li>
+</ul>
+<p>重要的特性： </p>
+<p>promise:一种异步编程的解决方案，比传统的解决方案回调函数和事件更合理强大 </p>
+<p>模块化：其模块功能主要有两个命令构成，export 和 import，export 命令用于规定模块的 </p>
+<p>对外接口，import 命令用于输入其他模块提供的功能</p>
+<h3 id="33-了解事件代理吗？这样做有什么好处"><a href="#33-了解事件代理吗？这样做有什么好处" class="headerlink" title="33.了解事件代理吗？这样做有什么好处"></a>33.了解事件代理吗？这样做有什么好处</h3><p>事件代理/事件委托：利用了函数冒泡，只指定一个事件处理程序，就可以管理某一类型的事件</p>
+<p>简而言之：事件代理就是说我们将事件添加到本来要添加事件的节点的父节点，将事件委托给父节点来触发处理函数，这通常会在使用大量的同级元素需要添加同一类事件的时候，比如一个动态非常多的列表，需要为每个列表项都添加点击事件，这时可以使用事件代理，通过判断e.target.nodeName来判断发生的具体元素，这样做的好处是减少事件绑定，同时动态的DOM节点仍然可以监听，事件代理发生在冒泡阶段</p>
+<h3 id="34-给出以下的代码，输出的结果是什么？原因？"><a href="#34-给出以下的代码，输出的结果是什么？原因？" class="headerlink" title="34.给出以下的代码，输出的结果是什么？原因？"></a>34.给出以下的代码，输出的结果是什么？原因？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(i)</span><br><span class="line">	&#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在一秒后输出5个5</p>
+<p>原因：每次for循环的时候setTimeout都会执行，但是里面的function则不会执行被放入任务队列，因此放了5次。当for循环执行完之后不到1000毫秒；1000毫秒之后会全部执行任务队列中的函数，此时i=5,所以就是输出了5个5</p>
+<h3 id="35-如果已经有三个promise，A、B和C想串行执行，该怎么写"><a href="#35-如果已经有三个promise，A、B和C想串行执行，该怎么写" class="headerlink" title="35.如果已经有三个promise，A、B和C想串行执行，该怎么写"></a>35.如果已经有三个promise，A、B和C想串行执行，该怎么写</h3><p>1.promise</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.then(B).then(C).catch(...)</span><br></pre></td></tr></table></figure>
+
+<p>2.async/await</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line"> <span class="keyword">await</span> A();</span><br><span class="line"> <span class="keyword">await</span> B();</span><br><span class="line"> <span class="keyword">await</span> C();</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h3 id="36-js加载过程阻塞-解决方法"><a href="#36-js加载过程阻塞-解决方法" class="headerlink" title="36.js加载过程阻塞,解决方法"></a>36.js加载过程阻塞,解决方法</h3><p>指定script标签的async属性</p>
+<p>如果async=’async’，脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）</p>
+<p>如果不使用 async 且 defer=”defer”：脚本将在页面完成解析时执行 </p>
+<h3 id="37-JS中的轮播实现原理？假如一个页面上有两个轮播，你会怎么实现？"><a href="#37-JS中的轮播实现原理？假如一个页面上有两个轮播，你会怎么实现？" class="headerlink" title="37.JS中的轮播实现原理？假如一个页面上有两个轮播，你会怎么实现？"></a>37.JS中的轮播实现原理？假如一个页面上有两个轮播，你会怎么实现？</h3><p>图片轮播地原理就是将图片排成一排，然后准备一个只有一张图片大小地容器，对这个容器设置超出部分隐藏，再控制定时器来让这些图片整体左移或者右移。这样呈现出来地效果就是图片在轮播了</p>
+<p>如果有两个轮播，可封装一个轮播组件，供两处调用</p>
+<h3 id="38-ES6-set数据结构、数组去重、方法、遍历"><a href="#38-ES6-set数据结构、数组去重、方法、遍历" class="headerlink" title="38.ES6 set数据结构、数组去重、方法、遍历"></a>38.ES6 set数据结构、数组去重、方法、遍历</h3><h4 id="set数据结构"><a href="#set数据结构" class="headerlink" title="set数据结构"></a>set数据结构</h4><p>set结构类似于数组，但成员值都是没有重复的唯一值</p>
+<p>Set本身是一个构造函数，用来生成Set数据结构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>()</span><br><span class="line">arr.forEach(<span class="function"><span class="params">x</span> =&gt;</span> s.add(x))</span><br><span class="line"><span class="built_in">console</span>.log(s)<span class="comment">//Set &#123; 2, 3, 5, 4 &#125;,注意此时s是结构数据，不是数组</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><p>1.使用扩展运算符…将其转换为数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">'3'</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> arr = [...s]</span><br><span class="line"><span class="built_in">console</span>.log(arr);[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">'3'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>2.使用Array.from()方法可将数据转化成数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">'3'</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line"><span class="keyword">let</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>(a)</span><br><span class="line"><span class="keyword">let</span> arr = <span class="built_in">Array</span>.from(s)</span><br><span class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//[ 1, 2, 3, 4, '3' ]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="set实例的属性和方法"><a href="#set实例的属性和方法" class="headerlink" title="set实例的属性和方法"></a>set实例的属性和方法</h4><p><img src="/2019/10/28/JavaScript（四）/1571737915788.png" alt="1571737915788"></p>
+<h4 id="set结构数据遍历"><a href="#set结构数据遍历" class="headerlink" title="set结构数据遍历"></a>set结构数据遍历</h4><p><img src="/2019/10/28/JavaScript（四）/1571737961970.png" alt="1571737961970"></p>
+<p>注意：遍历器只能用for…of来遍历</p>
+<h3 id="39-口述数组去重"><a href="#39-口述数组去重" class="headerlink" title="39.口述数组去重"></a>39.口述数组去重</h3><ul>
+<li><p>indexOf循环去重,如果indexOf所检索的参数在数组中没有出现则返回-1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'b'</span>,<span class="string">'d'</span>,<span class="string">'a'</span>,<span class="string">'b'</span>]</span><br><span class="line">       <span class="keyword">var</span> arr2 = [];</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(arr2.indexOf(arr[i])&lt;<span class="number">0</span>)&#123;</span><br><span class="line">               arr2.push(arr[i]);</span><br><span class="line">           &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6 Set去重：Array.from(new Set(array)) </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'b'</span>,<span class="string">'d'</span>,<span class="string">'a'</span>]))</span><br><span class="line"><span class="built_in">console</span>.log(arr)<span class="comment">//[ 'a', 'b', 'c', 'd' ]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="40-new操作符的原理"><a href="#40-new操作符的原理" class="headerlink" title="40.new操作符的原理"></a>40.new操作符的原理</h3><ul>
+<li>创建一个类的实例，创建一个空对象obj，然后把这个空对象的_____proto_设置为构造函数的prototype</li>
+<li>初始化实例，构造函数被传入参数并调用，关键字this被设定指向该实例obj</li>
+<li>返回实例obj</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
