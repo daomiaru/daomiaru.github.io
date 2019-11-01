@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-28T10:09:22.939Z</updated>
+  <updated>2019-11-01T08:27:32.051Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机基础</title>
+    <link href="http://yoursite.com/2019/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2019/11/01/计算机基础/</id>
+    <published>2019-11-01T08:25:59.000Z</published>
+    <updated>2019-11-01T08:27:32.051Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;计算机基础&quot;&gt;&lt;a href=&quot;#计算机基础&quot; class=&quot;headerlink&quot; title=&quot;计算机基础&quot;&gt;&lt;/a&gt;计算机基础&lt;/h2&gt;&lt;h3 id=&quot;1-说一下用户从输入url到显示页面这个过程发生了什么？&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="计算机基础" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript（四）</title>
@@ -489,32 +515,6 @@
         
         
           &lt;h2 id=&quot;JavaScript-三&quot;&gt;&lt;a href=&quot;#JavaScript-三&quot; class=&quot;headerlink&quot; title=&quot;JavaScript(三)&quot;&gt;&lt;/a&gt;JavaScript(三)&lt;/h2&gt;&lt;h3 id=&quot;1-对象深度克隆的简单实现&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="javaScript" scheme="http://yoursite.com/categories/javaScript/"/>
-    
-    
-      <category term="前端面试" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript（二）</title>
-    <link href="http://yoursite.com/2019/09/09/JavaScript%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/09/09/JavaScript（二）/</id>
-    <published>2019-09-09T02:28:31.000Z</published>
-    <updated>2019-09-09T02:39:19.453Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;JavaScript-二&quot;&gt;&lt;a href=&quot;#JavaScript-二&quot; class=&quot;headerlink&quot; title=&quot;JavaScript  (二)&quot;&gt;&lt;/a&gt;JavaScript  (二)&lt;/h2&gt;&lt;h3 id=&quot;1-说说前端中的事件流&quot;&gt;&lt;a
         
       
     
