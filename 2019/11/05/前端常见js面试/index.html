@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>前端常见js面试 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="前端常见面试1.判断js类型的方式
+typeof
+可以判断出‘string’，‘number’，‘boolean’，’undefinned’，’symbol’
+但判断typeof(null)时值为‘,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">前端常见js面试</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">前端常见js面试</h1>
+        <div class="stuff">
+            <span>十一月 05, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/">js</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="前端常见面试"><a href="#前端常见面试" class="headerlink" title="前端常见面试"></a>前端常见面试</h2><h3 id="1-判断js类型的方式"><a href="#1-判断js类型的方式" class="headerlink" title="1.判断js类型的方式"></a>1.判断js类型的方式</h3><ul>
+<li><p>typeof</p>
+<p>可以判断出‘string’，‘number’，‘boolean’，’undefinned’，’symbol’</p>
+<p>但判断typeof(null)时值为‘object’，判断数组和对象值时均为‘object’</p>
+</li>
+<li><p>instanceof</p>
+<p>原理是构造函数的prototype属性是否出现在对象的原型链中的任何位置</p>
+</li>
+<li><p>Object.prototype.toString.all()</p>
+<p>常用于判断浏览器内置对象，对于所有基本的数据类型都能判断，即使是null和undefined</p>
+</li>
+<li><p>Array.isArray()</p>
+<p>用于判断是否为数组</p>
+</li>
+</ul>
+<h3 id="2-ES5和ES6分别几种方式生命变量"><a href="#2-ES5和ES6分别几种方式生命变量" class="headerlink" title="2.ES5和ES6分别几种方式生命变量"></a>2.ES5和ES6分别几种方式生命变量</h3><p>ES5有两种：var和function</p>
+<p>ES6有六种：let、const、class、和import以及var 、function</p>
+<p>注意：<code>let</code>、<code>const</code>、<code>class</code>声明的全局变量再也不会和全局对象的属性挂钩</p>
+<h3 id="3-闭包的概念？优缺点"><a href="#3-闭包的概念？优缺点" class="headerlink" title="3.闭包的概念？优缺点"></a>3.闭包的概念？优缺点</h3><p>闭包的概念：闭包就是能够读取其他函数内部变量的函数</p>
+<p>优点：</p>
+<ul>
+<li>延长变量的声明周期</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>内存泄漏</li>
+</ul>
+<h3 id="4-实现一个深拷贝"><a href="#4-实现一个深拷贝" class="headerlink" title="4.实现一个深拷贝"></a>4.实现一个深拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>? []:&#123;&#125;</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line"> 	<span class="keyword">var</span> temp = <span class="keyword">typeof</span> obj[key] == <span class="string">'Object'</span>?deepClone(obj[key]):obj[key]</span><br><span class="line"> 	newObj[key] = temp</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-数组去重的方法"><a href="#5-数组去重的方法" class="headerlink" title="5.数组去重的方法"></a>5.数组去重的方法</h3><p>indexOf循环去重</p>
+<p>ES6的Set去重</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = [...new <span class="built_in">Set</span>(arr)]</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-DOM事件有哪些阶段？谈谈对事件代理的理解"><a href="#6-DOM事件有哪些阶段？谈谈对事件代理的理解" class="headerlink" title="6.DOM事件有哪些阶段？谈谈对事件代理的理解"></a>6.DOM事件有哪些阶段？谈谈对事件代理的理解</h3><p>分为三大阶段</p>
+<ul>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ul>
+<p>事件代理简单说就是，事件不直接绑定到触发它的元素上，而是绑定到该元素的父元素上，利用事件冒泡的特点以父元素代为执行。事件代理在li标签中很常用。进行触发事件操作时(例如’click’)，再通过条件判断，执行事件触发后的语句(例如’alert(e.target.innerHTML)’)</p>
+<p>优点：代码简洁，节省内存开销</p>
+<h3 id="7-js执行机制，事件循环"><a href="#7-js执行机制，事件循环" class="headerlink" title="7.js执行机制，事件循环"></a>7.js执行机制，事件循环</h3><p>js语言的一大特点就是单线程，同一个时间只做一件事，单线程就意味着。所有的任务都需要排队，前一个任务结束，才会执行后一个任务，如果前一个任务耗时很长。后一个任务就不得不一直等着。js语言的设计者意识到这个问题，将所有的任务分成两种，一种是同步任务，一种是异步任务，在所有同步任务执行完之前，任何的异步任务都是不会执行的</p>
+<p><img src="/2019/11/05/前端常见js面试/1572944881192.png" alt="1572944881192"></p>
+<p>同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入 Event Table 并注册函数。当<strong>指定的事情完成时</strong>，Event Table 会将这个函数移入 Event Queue。主线程内的任务执行完毕为空，会去 Event Queue 读取对应的函数，进入主线程执行。上述过程会不断重复，也就是常说的 Event Loop(事件循环)。</p>
+<p>我们不禁要问，那我们怎么知道主线程的执行栈为空啊？js引擎存在 monitoring process 进程，会持续不断的检查主线程执行栈是否为空，一旦为空，就会去Event Queue 那里检查是否有等待被调用的函数。</p>
+<p><img src="/2019/11/05/前端常见js面试/1572945273331.png" alt="1572945273331"></p>
+<p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为 Event Loop（事件循环）。只要主线程空了，就会去读取”任务队列”，这就是 JavaScript 的运行机制。</p>
+<p>说完 JS 主线程的执行机制，下面说说经常被问到的 JS 异步中 宏任务（macrotasks）、微任务（microtasks）执行顺序。<strong>JS 异步有一个机制，就是遇到宏任务，先执行宏任务，将宏任务放入 Event Queue，然后再执行微任务，将微任务放入 Event Queue，但是，这两个 Queue 不是一个 Queue。当你往外拿的时候先从微任务里拿这个回调函数，然后再从宏任务的 Queue 拿宏任务的回调函数</strong>。如下图</p>
+<p><img src="/2019/11/05/前端常见js面试/1572945354960.png" alt="1572945354960"></p>
+<p>宏任务：整体代码 script，setTimeout，setInterval</p>
+<p>微任务：Promise，process.nextTick</p>
+<h3 id="8-async和await"><a href="#8-async和await" class="headerlink" title="8.async和await"></a>8.async和await</h3><p>async和await用了同步的方式去做异步，async定义的函数返回值都是promise，await后面的函数会先执行一遍，然后就会跳出整个async函数来执行后面的js代码</p>
+<h3 id="9-transform、translate、transition分别是什么属性？CSS中常用的实现动画方式"><a href="#9-transform、translate、transition分别是什么属性？CSS中常用的实现动画方式" class="headerlink" title="9.transform、translate、transition分别是什么属性？CSS中常用的实现动画方式"></a>9.transform、translate、transition分别是什么属性？CSS中常用的实现动画方式</h3><p>transform是指变换、变形、是CSS3的一个属性，和width、height一样</p>
+<p>translate是tranform的属性值，是指元素进行2D或者3D维度的位移</p>
+<p>transition是过渡效果，往往理解成简单的动画，需要有触发条件</p>
+<p><strong>这里可以补充下 transition 和 animation 的比较，前者一般定义开始结束两个状态，需要有触发条件；而后者引入了关键帧、速度曲线、播放次数等概念，更符合动画的定义，且无需触发条件</strong></p>
+<h3 id="10-js的垃圾回收机制讲一下"><a href="#10-js的垃圾回收机制讲一下" class="headerlink" title="10.js的垃圾回收机制讲一下"></a>10.js的垃圾回收机制讲一下</h3><p>定义：指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束</p>
+<p>而 JavaScript 在创建对象(对象、字符串等)时会为它们分配内存，不再使用对时会“自动”释放内存，这个过程称为垃圾收集</p>
+<p>分配内存 —  内存是由操作系统分配的，它允许您的程序使用它。在低级语言(例如 C 语言)中，这是一个开发人员需要自己处理的显式执行的操作。然而，在高级语言中，系统会自动为你分配内在。<br>使用内存 — 这是程序实际使用之前分配的内存，在代码中使用分配的变量时，就会发生读和写操作。<br>释放内存 — 释放所有不再使用的内存,使之成为自由内存,并可以被重利用。与分配内存操作一样,这一操作在低级语言中也是需要显式地执行。</p>
+<h3 id="11-前端性能优化"><a href="#11-前端性能优化" class="headerlink" title="11.前端性能优化"></a>11.前端性能优化</h3><ol>
+<li>减少请求数量</li>
+<li>减小资源大小</li>
+<li>优化网络连接</li>
+<li>优化资源加载</li>
+<li>减少重绘回流</li>
+<li>性能更好的API</li>
+<li>webpack优化</li>
+</ol>
+<h3 id="12-DOM操作—怎样添加、移除、移动、复制、创建和查找节点"><a href="#12-DOM操作—怎样添加、移除、移动、复制、创建和查找节点" class="headerlink" title="12.DOM操作—怎样添加、移除、移动、复制、创建和查找节点"></a>12.DOM操作—怎样添加、移除、移动、复制、创建和查找节点</h3><p>1.创建新节点</p>
+<ul>
+<li>createDocumentFragment()创建一个DOM片段</li>
+<li>creatElement()创建一个具体的元素</li>
+<li>createTextNode()创建一个文本节点</li>
+</ul>
+<p>2.添加、移除、替换、插入</p>
+<ul>
+<li>appendChild()</li>
+<li>removeChild()</li>
+<li>replaceChild()</li>
+<li>insertBefore()</li>
+</ul>
+<p>3.查找</p>
+<ul>
+<li>getElementByTagName()通过标签查找</li>
+<li>getElementByName()通过元素的name属性查找</li>
+<li>getElementById()通过元素ID,唯一性</li>
+</ul>
+<p>1.创建元素节点</p>
+<p>document.createElement()方法用于创建元素，接受一个参数，即要创建元素的标签名，返回创建的元素节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dv = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)<span class="comment">//创建一个div元素</span></span><br><span class="line">dv.id = <span class="string">"myDiv"</span><span class="comment">//设置dv的id</span></span><br><span class="line"><span class="comment">//创建完之后还要把元素添加到文档树中</span></span><br></pre></td></tr></table></figure>
+
+<p>2.添加元素节点</p>
+<p>appendChild()方法用于向childNodes列表的末尾添加一个节点，返回要添加的元素节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementByIdx(<span class="string">"myList"</span>); <span class="comment">//获得ul</span></span><br><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>); <span class="comment">//创建li</span></span><br><span class="line">li.innerHTML = <span class="string">"项目四"</span>; <span class="comment">//向li内添加文本</span></span><br><span class="line">ul.appendChild(li); <span class="comment">//把li 添加到ul子节点的末尾</span></span><br></pre></td></tr></table></figure>
+
+<p>appendChild()方法还可以添加已经存在的元素，会将元素从原来的位置移到新的位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>); <span class="comment">//获得ul</span></span><br><span class="line">ul.appendChild(ul.firstChild); <span class="comment">//把ul的第一个元素节点移到ul子节点的末尾</span></span><br></pre></td></tr></table></figure>
+
+<p>3.插入元素节点</p>
+<p>insertBefore()方法，如果不是在末尾插入节点，而是想放在特定的位置上，用这个方法，该方法接受2个参数，第一个是要插入的节点，第二个是参照节点，返回要添加的元素节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>); <span class="comment">//获得ul</span></span><br><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>); <span class="comment">//创建li</span></span><br><span class="line">li.innerHTML= <span class="string">"项目四"</span>; <span class="comment">//向li内添加文本</span></span><br><span class="line">ul.insertBefore(li,ul.firstChild); <span class="comment">//把li添加到ul的第一个子节点前</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>); <span class="comment">//获得ul</span></span><br><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>); <span class="comment">//创建li</span></span><br><span class="line">li.innerHTML= <span class="string">"项目四"</span>; <span class="comment">//向li内添加文本</span></span><br><span class="line">ul.insertBefore(li,ul.lastChild); <span class="comment">//把li添加到ul的最后一个子节点（包括文本节点）之前</span></span><br></pre></td></tr></table></figure>
+
+<p>4.移除元素节点</p>
+<p>removeChild()，方法用于移除节点，接受一个参数，既要移除的节点，返回被移除的节点，注意被移除的节点仍然在文档中，不过文档中已没有其位置了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>); <span class="comment">//获得ul</span></span><br><span class="line"><span class="keyword">var</span> fromFirstChild = ul.removeChild(ul.firstChild); <span class="comment">//移除ul第一个子节点</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>); <span class="comment">//获得ul</span></span><br><span class="line"><span class="keyword">var</span> lis = ul.getElementsByTagName(<span class="string">"li"</span>) <span class="comment">//获取ul中所有li的集合</span></span><br><span class="line">ul.removeChild(lis[<span class="number">0</span>]); 　　　　　　<span class="comment">//移除第一个li，与上面不同，要考虑浏览器之间的差异</span></span><br></pre></td></tr></table></figure>
+
+<p>5.替换元素节点</p>
+<p>replaceChild()方法，用于替换节点，接受两个参数，第一个参数是要插入的节点，第二个参数是要替换的节点，返回被替换的节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>); <span class="comment">//获得ul;</span></span><br><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>); <span class="comment">//创建li</span></span><br><span class="line">li.innerHTML= <span class="string">"项目四"</span>; <span class="comment">//向li内添加文本</span></span><br><span class="line"><span class="keyword">var</span> lis = ul.getElementsByTagName(<span class="string">"li"</span>) <span class="comment">//获取ul中所有li的集合</span></span><br><span class="line"><span class="keyword">var</span> returnNode = ul.replaceChild(li,lis[<span class="number">1</span>]); <span class="comment">//用创建的li替换原来的第二个li</span></span><br></pre></td></tr></table></figure>
+
+<p>6.复制节点</p>
+<p>cloneNode()方法用于复制节点，接受一个布尔值参数，true表示深复制（复制节点及其所有子节点），false表示浅复制（复制节点本身，不复制子节点）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>); <span class="comment">//获得ul</span></span><br><span class="line"><span class="keyword">var</span> deepList = ul.cloneNode(<span class="literal">true</span>); <span class="comment">//深复制</span></span><br><span class="line"><span class="keyword">var</span> shallowList = ul.cloneNode(<span class="literal">false</span>); <span class="comment">//浅复制</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="13-new操作符具体干了什么"><a href="#13-new操作符具体干了什么" class="headerlink" title="13.new操作符具体干了什么"></a>13.new操作符具体干了什么</h3><p>1.先创建了一个空对象</p>
+<p>2.然后让这个空对象的_proto__指向函数的原型prototype</p>
+<p>3.将对象作为函数的this传进去，如果return出来的内容是对象的话就返回return的内容，没有的话就返回创建的这个对象</p>
+<h3 id="14-希望获取到页面中所有的checkbox怎么做？（不使用第三方框架）"><a href="#14-希望获取到页面中所有的checkbox怎么做？（不使用第三方框架）" class="headerlink" title="14.希望获取到页面中所有的checkbox怎么做？（不使用第三方框架）"></a>14.希望获取到页面中所有的checkbox怎么做？（不使用第三方框架）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var inp = getElementByTagName(&apos;input&apos;)</span><br><span class="line">var checkboxArray = []</span><br><span class="line">for(var i=0;i&lt;inp.length;i++)&#123;</span><br><span class="line">	var obj = inp[i]</span><br><span class="line">	if(obj.type == &apos;checkbox&apos;)&#123;</span><br><span class="line">	checkboxArray.push(obj)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-写一个function-清除字符串前后的空格"><a href="#15-写一个function-清除字符串前后的空格" class="headerlink" title="15.写一个function,清除字符串前后的空格"></a>15.写一个function,清除字符串前后的空格</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.trim= <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+/</span>,<span class="string">""</span>).replace(<span class="regexp">/\s+$/</span>,<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="16-form中的input可以设置为readonly和disable，请问2者有什么区别"><a href="#16-form中的input可以设置为readonly和disable，请问2者有什么区别" class="headerlink" title="16.form中的input可以设置为readonly和disable，请问2者有什么区别"></a>16.form中的input可以设置为readonly和disable，请问2者有什么区别</h3><p>readyonly不可编辑，但可以选择和复制，值可以传递到后台</p>
+<p>disabled不可编辑，不能复制，不能选择，值不可以传递到后台</p>
+<h3 id="17-手写一个ajax"><a href="#17-手写一个ajax" class="headerlink" title="17.手写一个ajax"></a>17.手写一个ajax</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">'GET'</span>,<span class="string">'URL'</span>,<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">xhr.reaadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(xhr.readystate == <span class="number">4</span>)&#123;</span><br><span class="line">	 <span class="keyword">if</span>(xhr.state == <span class="number">200</span>)&#123;</span><br><span class="line">	 	<span class="keyword">var</span> text = xhr.responseText</span><br><span class="line">	 &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	 	error(<span class="string">'错误'</span>)</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="18-解释一下什么是JSON"><a href="#18-解释一下什么是JSON" class="headerlink" title="18.解释一下什么是JSON"></a>18.解释一下什么是JSON</h3><ul>
+<li>json是一种轻量级的数据交换格式</li>
+<li>json独立于语言平台，json解析器和json库支持不同的编程语言</li>
+<li>json的语法表示三种类型值，简单值(字符串，数值，布尔值，null),数组，对象</li>
+</ul>
+<h3 id="19-js的3中弹出消息提醒（警告，确认，信息输入）"><a href="#19-js的3中弹出消息提醒（警告，确认，信息输入）" class="headerlink" title="19.js的3中弹出消息提醒（警告，确认，信息输入）"></a>19.js的3中弹出消息提醒（警告，确认，信息输入）</h3><p>alert</p>
+<p>confirm</p>
+<p>prompt</p>
+<h3 id="20-节点的类型有几种，分贝是什么？"><a href="#20-节点的类型有几种，分贝是什么？" class="headerlink" title="20.节点的类型有几种，分贝是什么？"></a>20.节点的类型有几种，分贝是什么？</h3><ul>
+<li>元素节点：nodeType === 1</li>
+<li>属性节点：nodeType === 2</li>
+<li>文本节点：nodeType === 3</li>
+</ul>
+<h3 id="21-冒泡排序算法"><a href="#21-冒泡排序算法" class="headerlink" title="21.冒泡排序算法"></a>21.冒泡排序算法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> temp = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;array.length; i++)&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt;array.length - i; j++)&#123;</span><br><span class="line"><span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>])&#123;</span><br><span class="line">temp = array[j + <span class="number">1</span>];</span><br><span class="line">array[j + <span class="number">1</span>] = array[j];</span><br><span class="line">array[j] = temp;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="22-动态显示当前时间"><a href="#22-动态显示当前时间" class="headerlink" title="22.动态显示当前时间"></a>22.动态显示当前时间</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"&#123;CHARSET&#125;"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dv"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> dv = <span class="built_in">document</span>.getElementById(<span class="string">'dv'</span>)</span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">getdata</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> data = <span class="keyword">new</span> <span class="built_in">Date</span>()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> hours = data.getHours()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> minute = data.getMinutes()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> second = data.getSeconds()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> arr = <span class="string">'当前时间是： '</span> + hours + <span class="string">'时'</span> + minute + <span class="string">'分'</span> + second + <span class="string">'秒'</span>  </span></span><br><span class="line">				dv.innerHTML = arr</span><br><span class="line">			&#125;</span><br><span class="line">			setInterval(getdata,1000)</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"&#123;CHARSET&#125;"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dv"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> dv = <span class="built_in">document</span>.getElementById(<span class="string">'dv'</span>)</span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">getdata</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> data = <span class="keyword">new</span> <span class="built_in">Date</span>()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> hours = data.getHours()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> minute = data.getMinutes()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> second = data.getSeconds()</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> arr = <span class="string">'当前时间是： '</span> + hours + <span class="string">'时'</span> + minute + <span class="string">'分'</span> + second + <span class="string">'秒'</span>  </span></span><br><span class="line">				dv.innerHTML = arr</span><br><span class="line">			&#125;</span><br><span class="line">			setInterval(getdata,1000)</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="23-判断一个字符串中出现次数最多的字符"><a href="#23-判断一个字符串中出现次数最多的字符" class="headerlink" title="23.判断一个字符串中出现次数最多的字符"></a>23.判断一个字符串中出现次数最多的字符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'asbssbcsdssba'</span></span><br><span class="line"><span class="keyword">var</span> json = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;str.length;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!json[str.charAt(i)])&#123;</span><br><span class="line">	json[str.charAt(i)] == <span class="number">1</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	json[str.charAt(i)]++</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> max = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> maxstr = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> json)&#123;</span><br><span class="line">	<span class="keyword">if</span>(json[i] &gt; max)&#123;</span><br><span class="line">	max = json[i]</span><br><span class="line">	maxstr = i</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'出现次数最多的是'</span> + maxstr + <span class="string">'次数为'</span> + max)</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

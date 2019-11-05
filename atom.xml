@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-01T08:27:32.051Z</updated>
+  <updated>2019-11-05T13:55:24.859Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端常见js面试</title>
+    <link href="http://yoursite.com/2019/11/05/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81js%E9%9D%A2%E8%AF%95/"/>
+    <id>http://yoursite.com/2019/11/05/前端常见js面试/</id>
+    <published>2019-11-05T13:50:37.000Z</published>
+    <updated>2019-11-05T13:55:24.859Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前端常见面试&quot;&gt;&lt;a href=&quot;#前端常见面试&quot; class=&quot;headerlink&quot; title=&quot;前端常见面试&quot;&gt;&lt;/a&gt;前端常见面试&lt;/h2&gt;&lt;h3 id=&quot;1-判断js类型的方式&quot;&gt;&lt;a href=&quot;#1-判断js类型的方式&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端面试" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机基础</title>
@@ -498,32 +524,6 @@
     
     
       <category term="html 浏览器" scheme="http://yoursite.com/tags/html-%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript（三）</title>
-    <link href="http://yoursite.com/2019/09/09/JavaScript%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/09/09/JavaScript（三）/</id>
-    <published>2019-09-09T02:28:38.000Z</published>
-    <updated>2019-09-09T02:40:18.794Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;JavaScript-三&quot;&gt;&lt;a href=&quot;#JavaScript-三&quot; class=&quot;headerlink&quot; title=&quot;JavaScript(三)&quot;&gt;&lt;/a&gt;JavaScript(三)&lt;/h2&gt;&lt;h3 id=&quot;1-对象深度克隆的简单实现&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="javaScript" scheme="http://yoursite.com/categories/javaScript/"/>
-    
-    
-      <category term="前端面试" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
