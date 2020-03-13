@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>凉安租房开发文档之功能介绍（一） - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="凉安租房开发文档之功能介绍（一）这里做整理的意义是想理清一下开发思路，做了什么！为了能方便理解，采用图文结合的方式进行介绍。
+前端部分使用uniapp开发
+前端页面结构
+
+通过page.json我们,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">凉安租房开发文档之功能介绍（一）</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">凉安租房开发文档之功能介绍（一）</h1>
+        <div class="stuff">
+            <span>三月 13, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="凉安租房开发文档之功能介绍（一）"><a href="#凉安租房开发文档之功能介绍（一）" class="headerlink" title="凉安租房开发文档之功能介绍（一）"></a>凉安租房开发文档之功能介绍（一）</h2><p>这里做整理的意义是想理清一下开发思路，做了什么！为了能方便理解，采用图文结合的方式进行介绍。</p>
+<p>前端部分使用uniapp开发</p>
+<p>前端页面结构</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582524888491.png" alt="1582524888491"></p>
+<p>通过page.json我们可以明白启动页面为pages/index/index</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582524946231.png" alt="1582524946231"></p>
+<p>运行看看效果</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525036445.png" alt="1582525036445"></p>
+<p>点击我的</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525127604.png" alt="1582525127604"></p>
+<p>查看page.json中的tabBar配置</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525184276.png" alt="1582525184276"></p>
+<p>看看myInfo中的代码</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525243214.png" alt="1582525243214"></p>
+<p><strong>发现在myInfo的页面生命周期中，页面判断store.js中的state中的hasLogin的布尔值，这里在没有登录过的情况下是false(后面会给出解释)</strong></p>
+<p>因此页面跳转到login登录页面。</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525426783.png" alt="1582525426783"></p>
+<p>这里我们由于是首次登录，所以我们先注册</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525531637.png" alt="1582525531637"></p>
+<p>传统的注册页面都是类似于这样子的，不过我们目前验证码和协议部分尚未完成。这里先就完成部分进行演示</p>
+<p>输入手机号码+密码进行注册</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525680964.png" alt="1582525680964"></p>
+<p><strong>点击注册后我们请求了/register这个接口</strong></p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582525907926.png" alt="1582525907926"></p>
+<p>服务器收到请求后会作出响应，我们看下服务器/register这个接口的代码</p>
+<p>可以看到</p>
+<p>1.首先查看数据库看看有没有重复的数据</p>
+<p>2.没有则将其存入数据库</p>
+<p>3.返回注册成功的信息给客户端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注册</span></span><br><span class="line">router.post(<span class="string">'/register'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(req.body)</span><br><span class="line">	User.findOne(&#123;<span class="comment">//1.查询数据库中是否有相同手机号码的数据</span></span><br><span class="line">		phone: req.body.phone</span><br><span class="line">	&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (err) &#123;<span class="comment">//err，表示查询错误，这里报500表示服务器错误</span></span><br><span class="line">			<span class="keyword">return</span> res.status(<span class="number">500</span>).json(&#123;</span><br><span class="line">				err_code: <span class="number">500</span>,</span><br><span class="line">				message: <span class="string">'Server error'</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (data) &#123;<span class="comment">//有数据，则表示手机号码已存在，说明该已注册过了</span></span><br><span class="line">			<span class="keyword">return</span> res.status(<span class="number">200</span>).json(&#123;</span><br><span class="line">				err_code: <span class="number">1</span>,</span><br><span class="line">				message: <span class="string">'该手机号码已存在'</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//若没有data，表示该手机号码还未注册。</span></span><br><span class="line">		<span class="keyword">new</span> User(&#123;<span class="comment">//我们新建一条数据</span></span><br><span class="line">			phone: req.body.phone,</span><br><span class="line">			password: req.body.password,</span><br><span class="line">			userId: req.body.phone + <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random() * <span class="number">10</span>)<span class="comment">//这里的userId后面会提到有什么作用</span></span><br><span class="line">		&#125;).save(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;<span class="comment">//.save方法将其存入数据库中</span></span><br><span class="line">			<span class="keyword">if</span> (err) &#123;</span><br><span class="line">				<span class="keyword">return</span> res.status(<span class="number">500</span>).json(&#123;<span class="comment">//err表示保存错误，报500</span></span><br><span class="line">					err_code: <span class="number">500</span>,</span><br><span class="line">					message: <span class="string">'server error'</span></span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> res.status(<span class="number">200</span>).json(&#123;<span class="comment">//注册成功返回</span></span><br><span class="line">				err_code: <span class="number">0</span>, <span class="comment">//0表示注册成功</span></span><br><span class="line">				message: <span class="string">'OK'</span>,</span><br><span class="line">				nikName: data.nikName,<span class="comment">//新注册的用户默认昵称为阿儒</span></span><br><span class="line">				phone: data.phone,</span><br><span class="line">				password: data.password,</span><br><span class="line">				status: data.status</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582526730124.png" alt="1582526730124"></p>
+<p>通过命令我们可以查看到数据表多了一条记录</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582526830942.png" alt="1582526830942"></p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582526900123.png" alt="1582526900123"></p>
+<p>返回登录界面,输入刚刚注册的手机号码和密码进行登录</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582527100750.png" alt="1582527100750"></p>
+<p>点击之后向服务器发送/login请求</p>
+<h4 id="这里我们先引入登录验证这一概念"><a href="#这里我们先引入登录验证这一概念" class="headerlink" title="这里我们先引入登录验证这一概念"></a>这里我们先引入登录验证这一概念</h4><p>传统的身份验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP 是一种没有状态的协议，也就是它并不知道是谁是访问应用。这里我们把用户看成是客户端，客户端使用用户名还有密码通过了身份验证，不过下回这个客户端再发送请求时候，还得再验证一下。</span><br><span class="line">   解决的方法就是，当用户请求登录的时候，如果没有问题，我们在服务端生成一条记录，这个记录里可以说明一下登录的用户是谁，然后把这条记录的 ID 号发送给客户端，客户端收到以后把这个 ID 号存储在 Cookie 里，下次这个用户再向服务端发送请求的时候，可以带着这个 Cookie ，这样服务端会验证一下这个 Cookie 里的信息，看看能不能在服务端这里找到对应的记录，如果可以，说明用户已经通过了身份验证，就把用户请求的数据返回给客户端。</span><br><span class="line">   上面说的就是 Session，我们需要在服务端存储为登录的用户生成的 Session ，这些 Session 可能会存储在内存</span><br></pre></td></tr></table></figure>
+
+<h3 id="JWT的登录验证"><a href="#JWT的登录验证" class="headerlink" title="JWT的登录验证"></a>JWT的登录验证</h3><p>使用基于 Token 的身份验证方法，在服务端不需要存储用户的登录记录。大概的流程是这样的：<br> 1、客户端使用用户名跟密码请求登录<br> 2、 服务端收到请求，去验证用户名与密码<br> 3、验证成功后，服务端会签发一个 Token，再把这个 Token 发送给客户端<br> 4、客户端收到 Token 以后可以把它存储起来，比如放在 Cookie 里或者 Local Storage 里<br> 5、客户端每次向服务端请求资源的时候需要带着服务端签发的 Token<br> 6、服务端收到请求，然后去验证客户端请求里面带着的 Token，如果验证成功，就向客户端返回请求的数据</p>
+<p><strong>我们这里采用的是jwt方式的登录验证，详细的教程可以自行百度学习，这里不多赘述。</strong></p>
+<p><strong>看看服务器代码</strong></p>
+<p>1.首先查看数据库中是否有该用户，对应的密码正确与否。</p>
+<p>2.没有则提醒其注册，报403</p>
+<p>3.若有则签发token,并返回数据给客户端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">router.post(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">	<span class="comment">//先查询数据库中是否有该用户,若没有则提醒其注册,若有则分发token</span></span><br><span class="line">	<span class="comment">// const &#123;phone,password&#125; = req.body</span></span><br><span class="line"></span><br><span class="line">	User.findOne(&#123;</span><br><span class="line">		phone: req.body.phone,</span><br><span class="line">		password: req.body.password</span><br><span class="line">	&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (err) &#123;</span><br><span class="line">			<span class="keyword">return</span> res.status(<span class="number">500</span>).json(&#123;</span><br><span class="line">				err_code: <span class="number">500</span>,</span><br><span class="line">				message: <span class="string">'Server error'</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (!data) &#123;</span><br><span class="line">			<span class="keyword">return</span> res.status(<span class="number">403</span>).json(&#123;</span><br><span class="line">				err_code: <span class="number">1</span>,</span><br><span class="line">				message: <span class="string">'没有该用户,请重新输入或注册'</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			       iss:签发人</span></span><br><span class="line"><span class="comment">				   jti:编号</span></span><br><span class="line"><span class="comment">			       iat:签发时间回溯30s</span></span><br><span class="line"><span class="comment">			       exp:过期时间 这里可是使用秒数,也可以使用day</span></span><br><span class="line"><span class="comment">			       "&#123;"jti":1,"iss":"gumt.top","user":"goolge","iat":1555650413,"exp":1555657613&#125;"</span></span><br><span class="line"><span class="comment">			       "iat": ~~(Date.now() / 1000)-30,</span></span><br><span class="line"><span class="comment">			       "exp": (Date.now() / 1000)+(60*60),</span></span><br><span class="line"><span class="comment">			   */</span></span><br><span class="line">			<span class="keyword">const</span> user = &#123;</span><br><span class="line">				<span class="string">"jti"</span>: <span class="number">1</span>,</span><br><span class="line">				<span class="string">"iss"</span>: <span class="string">"gumt.top"</span>,</span><br><span class="line">				<span class="string">"user"</span>: <span class="string">"goole"</span></span><br><span class="line">				<span class="comment">// "exp": "120",</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//sign方法里面支持三个参数:1.playload: 签发的token里面要包含的一些数据.2.secret:签发token用的秘钥,在验证token的时候需要用到这个秘钥3.options:一些其他的选项</span></span><br><span class="line">			jwt.sign(user, <span class="string">"secretkey"</span>, &#123;</span><br><span class="line">				expiresIn: <span class="string">'1day'</span></span><br><span class="line">			&#125;, (err, token) =&gt; &#123;</span><br><span class="line">				<span class="keyword">return</span> res.status(<span class="number">200</span>).json(&#123;</span><br><span class="line">					token: token,</span><br><span class="line">					err_code: <span class="number">0</span>,</span><br><span class="line">					userId: data.userId,</span><br><span class="line">					message: <span class="string">'登录成功'</span>,</span><br><span class="line">					phone: data.phone,</span><br><span class="line">					nikName: data.nikName</span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582548659960.png" alt="1582548659960"></p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582548767615.png" alt="1582548767615"></p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582548848854.png" alt="1582548848854"></p>
+<p>登录之后返回个人页，在onShow()中更新数据this.userinfo</p>
+<p>因为登录之后此时的this.$store.state.hasLogin为true,所以不会跳转到登录页</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582549052087.png" alt="1582549052087"></p>
+<p>可以看到此时的个人页显示登录的用户信息</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582549136819.png" alt="1582549136819"></p>
+<p>点击退出登录看看</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582549183802.png" alt="1582549183802"></p>
+<p>此时的个人页变成了这样</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582549210147.png" alt="1582549210147"></p>
+<p>退出登录调用的方法，可以发现此时我们将vuex中的数据全部清空了。因此页面无法渲染出个人信息，同时我们还要清空缓存中的数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//退出登录</span></span><br><span class="line">	loginOut() &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'退出登录'</span>)</span><br><span class="line">		<span class="keyword">this</span>.$store.state.hasLogin = <span class="literal">false</span></span><br><span class="line">		<span class="keyword">this</span>.$store.state.userInfo = &#123;&#125;</span><br><span class="line">			<span class="keyword">this</span>.userinfo = &#123;&#125;,</span><br><span class="line">			<span class="keyword">this</span>.loginShow = <span class="literal">false</span></span><br><span class="line">		uni.removeStorage(&#123;</span><br><span class="line">			key: <span class="string">'userInfo'</span></span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="重点来了铁子们！！！"><a href="#重点来了铁子们！！！" class="headerlink" title="重点来了铁子们！！！"></a>重点来了铁子们！！！</h3><p>通常的app，当我们登录一次之后，app都会将登录信息缓存下来，这样的话我们就不需要每次重启一次app就登录一次。从用户体验的角度上看这非常的有必要。</p>
+<p>刚刚我们提到了token,并且登录成功之后将他保存在了本地，当我们重启app时，我们可以读取本地缓存中的token,并将其发送给服务器，服务器根据秘钥对token进行解析，解析成功则表明是同一用户，这时将我们需要的信息返回给我们。并且token在服务端可以设置过期时间，这也就是为什么我们有的时候长时间不登录app,则我们的信息会消失的原因。</p>
+<p><strong>当我们重启应用时，在App.vue中的onLaunch（当<code>uni-app</code> 初始化完成时触发（全局只触发一次））方法中有</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">uni.getStorage(&#123; <span class="comment">//获得保存在本地的用户信息</span></span><br><span class="line">	key: <span class="string">'userInfo'</span>,</span><br><span class="line">	success: <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">		uni.request(&#123;</span><br><span class="line">			url: <span class="string">'http://127.0.0.1:3000/checklogin'</span>,</span><br><span class="line">			header: &#123;</span><br><span class="line">				<span class="string">"Content-Type"</span>: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">				<span class="string">"Authorization"</span>: <span class="string">"Bearer"</span></span><br><span class="line">			&#125;,</span><br><span class="line">			data: &#123;</span><br><span class="line">				<span class="string">"userId"</span>: e.data.userId,</span><br><span class="line">				<span class="string">"token"</span>: e.data.token</span><br><span class="line">			&#125;,</span><br><span class="line">			method: <span class="string">"POST"</span>,</span><br><span class="line">			success: <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(e.data)</span><br><span class="line">				<span class="keyword">if</span> (e.data.err_code === <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="built_in">console</span>.log(<span class="string">'更新登录状态'</span>)</span><br><span class="line">					<span class="keyword">this</span>.login(e.data);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，在这里我们先读取了本地的缓存，若之前有登录过app，则登录之后返回的数据应该都保存在userInfo中，读取成功之后我们向服务器请求验证token，这里userid的作用是返回对应user的数据它同样保存在数据库中，表明用户的唯一性。<strong>（其实这个地方应该是验证token之后就表明它是唯一的,不过若想要通过token查到对应的数据，这里还需要将token保存在user表中，我这里觉得太麻烦就省略了，改用userid来返回唯一用户数据，token用于持久化验证）</strong></p>
+<p>看看/checklogin接口</p>
+<p>1.首先通过verify方法验证token,若失败表明token失效了，也就是我们常说的token过期。这时候需要我们重新登录一下来签发新的token(退出登录之后同样需要重新申请token)</p>
+<p>2.验证通过之后，我们根据userid来查表，找出对应用户的数据并将其返回给客户端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//校验Token</span></span><br><span class="line"><span class="comment">// verifyToken</span></span><br><span class="line">router.post(<span class="string">'/checklogin'</span>, (req, res) =&gt; &#123;</span><br><span class="line">	jwt.verify(req.body.token, <span class="string">'secretkey'</span>, (err, authData) =&gt; &#123;</span><br><span class="line">		<span class="keyword">if</span> (err) &#123;</span><br><span class="line">			<span class="comment">// res.send('token已失效,请重新登录')</span></span><br><span class="line">			<span class="comment">// res.sendStatus(403);</span></span><br><span class="line">			<span class="keyword">return</span> res.status(<span class="number">403</span>).json(&#123;</span><br><span class="line">				err_code: <span class="number">2</span>,</span><br><span class="line">				message: <span class="string">'token已失效,请重新登录'</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">//token验证成功</span></span><br><span class="line">			User.findOne(&#123;</span><br><span class="line">				userId: req.body.userId</span><br><span class="line">			&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">				<span class="keyword">if</span> (err) &#123;</span><br><span class="line">					<span class="keyword">return</span> res.status(<span class="number">500</span>).json(&#123;</span><br><span class="line">						err_code: <span class="number">500</span>,</span><br><span class="line">						message: <span class="string">'Server error'</span></span><br><span class="line">					&#125;)</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (data) &#123;</span><br><span class="line">					<span class="keyword">return</span> res.status(<span class="number">200</span>).json(&#123;</span><br><span class="line">						err_code: <span class="number">0</span>,</span><br><span class="line">						nikName: data.nikName,</span><br><span class="line">						phone: data.phone,</span><br><span class="line">						message: <span class="string">'Post created...'</span>,</span><br><span class="line">						token: req.body.token,</span><br><span class="line">						userId: req.body.userId</span><br><span class="line">					&#125;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582550718233.png" alt="1582550718233"></p>
+<p>显然我们拿到了我们想拿到的数据，此时同样提交mutations中的login方法，将vuex中的数据更新</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582550849033.png" alt="1582550849033"></p>
+<p><strong>所以我们此时点开个人页，依然可以看到我们之前登录的信息。这就是登录持久化的过程</strong></p>
+<p>只要token没有过期或者不退出登录，我们无论重启多少次app,依然可以保持登录状态</p>
+<p><img src="/2020/03/13/凉安租房开发文档之功能介绍（一）/1582550912296.png" alt="1582550912296"></p>
+<h3 id="就很帅不是吗！！！"><a href="#就很帅不是吗！！！" class="headerlink" title="就很帅不是吗！！！"></a>就很帅不是吗！！！</h3>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
