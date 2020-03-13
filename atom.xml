@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-13T03:47:08.071Z</updated>
+  <updated>2020-03-13T03:53:58.159Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>凉安租房开发文档之功能介绍（二）</title>
+    <link href="http://yoursite.com/2020/03/13/%E5%87%89%E5%AE%89%E7%A7%9F%E6%88%BF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8B%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2020/03/13/凉安租房开发文档之功能介绍（二）/</id>
+    <published>2020-03-13T03:48:18.000Z</published>
+    <updated>2020-03-13T03:53:58.159Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;凉安租房开发文档之功能介绍（二）&quot;&gt;&lt;a href=&quot;#凉安租房开发文档之功能介绍（二）&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>凉安租房开发文档之功能介绍（一）</title>
@@ -494,32 +516,6 @@
     
     
       <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP,HTML,浏览器（二）</title>
-    <link href="http://yoursite.com/2019/09/09/HTTP-HTML-%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/09/09/HTTP-HTML-浏览器（二）/</id>
-    <published>2019-09-09T02:41:11.000Z</published>
-    <updated>2019-09-09T02:56:07.420Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;HTTP-HTML-浏览器（二）&quot;&gt;&lt;a href=&quot;#HTTP-HTML-浏览器（二）&quot; class=&quot;headerlink&quot; title=&quot;HTTP,HTML,浏览器（二）&quot;&gt;&lt;/a&gt;HTTP,HTML,浏览器（二）&lt;/h2&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="前端技术" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="html 浏览器" scheme="http://yoursite.com/tags/html-%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
   </entry>
   
