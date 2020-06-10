@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-13T03:54:33.335Z</updated>
+  <updated>2020-06-10T00:49:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>80%的应聘者都不及格的前端面试</title>
+    <link href="http://yoursite.com/2020/06/10/80-%E7%9A%84%E5%BA%94%E8%81%98%E8%80%85%E9%83%BD%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    <id>http://yoursite.com/2020/06/10/80-的应聘者都不及格的前端面试/</id>
+    <published>2020-06-10T00:43:33.000Z</published>
+    <updated>2020-06-10T00:49:26.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;不起眼的开始&quot;&gt;&lt;a href=&quot;#不起眼的开始&quot; class=&quot;headerlink&quot; title=&quot;不起眼的开始&quot;&gt;&lt;/a&gt;不起眼的开始&lt;/h2&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="前端面时" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E6%97%B6/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>凉安租房开发文档之功能介绍（二）</title>
     <link href="http://yoursite.com/2020/03/13/%E5%87%89%E5%AE%89%E7%A7%9F%E6%88%BF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8B%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2020/03/13/凉安租房开发文档之功能介绍（二）/</id>
     <published>2020-03-13T03:48:18.000Z</published>
-    <updated>2020-03-13T03:54:33.335Z</updated>
+    <updated>2020-03-13T03:54:34.000Z</updated>
     
     <summary type="html">
     
@@ -43,7 +67,7 @@
     <link href="http://yoursite.com/2020/03/13/%E5%87%89%E5%AE%89%E7%A7%9F%E6%88%BF%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E4%B9%8B%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2020/03/13/凉安租房开发文档之功能介绍（一）/</id>
     <published>2020-03-13T03:36:55.000Z</published>
-    <updated>2020-03-13T03:47:08.071Z</updated>
+    <updated>2020-03-13T03:47:10.000Z</updated>
     
     <summary type="html">
     
@@ -65,7 +89,7 @@
     <link href="http://yoursite.com/2019/11/05/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81js%E9%9D%A2%E8%AF%95/"/>
     <id>http://yoursite.com/2019/11/05/前端常见js面试/</id>
     <published>2019-11-05T13:50:37.000Z</published>
-    <updated>2019-11-05T23:44:04.541Z</updated>
+    <updated>2019-11-05T23:44:06.000Z</updated>
     
     <summary type="html">
     
@@ -91,7 +115,7 @@
     <link href="http://yoursite.com/2019/11/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     <id>http://yoursite.com/2019/11/01/计算机基础/</id>
     <published>2019-11-01T08:25:59.000Z</published>
-    <updated>2019-11-01T08:27:32.051Z</updated>
+    <updated>2019-11-01T08:27:34.000Z</updated>
     
     <summary type="html">
     
@@ -117,7 +141,7 @@
     <link href="http://yoursite.com/2019/10/28/JavaScript%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
     <id>http://yoursite.com/2019/10/28/JavaScript（四）/</id>
     <published>2019-10-28T09:59:22.000Z</published>
-    <updated>2019-10-28T10:09:22.939Z</updated>
+    <updated>2019-10-28T10:09:24.000Z</updated>
     
     <summary type="html">
     
@@ -143,7 +167,7 @@
     <link href="http://yoursite.com/2019/10/28/dart%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2019/10/28/dart编程入门/</id>
     <published>2019-10-28T09:55:34.000Z</published>
-    <updated>2019-10-28T10:08:07.782Z</updated>
+    <updated>2019-10-28T10:08:08.000Z</updated>
     
     <summary type="html">
     
@@ -169,7 +193,7 @@
     <link href="http://yoursite.com/2019/10/28/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B/"/>
     <id>http://yoursite.com/2019/10/28/服务端编程/</id>
     <published>2019-10-28T09:54:09.000Z</published>
-    <updated>2019-10-28T10:07:12.219Z</updated>
+    <updated>2019-10-28T10:07:14.000Z</updated>
     
     <summary type="html">
     
@@ -193,7 +217,7 @@
     <link href="http://yoursite.com/2019/10/28/nginx/"/>
     <id>http://yoursite.com/2019/10/28/nginx/</id>
     <published>2019-10-28T09:46:32.000Z</published>
-    <updated>2019-10-28T10:05:24.872Z</updated>
+    <updated>2019-10-28T10:05:26.000Z</updated>
     
     <summary type="html">
     
@@ -219,7 +243,7 @@
     <link href="http://yoursite.com/2019/10/14/ES6%E8%AF%AD%E6%B3%95%E7%B2%BE%E8%A6%81-%E4%B8%80/"/>
     <id>http://yoursite.com/2019/10/14/ES6语法精要-一/</id>
     <published>2019-10-14T01:44:34.000Z</published>
-    <updated>2019-10-14T01:51:36.397Z</updated>
+    <updated>2019-10-14T01:51:38.000Z</updated>
     
     <summary type="html">
     
@@ -245,7 +269,7 @@
     <link href="http://yoursite.com/2019/09/20/uniapp%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2019/09/20/uniapp入门/</id>
     <published>2019-09-20T09:29:38.000Z</published>
-    <updated>2019-09-20T09:35:37.277Z</updated>
+    <updated>2019-09-20T09:35:38.000Z</updated>
     
     <summary type="html">
     
@@ -271,7 +295,7 @@
     <link href="http://yoursite.com/2019/09/20/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6%E5%9F%BA%E6%9C%AC%E5%B8%B8%E7%94%A8API/"/>
     <id>http://yoursite.com/2019/09/20/小程序组件基本常用API/</id>
     <published>2019-09-20T09:25:07.000Z</published>
-    <updated>2019-09-20T09:35:42.592Z</updated>
+    <updated>2019-09-20T09:35:44.000Z</updated>
     
     <summary type="html">
     
@@ -297,7 +321,7 @@
     <link href="http://yoursite.com/2019/09/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%92%8Cvue%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>http://yoursite.com/2019/09/17/小程序和vue的区别/</id>
     <published>2019-09-17T09:51:20.000Z</published>
-    <updated>2019-09-17T09:54:36.491Z</updated>
+    <updated>2019-09-17T09:54:38.000Z</updated>
     
     <summary type="html">
     
@@ -319,7 +343,7 @@
     <link href="http://yoursite.com/2019/09/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B62/"/>
     <id>http://yoursite.com/2019/09/17/小程序组件2/</id>
     <published>2019-09-17T09:44:05.000Z</published>
-    <updated>2019-09-17T09:54:34.797Z</updated>
+    <updated>2019-09-17T09:54:36.000Z</updated>
     
     <summary type="html">
     
@@ -341,7 +365,7 @@
     <link href="http://yoursite.com/2019/09/17/%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/"/>
     <id>http://yoursite.com/2019/09/17/什么是回流和重绘/</id>
     <published>2019-09-17T00:55:15.000Z</published>
-    <updated>2019-09-17T00:57:40.831Z</updated>
+    <updated>2019-09-17T00:57:42.000Z</updated>
     
     <summary type="html">
     
@@ -367,7 +391,7 @@
     <link href="http://yoursite.com/2019/09/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6/"/>
     <id>http://yoursite.com/2019/09/17/小程序组件/</id>
     <published>2019-09-17T00:46:46.000Z</published>
-    <updated>2019-09-17T01:00:55.814Z</updated>
+    <updated>2019-09-17T01:00:56.000Z</updated>
     
     <summary type="html">
     
@@ -393,7 +417,7 @@
     <link href="http://yoursite.com/2019/09/15/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E4%B9%8Bbilibili/"/>
     <id>http://yoursite.com/2019/09/15/小程序项目之bilibili/</id>
     <published>2019-09-15T11:12:07.000Z</published>
-    <updated>2019-09-15T11:22:14.331Z</updated>
+    <updated>2019-09-15T11:22:16.000Z</updated>
     
     <summary type="html">
     
@@ -420,7 +444,7 @@
     <link href="http://yoursite.com/2019/09/15/%E5%88%9D%E8%AF%86%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     <id>http://yoursite.com/2019/09/15/初识微信小程序/</id>
     <published>2019-09-15T11:05:34.000Z</published>
-    <updated>2019-09-15T11:18:58.354Z</updated>
+    <updated>2019-09-15T11:19:00.000Z</updated>
     
     <summary type="html">
     
@@ -446,7 +470,7 @@
     <link href="http://yoursite.com/2019/09/10/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
     <id>http://yoursite.com/2019/09/10/vue前端面试/</id>
     <published>2019-09-10T04:11:06.000Z</published>
-    <updated>2019-09-15T11:20:40.132Z</updated>
+    <updated>2019-09-15T11:20:42.000Z</updated>
     
     <summary type="html">
     
@@ -472,7 +496,7 @@
     <link href="http://yoursite.com/2019/09/09/%E5%89%8D%E7%AB%AF%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95/"/>
     <id>http://yoursite.com/2019/09/09/前端经典面试/</id>
     <published>2019-09-09T08:12:37.000Z</published>
-    <updated>2019-09-09T08:14:54.687Z</updated>
+    <updated>2019-09-09T08:14:56.000Z</updated>
     
     <summary type="html">
     
@@ -490,32 +514,6 @@
     
     
       <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS</title>
-    <link href="http://yoursite.com/2019/09/09/CSS/"/>
-    <id>http://yoursite.com/2019/09/09/CSS/</id>
-    <published>2019-09-09T02:48:39.000Z</published>
-    <updated>2019-09-09T02:53:04.474Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h2&gt;&lt;h3 id=&quot;1-说一下css盒模型&quot;&gt;&lt;a href=&quot;#1-说一下css盒模型&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="前端技术" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
