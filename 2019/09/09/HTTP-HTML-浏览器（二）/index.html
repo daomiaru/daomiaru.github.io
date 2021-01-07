@@ -168,7 +168,7 @@
 <li>这就是为什么推荐将JS代码放在HTML代码的后面，之后根据外部样式，内部样式，内联样式构建一个CSS模型树，构建完成后与DOM树合并为渲染树。这里主要做的是排除非视觉节点（script,meta，display:none等）之后进行布局。</li>
 <li>布局主要是确定各个元素的位置和尺寸大小，之后是渲染页面，因为HTML文件中含有图片，视频‘，音频等资源，在解析DOM的过程中，遇到这些都会进行并行下载。</li>
 <li>浏览器对每个域的并行下载数量有一定的限制，一般是4-6个，当然在这些所有请求中我们还需要考虑到缓存，缓存一般用过Cache-Control、Last-Modify、Expires等首部字段控制。Cache-Control和Expires 的区别在于Cache-Control使用相对时间，Expires使用的是基于服务器 端的绝对时间。</li>
-<li>因为存在时差问题，一般采用Cache-Control，在请求这些有设置了缓存的数据时，会先查看是否枸杞，如果没有过期则会直接使用本地缓存（强缓存），过期则请求并在服务器校检（协商缓存）文件是否修改</li>
+<li>因为存在时差问题，一般采用Cache-Control，在请求这些有设置了缓存的数据时，会先查看是否过期，如果没有过期则会直接使用本地缓存（强缓存），过期则请求并在服务器校检（协商缓存）文件是否修改</li>
 <li>如果上一次 响应设置了 ETag 值会在这次请求的时候作为 If-None-Match 的值交给服务器校验，如果一致，继续校验 Last-Modified，没有设置 ETag 则 直接验证 Last-Modified，再决定是否返回 304 </li>
 </ul>
 <h3 id="9-cookie和session的区别"><a href="#9-cookie和session的区别" class="headerlink" title="9.cookie和session的区别"></a>9.cookie和session的区别</h3><p>cookie和session都可以用来存储用户信息，cookie存放于客户端，session存放于服务器端。因为cookie存放于客户端有可能被窃取，所以cookie一般用来存放不敏感的信息。敏感的信息用session存储。cookie的大小一般有限制，一般为4K</p>

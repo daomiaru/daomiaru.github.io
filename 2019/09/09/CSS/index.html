@@ -153,7 +153,7 @@ box-sizing：border-box，content-box
 <h3 id="8-说一下块元素和行元素"><a href="#8-说一下块元素和行元素" class="headerlink" title="8.说一下块元素和行元素"></a>8.说一下块元素和行元素</h3><p>块元素：独占一行，并且可以自动填满父元素，可以设置margin和padding以及高度和宽度</p>
 <p>行元素：不会独占一行，width和height会失效，并且在垂直方向的padding和magin会失效</p>
 <h3 id="10-visibility-hidden-opacity-0，display-none"><a href="#10-visibility-hidden-opacity-0，display-none" class="headerlink" title="10.visibility=hidden, opacity=0，display:none"></a>10.visibility=hidden, opacity=0，display:none</h3><ul>
-<li>opacity=0：该元素隐藏起来了，但不会改变页面布局，并且，如果该元素已经绑定一些时间。比如说click,那么点击该区域，也能触发该事件</li>
+<li>opacity=0：该元素隐藏起来了，但不会改变页面布局，并且，如果该元素已经绑定一些事件。比如说click,那么点击该区域，也能触发该事件</li>
 <li>visibility=hidden：该元素隐藏起来了，但不会改变页面布局，也不会触发已经绑定的事件</li>
 <li>display=none：把元素隐藏起来了，并且会改变页面布局，可以理解为在页面中把该元素删除了一样</li>
 </ul>
@@ -171,7 +171,7 @@ box-sizing：border-box，content-box
 <li>默认定位static：没有定位，元素出现在正常流中</li>
 </ul>
 <h3 id="13-清除浮动"><a href="#13-清除浮动" class="headerlink" title="13.清除浮动"></a>13.清除浮动</h3><ul>
-<li>使用clears属性，clear:both清除所有浮动，clear:left清除左浮动，clear:right清除右浮动</li>
+<li>使用clear属性，clear:both清除所有浮动，clear:left清除左浮动，clear:right清除右浮动</li>
 <li>在容器结束前加一个di，给该div引入clear:both样式</li>
 <li>对父级容器定义overflow:hidden</li>
 <li>给浮动容器添加浮动属性（这样会使该容器全为浮动，不推荐）</li>
@@ -218,7 +218,7 @@ box-sizing：border-box，content-box
 </ul>
 <p><img src="/2019/09/09/CSS/1567068757112.png" alt="1567068757112"></p>
 <ul>
-<li><p>最后再使用position定位方法。将left在原有位置上左移200px，完成对left的防止</p>
+<li><p>最后再使用position定位方法。将left在原有位置上左移200px，完成对left的放置</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>; </span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2019/09/09/CSS/1567068852938.png" alt="1567068852938"></p>

@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>js六大继承 - null</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="daomiaru,"> 
+    <meta name="description" content="1.原型继承实现该方式的关键在于：子类型的原型为父类型的一个实例对象
+123456789101112131415161718//父类型function Person(name, age) &amp;#123,"> 
+    <meta name="author" content="李冠儒"> 
+    <link rel="alternative" href="atom.xml" title type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none"></span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">js六大继承</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">js六大继承</h1>
+        <div class="stuff">
+            <span>一月 07, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="1-原型继承"><a href="#1-原型继承" class="headerlink" title="1.原型继承"></a>1.原型继承</h2><p>实现该方式的关键在于：<strong>子类型的原型为父类型的一个实例对象</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name</span><br><span class="line">	<span class="keyword">this</span>.age = age</span><br><span class="line">	<span class="keyword">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">	<span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.setAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="comment">//子类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">price</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.price = price</span><br><span class="line">	<span class="keyword">this</span>.setScore = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()<span class="comment">//子类型的原型为父类型的一个实例对象</span></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Student(<span class="number">1500</span>)</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Student(<span class="number">2000</span>)</span><br><span class="line"><span class="built_in">console</span>.log(s1,s2)</span><br></pre></td></tr></table></figure>
+
+<p>new一个父类实例，父类实例拥有父类的私有属性和原型属性。将这个父类实例赋值给子类的原型。通过子类new出来的实例均可以通过_proto_去访问子类的原型Student.prototype。此时子类的原型就是父类的实例new Person()，里面包含父类的私有属性和原型属性。这就是原型链继承。</p>
+<p><img src="/2021/01/07/js六大继承/image-20200804095746617.png" alt="image-20200804095746617"></p>
+<p>我们都知道在操作基本数据类型时，我们操作的是值，而操作引用类型的时候操作的是地址。因为new Person是一个对象。所以当类1操作该对象上的属性时同样会影响到类2</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name</span><br><span class="line">	<span class="keyword">this</span>.age = age</span><br><span class="line">	<span class="keyword">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">	<span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.setAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="comment">//子类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">price</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.price = price</span><br><span class="line">	<span class="keyword">this</span>.setScore = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()<span class="comment">//子类型的原型为父类型的一个实例对象</span></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Student(<span class="number">1500</span>)</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Student(<span class="number">2000</span>)</span><br><span class="line">s1.play.push(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">console</span>.log(s1,s2)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/07/js六大继承/image-20200804101019639.png" alt="image-20200804101019639"></p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>父类新增原型方法/原型属性，子类都能访问到</li>
+<li>简单，易于实现</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>无法实现多继承（因为子类的prototype属性只有一个。比如你确定了子类的原型属性为A的实例，就不能确定它为C的实例了。）；即我只能继承A，不能继承C。</li>
+<li>来自原型对象的所有属性被所有实例共享</li>
+<li>创建子类实例时，无法向父类构造函数传参</li>
+</ul>
+<h2 id="2-借用构造函数继承"><a href="#2-借用构造函数继承" class="headerlink" title="2.借用构造函数继承"></a>2.借用构造函数继承</h2><p>实现该方式的关键在于：<strong>在子类构造函数中通过call()调用父类构造函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name</span><br><span class="line">	<span class="keyword">this</span>.age = age</span><br><span class="line">	<span class="keyword">this</span>.setName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.setAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,age,price</span>)</span>&#123;</span><br><span class="line">	Person.call(<span class="keyword">this</span>,name,age)<span class="comment">//这里相当于this.Person(name,age)</span></span><br><span class="line">	<span class="comment">/* this.name = name</span></span><br><span class="line"><span class="comment">	   this.age = gae</span></span><br><span class="line"><span class="comment">	   this.setName = function()&#123;&#125;*/</span></span><br><span class="line">	   <span class="keyword">this</span>.price = price</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Student(<span class="string">'Tom'</span>,<span class="number">20</span>,<span class="number">1500</span>)</span><br><span class="line"><span class="built_in">console</span>.log(s1)</span><br></pre></td></tr></table></figure>
+
+<p>Person函数在Student中执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* this.name = name</span></span><br><span class="line"><span class="comment">   this.age = gae</span></span><br><span class="line"><span class="comment">   this.setName = function()&#123;&#125;*/</span></span><br></pre></td></tr></table></figure>
+
+<p>该方式只能继承父类的属性和方法，不能继承父类原型的属性和方法。（其实这里所谓的继承父类只是通过call方法将父类的方法和属性复制到子类来而已。原则上new 出来的实例获得的还是子类的方法和属性以及子类的原型属性）</p>
+<p><img src="/2021/01/07/js六大继承/image-20200804104200961.png" alt="image-20200804104200961"></p>
+<p>这种方式只是实现部分的继承，如果父类的原型还有属性和方法，子类是拿不到这些属性和方法的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(s1.setAge())<span class="comment">//s1.setAge is not a function</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>解决了原型链继承中子类示例共享父类属性的问题。各实例之间互不相关</li>
+<li>创建子类示例时，可以向父类传递参数</li>
+<li>可以实现多继承（call多个父类）</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>只能继承父类的属性和方法，不能继承父类的原型属性和方法</li>
+<li>无法实现函数复用</li>
+<li>每个子类都有父类实例函数的副本，影响性能。</li>
+</ul>
+<h5 id="这里提一下什么叫无法实现函数复用"><a href="#这里提一下什么叫无法实现函数复用" class="headerlink" title="这里提一下什么叫无法实现函数复用"></a>这里提一下什么叫无法实现函数复用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.name = name</span><br><span class="line"> <span class="keyword">this</span>.age = age</span><br><span class="line"> <span class="keyword">this</span>.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'hi'</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> people1 = <span class="keyword">new</span> People(<span class="string">'Jack'</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">const</span> people2 = <span class="keyword">new</span> People(<span class="string">'Lucy'</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">people1.sayHi === people2.sayHi <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>上述 demo 中 people1 和 people2 使用了借用构造函数后都有了调用 sayHi 函数的能力(复用), 但是 people1 上的 sayHi 和 people2 上 sayHi 本质是两个不相等的函数, 所以出现了所谓的没有复用。</p>
+<p>每一次调用一个new People，就会在实例内部定义一次这个方法，也就是说你定义1000个实例，就会定义1000次这个方法。因为实例方法大多数都是相同的，所以这里更推荐把方法写在People.prototypr上，这样每个实例构造出来就自动继承这个方法，不需要在构造函数里一次次地写。</p>
+<h2 id="3-原型链-借用构造函数的组合继承"><a href="#3-原型链-借用构造函数的组合继承" class="headerlink" title="3.原型链+借用构造函数的组合继承"></a>3.原型链+借用构造函数的组合继承</h2><p>实现该方式的关键在于：<strong>通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类作为子类原型，实现函数复用</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name</span><br><span class="line">	<span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.setAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,age,price</span>)</span>&#123;</span><br><span class="line">	Person.call(<span class="keyword">this</span>,name,age)</span><br><span class="line">	<span class="keyword">this</span>.price = price</span><br><span class="line">	<span class="keyword">this</span>.setScore = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Student(<span class="string">'Tom'</span>,<span class="number">20</span>,<span class="number">1500</span>)</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Student(<span class="string">'Jack'</span>,<span class="number">18</span>,<span class="number">2000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(s1,s2)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/07/js六大继承/image-20200804113550126.png" alt="image-20200804113550126"></p>
+<p>这种方式融合了原型继承和构造继承的有点，是JavaScript中最常用的继承模式。不过也存在缺点就是无论在什么情况下，都会调用两次父类构造函数：一次是在创建子类原型的时候，另一次是在子类构造函数的内部，子类型原型最终会包含父类型的全部实例属性和原型属性，但我们不得不在调用子类构造函数时重写这些属性。</p>
+<h4 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>可以继承实例属性/方法，也可以继承原型属性/方法</li>
+<li>不存在引用属性共享问题（call方法重写）</li>
+<li>可传参</li>
+<li>函数可复用（把需要复用的写在父类原型上）</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>调用了两次父类构造函数（耗内存）</li>
+</ul>
+<h2 id="4-寄生组合继承"><a href="#4-寄生组合继承" class="headerlink" title="4.寄生组合继承"></a>4.寄生组合继承</h2><p>这种方式通过将父类原型和子类原型指向同一对象，这样既保留了组合继承的优点，又不会初始化两次实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name</span><br><span class="line">	<span class="keyword">this</span>.age = age</span><br><span class="line">	<span class="keyword">this</span>.setAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.setAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age, price</span>) </span>&#123;</span><br><span class="line">	Person.call(<span class="keyword">this</span>, name, age)</span><br><span class="line">	<span class="keyword">this</span>.price = price</span><br><span class="line">	<span class="keyword">this</span>.setScore = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype)</span><br><span class="line">Student.prototype.constructor = Student<span class="comment">//确保constructor指向正常</span></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Student(<span class="string">'Tom'</span>, <span class="number">20</span>, <span class="number">1500</span>)</span><br><span class="line"><span class="built_in">console</span>.log(s1)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/01/07/js六大继承/image-20200804121221067.png" alt="image-20200804121221067"></p>
+<h2 id="5-ES6中class继承"><a href="#5-ES6中class继承" class="headerlink" title="5.ES6中class继承"></a>5.ES6中class继承</h2><p>es6中引入了class关键字，class可以通过extends关键字实现继承，还可以通过static关键字定义类的静态方法，这比ES5通过修改原型链实现继承，要清晰方便很多</p>
+<p>es5的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面。es6的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this。</p>
+<p><strong>class关键字只是原型的语法糖，js继承仍然是基于原型实现的。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="comment">//调用类的构造方法</span></span><br><span class="line">	<span class="keyword">constructor</span>(name,age)&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name</span><br><span class="line">		<span class="keyword">this</span>.age = age</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//定义一般的方法</span></span><br><span class="line">	showName()&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"调用父类的方法"</span>)</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name,<span class="keyword">this</span>.age)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> Person(<span class="string">'kobe'</span>,<span class="number">39</span>)</span><br><span class="line"><span class="built_in">console</span>.log(p1)</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个子类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(name,age,salary) &#123;</span><br><span class="line">	    <span class="keyword">super</span>(name,age)<span class="comment">//通过super调用父类的构造方法</span></span><br><span class="line">		<span class="keyword">this</span>.salary = salary</span><br><span class="line">	&#125;</span><br><span class="line">	showName()&#123;<span class="comment">//在子类自身定义的方法</span></span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"调用子类的方法"</span>)</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name,<span class="keyword">this</span>.age,<span class="keyword">this</span>.salary)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="keyword">new</span> Student(<span class="string">'wade'</span>,<span class="number">38</span>,<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">console</span>.log(s1)</span><br><span class="line">s1.showName()</span><br></pre></td></tr></table></figure>
+
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>简单，操作方便</li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>不是所有的浏览器都支持</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci='b42bc29968456408c148'
+        data-cs='ea4136a0e5e1953690f34e20f64d08ae7ae5c27b'
+        data-r='daomiaru.github.io'
+        data-o='daomiaru'
+        data-a='daomiaru'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
